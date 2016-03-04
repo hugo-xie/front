@@ -1,0 +1,250 @@
+<style>
+  .sliderExample {
+      width:100%;
+    }
+  .ui-slider-range { background: #729fcf; }
+  .ui-slider-handle { border-color: #729fcf; }
+</style>
+   <div class="wrapper lter b-b bg-white">
+     <div class="subview3_title">民生分析预测BI</div>
+   </div>
+   <div class="wrapper bg-white">
+     <div class="details-content">
+       <div class="zzh-container" style="width:1200px" >
+         <div class="panel panel-primary" style="margin-top: 50px;">
+           <div class="panel-heading">
+             人口与就业
+           </div>
+
+           <div class="panel-body" style="padding:0">
+
+               <div class="row">
+               <div class="col-md-8 chart-panel">
+                 <highchart style="height:500px;" config="jobf"></highchart>
+               </div>
+               <div class="col-md-4">
+                 <p class="fill-margin"></p>
+                   <div class="ioc-panel-desc">
+                     <p class="ioc-panel-desc-title">
+                        <div style="background:#929dce;width:115px;height:30px;text-align:center;line-height:30px;font-size:15px;color:#FFFFFF;font-weight:bold" >数据详情</div>
+                      </p>
+                     <div style="height:3px"></div>
+                      <h4>预测结果解读</h4>
+                     <p style="margin-right:10px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp最近几年，太仓就业形势良好，在劳动力人口平稳增长的背景下，就业人口也呈平稳增长态势。</p>
+                   </div>
+                   <hr />
+                  <div class="pull-left">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x text-info"></i>
+                      <i class="icon-bulb fa-stack-1x text-white fa-spin"></i>
+                    </span>
+                    <span class="h4">一句话解读</span>
+                    <br />
+                    <div style="margin-right:10px">
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="height:5px;margin-right:13px"></span>
+                     <span style="font-size:18px;">   人口与就业分析预测采用的是灰色预测模型、灰色关联分析法和回归分析法。</span>
+                     </div>
+                  </div>
+<div style="width:369px;height:1px;margin:15px auto;padding:0px;background-color:#FFFFFF;overflow:hidden;"></div>
+                 <div class="btn-group dropdown">
+          <button class="btn btn-primary">年份选择</button>
+          <button class="btn btn-primary" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+             <button ng-repeat="bttn in buttonMap3" class="btn btn-primary" ng-model="predictionModal" style="width:150px;margin-left: 4px;margin-bottom:2px;margin-right:1px" btn-radio="bttn.radio" ng-click="btn_click3(bttn)">{{bttn.label}}</button>
+          </ul>
+        </div>
+               </div>
+             </div>
+            
+     
+          
+    <div style="width:1198px;height:1px;margin:0px auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></div>
+            <div class="row">
+               <div class="col-md-8 chart-panel">
+                 <highchart style="height:500px;" config="jobt"></highchart>
+               </div>
+               <div class="col-md-4">
+                 <p class="fill-margin"></p>
+                   <div class="ioc-panel-desc">
+                     <p class="ioc-panel-desc-title">
+                        <div style="background:#929dce;width:115px;height:30px;text-align:center;line-height:30px;font-size:15px;color:#FFFFFF;font-weight:bold" >数据详情</div>
+                      </p>
+                     <div style="height:3px"></div>
+                      <h4>预测结果解读</h4>
+                     <p style="margin-right:10px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp近几年太仓市就业形势良好，总的就业人数呈平稳增长态势，随着产业结构重心的偏移，第一产业就业数相对减少，第二、三产业就业数相对增加。</p>
+                   </div>
+                   <hr />
+                  <div class="pull-left">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x text-info"></i>
+                      <i class="icon-bulb fa-stack-1x text-white fa-spin"></i>
+                    </span>
+                    <span class="h4">一句话解读</span>
+                    <br />
+                    <div style="margin-right:10px">
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="height:5px;margin-right:13px"></span>
+                     <span style="font-size:18px;">   人口与就业分析预测采用的是灰色预测模型、灰色关联分析法和回归分析法。</span>
+                     </div>
+                  </div>
+<div style="width:369px;height:1px;margin:15px auto;padding:0px;background-color:#FFFFFF;overflow:hidden;"></div>
+                 <div class="btn-group dropdown">
+          <button class="btn btn-primary">年份选择</button>
+          <button class="btn btn-primary" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+             <button ng-repeat="bttn in buttonMap1" class="btn btn-primary" ng-model="predictionModal" style="width:150px;margin-left: 4px;margin-bottom:2px;margin-right:1px" btn-radio="bttn.radio" ng-click="btn_click1(bttn)">{{bttn.label}}</button>
+          </ul>
+        </div>
+               </div>
+             </div>
+
+           </div>
+
+         </div>
+       </div>
+     </div>
+     <div class="zzh-container" style="width:1200px;">
+       <div class="row" style="margin-top: 20px;">
+         <div class="col-md-12">
+           <div class="panel panel-primary" style="margin-top: 20px;">
+             <div class="panel-heading">
+               人口与社保
+             </div>
+             <div class="panel-body" style="padding:0;height:600px">
+
+               <div class="row">
+          
+                 <div class="col-md-8 chart-panel" >
+                   <highchart config="money"  style="width:100%;height: 600px"></highchart>
+                 </div>
+                 <div class="col-md-4">
+
+                   <p class="fill-margin"></p>
+                   <div class="ioc-panel-desc">
+                     <p class="ioc-panel-desc-title">
+                        <div style="background:#929dce;width:115px;height:30px;text-align:center;line-height:30px;font-size:15px;color:#FFFFFF;font-weight:bold" >数据详情</div>
+                      </p>
+                     <div style="height:3px"></div>
+                      <h4>预测结果解读</h4>
+                     <p style="margin-right:10px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp随着二孩政策的放开，劳动力人口平稳增长，养老保险收大于支，改变了之前由于老龄化带来的养老保险收支不平衡的现象。</p>
+                   </div>
+                  <hr />
+                  <div class="pull-left">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x text-info"></i>
+                      <i class="icon-bulb fa-stack-1x text-white fa-spin"></i>
+                    </span>
+                    <span class="h4">一句话解读</span>
+                    <br />
+                    <div style="margin-right:10px">
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="height:5px;margin-right:13px"></span>
+                     <span style="font-size:18px;">   人口与社保分析预测采用的是灰色预测模型、灰色关联分析法和回归分析法。</span>
+                     </div>
+                  </div>
+<div style="width:369px;height:1px;margin:15px auto;padding:0px;background-color:#FFFFFF;overflow:hidden;"></div>
+
+                 <div class="btn-group dropdown">
+          <button class="btn btn-primary">年份选择</button>
+          <button class="btn btn-primary" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+             <button ng-repeat="bttn in buttonMap5" class="btn btn-primary" ng-model="predictionModal" style="width:150px;margin-left: 4px;margin-bottom:2px;margin-right:1px" btn-radio="bttn.radio" ng-click="btn_click5(bttn)">{{bttn.label}}</button>
+          </ul>
+        </div>
+        <div style="height:10px"></div>
+       
+         
+                 </div>
+
+               </div>
+
+             </div>
+                  
+         
+           </div>
+           </div>
+         </div>
+ <div class="bg-white fc-datatable" ng-if="totalshow" style="width:1200px;margin-left:0px;margin-top:-20px">
+            <div class="panel panel-default paddingmargin0em">
+                <div class="panel-heading">数据详情</div>  
+                <table st-table="rowCollectionBasic" class="table table-bordered table-striped">
+                      <tr st-select-row="row" class="ng-scope ng-isolate-scope" >
+                        <td ng-repeat="year in totaldata.tabledata" style="text-align:center;">{{year.yearvalue}}</td>
+                      </tr>
+                      <tr st-select-row="row" class="ng-scope ng-isolate-scope">
+                        <td ng-repeat="Fp in totaldata.tabledata" style="text-align:center;">{{Fp.Fp}}</td>
+                      </tr>
+                      <tr st-select-row="row" class="ng-scope ng-isolate-scope">
+                        <td ng-repeat="Sp in totaldata.tabledata" style="text-align:center;">{{Sp.Sp}}</td>
+                      </tr>
+                      <tr st-select-row="row" class="ng-scope ng-isolate-scope">
+                        <td ng-repeat="Tp in totaldata.tabledata" style="text-align:center;">{{Tp.Tp}}</td>
+                      </tr>
+                </table>
+            </div>
+        </div>
+       </div>
+      
+    </div>
+
+<div class="bg-white">
+       <div class="zzh-container" style="width:1200px;margin-bottom:20px">
+       <div class="row">
+         <div class="col-md-12" >
+           <div class="panel panel-primary" style="margin-top: 10px;height:540px">
+             <div class="panel-heading">
+               人口与教育
+             </div>
+             <div class="panel-body" style="padding:0">
+
+               <div class="row">
+                 <div class=" col-md-12">
+                   <div class="col-md-8 chart-panel">
+                     <highchart id="school" config="school" style="width:95%;height:485px"></highchart>
+                   
+                    
+                   </div>
+
+                   <div class="col-md-4">
+                    <p class="fill-margin"></p>
+                   <div class="ioc-panel-desc">
+                     <p class="ioc-panel-desc-title">
+                        <div style="background:#929dce;width:115px;height:30px;text-align:center;line-height:30px;font-size:15px;color:#FFFFFF;font-weight:bold" >数据详情</div>
+                      </p>
+                     <div style="height:3px"></div>
+                      <h4>预测结果解读</h4>
+                     <p style="margin-right:10px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp随着二孩政策放开，出生人口增多，小学数量会有所增加。</p>
+                   </div>
+                   <hr />
+
+                  <div class="pull-left">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x text-info"></i>
+                      <i class="icon-bulb fa-stack-1x text-white fa-spin"></i>
+                    </span>
+                    <span class="h4">一句话解读</span>
+                    <br />
+                    <div style="margin-right:10px">
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="height:5px;margin-right:13px"></span>
+                     <span style="font-size:18px;">   人口与教育分析预测采用的是灰色预测模型、灰色关联分析法和回归分析法。</span>
+                     </div>
+                  </div>
+<div style="width:369px;height:1px;margin:15px auto;padding:0px;background-color:#FFFFFF;overflow:hidden;"></div>
+  <hr />
+                  <h4>学校类别选择</h4>
+                  <div class="radio" ng-repeat="tchrGrntOne in tchrGrntList">
+                    <label>
+                      <input type="radio" ng-model="tchrGrntKindSelected" ng-value="tchrGrntOne.name" name="tchrGrntList" ng-click="tchrGrntKindChange(tchrGrntOne)">
+                            <font size="3">{{tchrGrntOne.name}}</font>
+                        </label>
+                  </div>
+                   </div>
+
+                 </div>
+               </div>
+             </div>
+
+           </div>
+         </div>
+
+       </div>
+     </div>
+     </div>

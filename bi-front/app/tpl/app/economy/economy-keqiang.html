@@ -1,0 +1,168 @@
+<style>
+  .sliderExample {
+      width:100%;
+    }
+  .ui-slider-range { background: rgb(35,155,214); }
+  .ui-slider-handle { border-color: rgb(35,155,214); }
+</style>
+<div class="vbox">
+  <div class="wrapper lter b-b bg-white">
+    <a href="" class="pull-right btn btn-sm btn-info m-t-n-xs" ng-click="createNote()">“克强指数”</a>
+    <div class="subview3_title">{{title}}</div>
+  </div>
+
+  <div class="wrapper  container"  style="padding:0px;margin-top:1em;margin-bottom:2em">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <div class="panel-title">
+          太仓市克强指数
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-8" style="border-right:1px solid;padding-top:10px;padding-bottom:10px">
+        <highchart config="keqiangindex"></highchart>
+      </div>
+      <div class="col-md-4" >
+        
+      <button class="btn btn-info" style="margin-top:10px">指标含义</button>
+       <div style="margin-top:10px;width:98%;;font-size:17px">
+        <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="width:100%">
+          "克强指数"的由来，源于李克强总理2007年任职辽宁省省委书记时，使用耗电量,铁路货运量和贷款发放量三个指标分析当时辽宁省经济状况,英国《经济学人》自2010年底正式推出这一指数后,受到花旗银行在内的众多国际机构认可。
+        </span>
+      </div>
+     <article class="media cgq_contentwidth" style="margin-top:30px">
+                  <div class="pull-left">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x text-info"></i>
+                      <i class="icon-bulb fa-stack-1x text-white fa-spin"></i>
+                    </span>
+                    <span class="h4">一句话解读</span>
+                  </div>
+                  <div class="media-body clear">                    
+                    <small class="block m-t-xs">{{totaldata.oneword}}</small>
+                  </div>
+                </article>
+       <div style="margin-top:10px;width:100%;font-size:17px">
+        <span class="glyphicon glyphicon-list-alt" aria-hidden="true">
+          本模型沿用花旗银行编制的“克强指数”标准，即：货运占比25%，银行贷款占比35%，用电占比40%。
+        </span>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <div class="panel-title">
+          太仓市克强指数
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-8" style="border-right:1px solid;padding-top:10px;padding-bottom:10px">
+        <highchart config="keqiangChart"></highchart>
+      </div>
+      <div class="col-md-4" style="padding:10px 15px 0px 15px">
+        <div class="table-responsive" style="width:90%">
+            <table class="table" style="text-align:center">
+              <tr>
+                <th style="background-color:#16aad8;color:#ffffff;text-align:center">本年克强指数拟合GDP总量</th>
+                <th style="background-color:#16aad8;color:#ffffff;text-align:center">本年克强指数拟合GDP增长率</th>
+              </tr>
+              <tr>
+                <td >1117.52亿元</td>
+                <td >7.2%</td>
+              </tr>
+            </table>
+          </div>
+      <button class="btn btn-info" >预测参数调节</button>
+                <div class="handler">
+                <div class="row">
+                  <div class="col-md-4" style="margin-top:4%">
+                    <p class="handler-title"><strong>中长期贷款</strong></p>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="progress-box" ng-app>
+                      <div class="percentage-cur">
+                        <span class="num">{{ selectedRange }}%</span>
+                      </div>
+                      <div class="progress-bar progress-bar-slider" style="width:100%">
+                        <div  ui-slider="colorpicker.options" min="-100" max="100" ng-model="selectedRange"></div>
+                      </div>
+                    </div>
+
+                  </div>
+                   <div class="col-md-3" style="padding:0px 20px 20px 15px;margin-top:3px">
+                   <div class="input-group input-group-sm" style="width:100%;margin-top:17px;">
+                      
+                      <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3" ng-model="selectedRange"attern="((-)?[0-9]{1,2}|100|-100)"  />
+                      <span class="input-group-addon" id="sizing-addon3"style="padding:0px 2px 0px 2px">%</span>
+                    </div>
+                </div>
+                </div>
+               
+                <div class="row">
+                  <div class="col-md-4"  style="margin-top:4%">
+                    <p class="handler-title"><strong>工业用电量</strong></p>
+                  </div>
+                  <div class="col-md-5" >
+                    <div class="progress-box" ng-app>
+                      <div class="percentage-cur" ng-init="selectedRange2=0">
+                        <span class="num">{{ selectedRange2 }}%</span>
+                      </div>
+                      <div class="progress-bar progress-bar-slider" style="width:100%" >
+                        <div  ui-slider="colorpicker.options" min="-100" max="100" ng-model="selectedRange2"></div>
+                      </div>
+                    </div>
+
+                  </div>
+                   <div class="col-md-3" style="padding:0px 20px 20px 15px;margin-top:3px">
+                   <div class="input-group input-group-sm" style="width:100%;margin-top:17px;">
+                      
+                      <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3" ng-model="selectedRange2"attern="((-)?[0-9]{1,2}|100|-100)"  />
+                      <span class="input-group-addon" id="sizing-addon3"style="padding:0px 2px 0px 2px">%</span>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4"  style="margin-top:4%">
+                    <p class="handler-title"><strong>货运量</strong></p>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="progress-box" ng-app>
+                      <div class="percentage-cur" ng-init="selectedRange3=0">
+                        <span class="num">{{ selectedRange3}}%</span>
+                      </div>
+                      <div class="progress-bar progress-bar-slider" style="width:100%">
+                         <div  ui-slider="colorpicker.options" min="-100" max="100" ng-model="selectedRange3"></div>
+                      </div>
+                    </div>
+                  </div>
+                   <div class="col-md-3" style="margin-top:3px;padding:0px 20px 20px 15px">
+                    <div class="input-group input-group-sm" style="width:100%;margin-top:17px;">
+                      
+                      <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3" ng-model="selectedRange3"attern="((-)?[0-9]{1,2}|100|-100)"  />
+                      <span class="input-group-addon" id="sizing-addon3"style="padding:0px 2px 0px 2px">%</span>
+                    </div>
+                </div>
+                </div>
+                <button class="btn btn-info" ng-click="reset()">重置调节</button>
+              </div>
+            
+      </div>
+        
+        </div>
+        <div style="height:1%;width:80%;border-bottom:1px solid;margin-left:10%;margin-top:1%"></div>
+     <div class="panel-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <highchart config="loanChart"></highchart>
+                </div>
+                <div class="col-md-4">
+                  <highchart config="transChart"></highchart>
+                </div>
+                <div class="col-md-4">
+                  <highchart config="elecChart"></highchart>
+                </div>
+              </div>
+            </div>
+      </div>
+</div>
