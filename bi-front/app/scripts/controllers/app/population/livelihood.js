@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('NewCtrl', ['$scope', function($scope) {
+app.controller('LivelihoodCtrl', ['$scope', function($scope) {
     $scope.firstTenYear = ['2016', '2017', '2018', '2019', '2020', '2021','2022', '2023', '2024', '2025'];
     $scope.firstTenYearLabPopulation = [50.2, 51.8, 52.3, 52.8, 53.1, 54.1, 54.7,55.2,55.8,56.3];
     $scope.firstTenYearWorkPopulation = [40.0, 40.8, 42.3, 42.8, 43.7, 44.9, 45.3,46.7,47.2,47.9];

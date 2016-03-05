@@ -286,14 +286,14 @@ angular.module('nevermore')
               }]
             }
           })
-           .state('app.pmenu.new', {
-            url: '^/app/pmenu/new',
-            templateUrl: 'tpl/app/population/new.html',
-            controller: 'NewCtrl',
+           .state('app.pmenu.livelihood', {
+            url: '^/app/pmenu/livelihood',
+            templateUrl: 'tpl/app/population/livelihood.html',
+            controller: 'LivelihoodCtrl',
             resolve: {
               controller: ['$ocLazyLoad', function($ocLazyLoad) {
                 return $ocLazyLoad.load([
-                  'scripts/controllers/app/population/new.js'
+                  'scripts/controllers/app/population/livelihood.js'
                 ]);
               }]
             }
