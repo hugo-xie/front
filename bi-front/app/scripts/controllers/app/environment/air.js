@@ -4,14 +4,14 @@
 app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFactory','forecastFactory',function($scope,$stateParams,$timeout,qService,rawFactory,forecastFactory) {
 
   $scope.data = null;
-  $scope.time1 = "2016年1月8日";
+  
 
-  // var promise1 = qService.tokenHttpGet(rawFactory.query,{tableName:'airPollutionData'});
-  // promise1.then(function(rc1) {
+  var promise1 = qService.tokenHttpGet(rawFactory.query,{tableName:'airPollutionData'});
+  promise1.then(function(rc1) {
 
-  //   console.log(rc1.data);
+    console.log(rc1.data);
 
-  // });
+  });
 
   // var promise2 = qService.tokenHttpGet(rawFactory.query,{tableName:'airConditionData'});
   // promise2.then(function(rc2) {
