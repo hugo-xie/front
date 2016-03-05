@@ -4,32 +4,18 @@
 app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFactory','forecastFactory',function($scope,$stateParams,$timeout,qService,rawFactory,forecastFactory) {
 
   
-  var promise1 = qService.tokenHttpGet(rawFactory.query,{tableName:'airPollutionData'});
-  promise1.then(function(rc1) {
+  var promise2 = qService.tokenHttpGet(rawFactory.query,{tableName:'airPollutionData'});
+  promise2.then(function(rc2) {
 
     // $scope.data = null;
     // console.log(rc1.data);
-    $scope.smoke=rc1.data[0];
-    $scope.pollution_so2=rc1.data[1];
-    $scope.pollution_no=rc1.data[2];
-    $scope.discharge=rc1.data[3];
+    // alert(rc1.data);
+    $scope.smoke=rc2.data[0];
+    $scope.pollution_so2=rc2.data[1];
+    $scope.pollution_no=rc2.data[2];
+    $scope.discharge=rc2.data[3];
 
   });
-
-  // var promise2 = qService.tokenHttpGet(rawFactory.query,{tableName:'airConditionData'});
-  // promise2.then(function(rc2) {
-
-  //   console.log(rc2.data);
-
-  // });
-
-  // var promise3 = qService.tokenHttpGet(forecastFactory.query,{tableName:'airQualityPredictData'});
-  // promise3.then(function(rc3) {
-
-  //   console.log(rc3.data);
-
-  // });
-
 
 
   //下拉点击事件
@@ -725,7 +711,7 @@ $scope.openorclose='↓展开';
 
 
 
-	// 添加工具条和比例尺
+  // 添加工具条和比例尺
 	AMap.plugin(['AMap.ToolBar','AMap.Scale'],function(){
 	    //TODO  创建控件并添加
 	    var toolBar = new AMap.ToolBar();
@@ -738,58 +724,58 @@ $scope.openorclose='↓展开';
  
 	//变色范围 
 	var airQualityAQIScan = {
-        scan: [100,300],
-        type: 'asc'
-    };
-    var airQualitySo2Scan = {
-        scan: [150,500],
-        type: 'asc'
-    };
-    var airQualityNo2Scan = {
-        scan:[200,200],
-        type: 'asc'
-    };
-    var airQualityCoScan = {
-        scan:[10,10],
-        type: 'asc'
-    };
-    var airQualityO3Scan = {
-        scan:[160,200],
-        type: 'asc'
-    };
-    var airQualityPM10Scan = {
-        scan:[150,250],
-        type: 'asc'
-    };
-    var airQualityPM25Scan = {
-        scan:[75,115],
-        type: 'asc'
-    };
-    var airPollutionDischargeScan = {
-    	scan:[0.2,0.4],
-        type: 'asc'
-    };
-    var airPollutionSmokeScan = {
-    	scan:[30,80],
-    	type: 'asc'
-    };
-    var airPollutionSo2Scan = {
-    	scan:[200,200],
-    	type:'asc'
-    };
-    var airPollutionNoScan = {
-    	scan:[100,400],
-    	type:'asc'
-    };
-    var airConditionScan = {
-    	temperature: [37,-5],
-    	wind: 7,
-    	humidity: [100,10]
+      scan: [100,300],
+      type: 'asc'
+  };
+  var airQualitySo2Scan = {
+      scan: [150,500],
+      type: 'asc'
+  };
+  var airQualityNo2Scan = {
+      scan:[200,200],
+      type: 'asc'
+  };
+  var airQualityCoScan = {
+      scan:[10,10],
+      type: 'asc'
+  };
+  var airQualityO3Scan = {
+      scan:[160,200],
+      type: 'asc'
+  };
+  var airQualityPM10Scan = {
+      scan:[150,250],
+      type: 'asc'
+  };
+  var airQualityPM25Scan = {
+      scan:[75,115],
+      type: 'asc'
+  };
+  var airPollutionDischargeScan = {
+  	scan:[0.2,0.4],
+      type: 'asc'
+  };
+  var airPollutionSmokeScan = {
+  	scan:[30,80],
+  	type: 'asc'
+  };
+  var airPollutionSo2Scan = {
+  	scan:[200,200],
+  	type:'asc'
+  };
+  var airPollutionNoScan = {
+  	scan:[100,400],
+  	type:'asc'
+  };
+  var airConditionScan = {
+  	temperature: [37,-5],
+  	wind: 7,
+  	humidity: [100,10]
 
-    };
+  };
 
 
-    var mapObj, marker;
+  var mapObj, marker;
 	var airQualityMarkerArr;
 	var airQualityCurrentArr;
 	var airQualityCurrentTimeList;
@@ -800,7 +786,72 @@ $scope.openorclose='↓展开';
 	var wasteAirCurrentArr;
 	var wasteAirCurrentTimeList;
 
-  //盒子2, 盒子4
+
+  //button状态改变标签
+  $scope.getButtonStatus = function(status) {
+    if (status == 'accept')
+      return "btn-success";
+    else if (status == 'caution')
+      return "btn-warning";
+    else if (status == 'take_action')
+      return "btn-danger"
+    else if (status == 'invalid')
+      return "";
+  };
+  
+
+  //盒子1
+  $scope.temperature={
+    options:{
+    chart: {
+      renderTo: 'container',
+      type: 'spline',
+      
+      },
+    legend: {
+      itemStyle:{
+      fontWeight:'normal'
+      }
+      }},
+        title: {
+            text: '未来七天最高最低气温',
+            style: {
+            fontWeight:'bold',
+            },
+            x:20
+        },
+        xAxis: {
+            categories: ['1月9日', '1月10日', '1月11日', '1月12日', '1月13日', '1月14日','1月15日']
+        },
+        yAxis: {
+            title: {
+                text: '温度 (°C)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '°C'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0,
+        },
+        series: [{
+          name: "最高气温",
+            data: [8, 9, 10, 9, 6, 6, 7]
+        },  {
+            name: '最低气温',
+            data: [2, 5, 5, 8, -1, -1, 0]
+        }]
+    };
+
+  //盒子2
   var promise = qService.tokenHttpGet(rawFactory.query,{tableName:'airQualityData'});
   promise.then(function(rc) {
 
@@ -818,7 +869,7 @@ $scope.openorclose='↓展开';
           $scope.airQualityLevel=rc.data[11];
           $scope.healthEffect=rc.data[12];
           $scope.proposedMeasure=rc.data[13];
-          //盒子2
+          
           $scope.aqilinechart={
               options:{
                 title: {
@@ -857,1396 +908,1340 @@ $scope.openorclose='↓展开';
                       color:"#1F1F1F",
                       data: $scope.predictaqi
                   }]
-          };
 
-          //盒子4
-    });
+            };
 
+  });//end of promise.then(盒子2)
 
+  //盒子4
+  var promise1 = qService.tokenHttpGet(rawFactory.query,{tableName:'airQualityDetailData'});
+  promise1.then(function(rc1) {
+
+    $scope.line_aqi=rc1.data[0];
     $scope.airQualityOptions = {
 
-    	aqiOption:{
-    		options : {
-				chart: {
-					type: 'gauge',
-					plotBackgroundColor: null,
-					plotBackgroundImage: null,
-					plotBorderWidth: 0,
-					plotShadow: false,
-					width:200
-				},
-				title: {
-					text: 'AQI',
-					y:40,
-					style:{                
-                    fontFamily:'微软雅黑'
-                   }
-
-				},
-				pane: {
-					startAngle: -150, 
-					endAngle: 150,
-					background: [{
-						backgroundColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, '#FFF'],
-								[1, '#333']
-							]
-						},
-						borderWidth: 0,
-						outerRadius: '109%'
-					}, {
-						backgroundColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, '#333'],
-								[1, '#FFF']
-							]
-						},
-						borderWidth: 1,
-						outerRadius: '107%'
-					}, {
-						// default background
-					}, {
-						backgroundColor: '#DDD',
-						borderWidth: 0,
-						outerRadius: '105%',
-						innerRadius: '103%'
-					}]
-				},
-				// the value axis
-				yAxis: {
-					min: 0,
-					max: 400,
-
-					minorTickInterval: 'auto',
-					minorTickWidth: 1,
-					minorTickLength: 10,
-					minorTickPosition: 'inside',
-					minorTickColor: '#666',
-
-					tickPixelInterval: 30,
-					tickWidth: 2,
-					tickPosition: 'inside',
-					tickLength: 10,
-					tickColor: '#666',
-					labels: {
-						step: 2,
-						rotation: 'auto'
-					},
-					title: {
-						text: ''
-					},
-					plotBands: [{
-						from: 0,
-						to: airQualityAQIScan.scan[0],
-						color: '#55BF3B' // green
-					}, {
-						from: airQualityAQIScan.scan[0],
-						to: airQualityAQIScan.scan[1],
-						color: '#DDDF0D' // yellow
-					}, {
-						from: airQualityAQIScan.scan[1],
-						to: 400,
-						color: '#DF5353' // red
-					}]
-				},
-				credits: {
-					enabled: false
-				}
-			},
-			series: [{
-				name: 'AQI',
-				data: [118],
-				tooltip: {
-					valueSuffix: ''
-				}
-			}],
-    	},
-
-    //pm2.5
-    	pm25Option:{
-    		options:{
-   				chart: {
-					type: 'gauge',
-					plotBackgroundColor: null,
-					plotBackgroundImage: null,
-					plotBorderWidth: 0,
-					plotShadow: false,
-					width:200
-				},
-
-				title: {
-					text: 'PM2.5',
-					y:40,
-					style:{                
-                    fontFamily:'微软雅黑'
-                   }
-				},
-
-				pane: {
-					startAngle: -150,
-					endAngle: 150,
-					background: [{
-						backgroundColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, '#FFF'],
-								[1, '#333']
-							]
-						},
-						borderWidth: 0,
-						outerRadius: '109%'
-					}, {
-						backgroundColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, '#333'],
-								[1, '#FFF']
-							]
-						},
-						borderWidth: 1,
-						outerRadius: '107%'
-					}, {
-						// default background
-					}, {
-						backgroundColor: '#DDD',
-						borderWidth: 0,
-						outerRadius: '105%',
-						innerRadius: '103%'
-					}]
-				},
-
-				// the value axis
-				yAxis: {
-					min: 0,
-					max: 250,
-
-					minorTickInterval: 'auto',
-					minorTickWidth: 1,
-					minorTickLength: 10,
-					minorTickPosition: 'inside',
-					minorTickColor: '#666',
-
-					tickPixelInterval: 30,
-					tickWidth: 2,
-					tickPosition: 'inside',
-					tickLength: 10,
-					tickColor: '#666',
-					labels: {
-						step: 2,
-						rotation: 'auto'
-					},
-					title: {
-						text: ''
-					},
-					plotBands: [{
-						from: 0,
-						to: airQualityPM25Scan.scan[0],
-						color: '#55BF3B' // green
-					}, {
-						from: airQualityPM25Scan.scan[0],
-						to: airQualityPM25Scan.scan[1],
-						color: '#DDDF0D' // yellow
-					}, {
-						from: airQualityPM25Scan.scan[1],
-						to: 250,
-						color: '#DF5353' // red
-					}]
-				},
-				credits: {
-					enabled: false
-				}
-			},
-			series: [{
-				name: 'PM2.5',
-				data: [64],
-				tooltip: {
-					valueSuffix: ''
-				}
-			}],
-    	},
-
-    	//pm10
-    	pm10Option:{
-    		options:{
-				chart: {
-					type: 'gauge',
-					plotBackgroundColor: null,
-					plotBackgroundImage: null,
-					plotBorderWidth: 0,
-					plotShadow: false,
-					width:200
-				},
-
-				title: {
-					text: 'PM10',
-					y:40,
-					style:{                
-                    fontFamily:'微软雅黑'
-                   }
-				},
-
-				pane: {
-					startAngle: -150,
-					endAngle: 150,
-					background: [{
-						backgroundColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, '#FFF'],
-								[1, '#333']
-							]
-						},
-						borderWidth: 0,
-						outerRadius: '109%'
-					}, {
-						backgroundColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, '#333'],
-								[1, '#FFF']
-							]
-						},
-						borderWidth: 1,
-						outerRadius: '107%'
-					}, {
-						// default background
-					}, {
-						backgroundColor: '#DDD',
-						borderWidth: 0,
-						outerRadius: '105%',
-						innerRadius: '103%'
-					}]
-				},
-
-				// the value axis
-				yAxis: {
-					min: 0,
-					max: 400,
-
-					minorTickInterval: 'auto',
-					minorTickWidth: 1,
-					minorTickLength: 10,
-					minorTickPosition: 'inside',
-					minorTickColor: '#666',
-
-					tickPixelInterval: 30,
-					tickWidth: 2,
-					tickPosition: 'inside',
-					tickLength: 10,
-					tickColor: '#666',
-					labels: {
-						step: 2,
-						rotation: 'auto'
-					},
-					title: {
-						text: ''
-					},
-					plotBands: [{
-						from: 0,
-						to: airQualityPM10Scan.scan[0],
-						color: '#55BF3B' // green
-					}, {
-						from: airQualityPM10Scan.scan[0],
-						to: airQualityPM10Scan.scan[1],
-						color: '#DDDF0D' // yellow
-					}, {
-						from: airQualityPM10Scan.scan[1],
-						to: 400,
-						color: '#DF5353' // red
-					}]
-				},
-
-				credits: {
-					enabled: false
-				}
-			},
-			series: [{
-				name: 'PM10',
-				data: [70],
-				tooltip: {
-					valueSuffix: 'μg/m³'
-				}
-			}],
-    	},
-
-    	//so2
-    	so2Option:{
-    		options:{
-				chart: {
-					type: 'gauge',
-					plotBackgroundColor: null,
-					plotBackgroundImage: null,
-					plotBorderWidth: 0,
-					plotShadow: false,
-					width:200
-				},
-
-				title: {
-					text: '二氧化硫',
-					y:40,
-					style:{                
-                    fontFamily:'微软雅黑'
-                   }
-				},
-
-				pane: {
-					startAngle: -150,
-					endAngle: 150,
-					background: [{
-						backgroundColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, '#FFF'],
-								[1, '#333']
-							]
-						},
-						borderWidth: 0,
-						outerRadius: '109%'
-					}, {
-						backgroundColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, '#333'],
-								[1, '#FFF']
-							]
-						},
-						borderWidth: 1,
-						outerRadius: '107%'
-					}, {
-						// default background
-					}, {
-						backgroundColor: '#DDD',
-						borderWidth: 0,
-						outerRadius: '105%',
-						innerRadius: '103%'
-					}]
-				},
-
-				// the value axis
-				yAxis: {
-					min: 0,
-					max: 700,
-
-					minorTickInterval: 'auto',
-					minorTickWidth: 1,
-					minorTickLength: 10,
-					minorTickPosition: 'inside',
-					minorTickColor: '#666',
-
-					tickPixelInterval: 30,
-					tickWidth: 2,
-					tickPosition: 'inside',
-					tickLength: 10,
-					tickColor: '#666',
-					labels: {
-						step: 2,
-						rotation: 'auto'
-					},
-					title: {
-						text: ''
-					},
-					plotBands: [{
-						from: 0,
-						to: airQualitySo2Scan.scan[0],
-						color: '#55BF3B' // green
-					}, {
-						from: airQualitySo2Scan.scan[0],
-						to: airQualitySo2Scan.scan[1],
-						color: '#DDDF0D' // yellow
-					}, {
-						from: airQualitySo2Scan.scan[1],
-						to: 700,
-						color: '#DF5353' // red
-					}]
-				},
-
-				credits: {
-					enabled: false
-				}
-			},
-			series: [{
-				name: '二氧化硫',
-				data: [54],
-				tooltip: {
-					valueSuffix: 'μg/m³'
-				}
-			}],
-    	},
-
-    	//NO2
-    	no2Option:{
-    		options:{
-				chart: {
-					type: 'gauge',
-					plotBackgroundColor: null,
-					plotBackgroundImage: null,
-					plotBorderWidth: 0,
-					plotShadow: false,
-					width:200
-				},
-
-				title: {
-					text: '二氧化氮',
-					y:40,
-					style:{                
-                    fontFamily:'微软雅黑'
-                   }
-				},
-
-				pane: {
-					startAngle: -150,
-					endAngle: 150,
-					background: [{
-						backgroundColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, '#FFF'],
-								[1, '#333']
-							]
-						},
-						borderWidth: 0,
-						outerRadius: '109%'
-					}, {
-						backgroundColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, '#333'],
-								[1, '#FFF']
-							]
-						},
-						borderWidth: 1,
-						outerRadius: '107%'
-					}, {
-						// default background
-					}, {
-						backgroundColor: '#DDD',
-						borderWidth: 0,
-						outerRadius: '105%',
-						innerRadius: '103%'
-					}]
-				},
-
-				// the value axis
-				yAxis: {
-					min: 0,
-					max: 400,
-
-					minorTickInterval: 'auto',
-					minorTickWidth: 1,
-					minorTickLength: 10,
-					minorTickPosition: 'inside',
-					minorTickColor: '#666',
-
-					tickPixelInterval: 30,
-					tickWidth: 2,
-					tickPosition: 'inside',
-					tickLength: 10,
-					tickColor: '#666',
-					labels: {
-						step: 2,
-						rotation: 'auto'
-					},
-					title: {
-						text: ''
-					},
-					plotBands: [{
-						from: 0,
-						to: airQualityNo2Scan.scan[0],
-						color: '#55BF3B' // green
-					}, {
-						from: airQualityNo2Scan.scan[0],
-						to: airQualityNo2Scan.scan[1],
-						color: '#DDDF0D' // yellow
-					}, {
-						from: airQualityNo2Scan.scan[1],
-						to: 400,
-						color: '#DF5353' // red
-					}]
-				},
-
-				credits: {
-					enabled: false
-				}
-			},
-			series: [{
-				name: '二氧化氮',
-				data: [44],
-				tooltip: {
-					valueSuffix: 'μg/m³'
-				}
-			}],
-    	},
-
-        //CO
-    	coOption:{
-    		options:{
-				chart: {
-					type: 'gauge',
-					plotBackgroundColor: null,
-					plotBackgroundImage: null,
-					plotBorderWidth: 0,
-					plotShadow: false,
-					width:200
-				},
-
-				title: {
-					text: '一氧化碳',
-			        y:40,
-					style:{                
-                    fontFamily:'微软雅黑'
-                   }
-				},
-
-				pane: {
-					startAngle: -150,
-					endAngle: 150,
-					background: [{
-						backgroundColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, '#FFF'],
-								[1, '#333']
-							]
-						},
-						borderWidth: 0,
-						outerRadius: '109%'
-					}, {
-						backgroundColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, '#333'],
-								[1, '#FFF']
-							]
-						},
-						borderWidth: 1,
-						outerRadius: '107%'
-					}, {
-						// default background
-					}, {
-						backgroundColor: '#DDD',
-						borderWidth: 0,
-						outerRadius: '105%',
-						innerRadius: '103%'
-					}]
-				},
-
-				// the value axis
-				yAxis: {
-					min: 0,
-					max: 20,
-
-					minorTickInterval: 'auto',
-					minorTickWidth: 1,
-					minorTickLength: 10,
-					minorTickPosition: 'inside',
-					minorTickColor: '#666',
-
-					tickPixelInterval: 30,
-					tickWidth: 2,
-					tickPosition: 'inside',
-					tickLength: 10,
-					tickColor: '#666',
-					labels: {
-						step: 2,
-						rotation: 'auto'
-					},
-					title: {
-						text: ''
-					},
-					plotBands: [{
-						from: 0,
-						to: airQualityCoScan.scan[0],
-						color: '#55BF3B' // green
-					}, {
-						from: airQualityCoScan.scan[0],
-						to: airQualityCoScan.scan[1],
-						color: '#DDDF0D' // yellow
-					}, {
-						from: airQualityCoScan.scan[1],
-						to: 20,
-						color: '#DF5353' // red
-					}]
-				},
-
-				credits: {
-					enabled: false
-				}
-			},
-			series: [{
-				name: '一氧化碳',
-				data: [1],
-				tooltip: {
-					valueSuffix: 'mg/m³'
-				}
-			}],
-    	},
-
-    	//O3 
-    	o3Option:{
-    		options:{
-				chart: {
-					type: 'gauge',
-					plotBackgroundColor: null,
-					plotBackgroundImage: null,
-					plotBorderWidth: 0,
-					plotShadow: false,
-					width:200
-				},
-
-				title: {
-					text: '臭氧',
-					y:40,
-					style:{                
-                    fontFamily:'微软雅黑'
-                   }
-				},
-
-				pane: {
-					startAngle: -150,
-					endAngle: 150,
-					background: [{
-						backgroundColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, '#FFF'],
-								[1, '#333']
-							]
-						},
-						borderWidth: 0,
-						outerRadius: '109%'
-					}, {
-						backgroundColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, '#333'],
-								[1, '#FFF']
-							]
-						},
-						borderWidth: 1,
-						outerRadius: '107%'
-					}, {
-						// default background
-					}, {
-						backgroundColor: '#DDD',
-						borderWidth: 0,
-						outerRadius: '105%',
-						innerRadius: '103%'
-					}]
-				},
-
-				// the value axis
-				yAxis: {
-					min: 0,
-					max: 300,
-
-					minorTickInterval: 'auto',
-					minorTickWidth: 1,
-					minorTickLength: 10,
-					minorTickPosition: 'inside',
-					minorTickColor: '#666',
-
-					tickPixelInterval: 30,
-					tickWidth: 2,
-					tickPosition: 'inside',
-					tickLength: 10,
-					tickColor: '#666',
-					labels: {
-						step: 2,
-						rotation: 'auto'
-					},
-					title: {
-						text: ''
-					},
-					plotBands: [{
-						from: 0,
-						to: airQualityO3Scan.scan[0],
-						color: '#55BF3B' // green
-					}, {
-						from: airQualityO3Scan.scan[0],
-						to: airQualityO3Scan.scan[1],
-						color: '#DDDF0D' // yellow
-					}, {
-						from: airQualityO3Scan.scan[1],
-						to: 300,
-						color: '#DF5353' // red
-					}]
-				},
-
-				credits: {
-					enabled: false
-				}
-			},
-			series: [{
-				name: '臭氧',
-				data: [7],
-				tooltip: {
-					valueSuffix: 'μg/m³'
-				}
-			}],
-    	},
-
-    	//上面仪表盘加折线图结束
-
-        //AQI折线图
-    	currentAqiLineOption:{
-            options:{
-            	chart: {
-            		height:250
-            	},
-                title: {
-                    text: null,
-                },
-                xAxis: {
-                    categories: ['22时','23时','0时','1时','2时','3时','4时','5时','6时','7时','8时','9时'],
-                    tickmarkPlacement: 'on'
-                },
-                yAxis: {
-                    title: {
-                        text: ''
-                    },
-                    min:0,
-                    max:310,
-                    plotLines : [{
-						        color: '#DF5353',
-		                width: 2,
-		                value: 300,
-                    dashStyle: 'Dot',
-                    label:{
-                    text:'严重污染',
-                    align:'left',
-                    x:10,
-                     style: {
-                            fontSize: '8px',
-                            fontWeight: 200
-                        }
-                     }
-					           },{
-          					color: '#DDDF0D',
-          		              width: 2,
-          		              value: 100,
-                            dashStyle: 'Dot',
-                             label:{
-                             text:'轻度污染',
-                             align:'left',
-                             x:10,
-                             style: {
-                            fontSize: '8px',
-                            fontWeight: 200
-                        }
-                     }
-          					}]
-                },
-                tooltip: {
-                    valueSuffix: ''
-                },
-                legend: {
-                    enabled: false
-                },
-                plotOptions:{
-                	series: {
-		                cursor: 'pointer',
-		                events: {
-		                    click: function (event) {
-		                    	$scope.$apply(function(){
-		                    		$scope.airQualityOptions.aqiOption.series[0].data = [event.point.y];
-		                    	});
-		                    }
-		                }
-		            }
-                },
-                credits: {
-                    enabled: false
-                }
+          aqiOption:{
+            options : {
+            chart: {
+              type: 'gauge',
+              plotBackgroundColor: null,
+              plotBackgroundImage: null,
+              plotBorderWidth: 0,
+              plotShadow: false,
+              width:200
             },
-            series: [{
-                name: 'AQI',
-                data: [43,45,48,53,57,63,60,63,75,87,100,118]
-            }]
-
-        },
-
-        //PM2.5折线图
-        currentPm25LineOption:{
-            options:{
-                title: {
-                    text: null,
-                },
-                xAxis: {
-                    categories: ['22时','23时','0时','1时','2时','3时','4时','5时','6时','7时','8时','9时'],
-                    tickmarkPlacement: 'on'
-                },
-                yAxis: {
-                    title: {
-                        text: 'μg/m³'
-                    },
-                    min:0,
-                    max:250,
-                    plotLines : [{
-						color: '#DDDF0D',
-		                width: 2,
-		                value: 75,
-                    dashStyle: 'Dot',
-                    label:{
-                             text:'轻度污染',
-                             align:'left',
-                             x:10,
-                             style: {
-                            fontSize: '8px',
-                            fontWeight: 200
-                        }
-                     }
-					},{
-						color: '#DF5353',
-		                width: 2,
-		                value: 150,
-                    	dashStyle: 'Dot',
-                      label:{
-                             text:'严重污染',
-                             align:'left',
-                             x:10,
-                             style: {
-                            fontSize: '8px',
-                            fontWeight: 200
-                        }
-                     }
-					}]
-                },
-                tooltip: {
-                    valueSuffix: 'μg/m³'
-                },
-                legend: {
-                    enabled: false
-                },
-                plotOptions:{
-                	series: {
-		                cursor: 'pointer',
-		                events: {
-		                    click: function (event) {
-		                    	$scope.$apply(function(){
-		                    		$scope.airQualityOptions.pm25Option.series[0].data = [event.point.y];
-		                    	});
-		                    }
-		                }
-		            }
-                },
-                credits: {
-                    enabled: false
-                }
-            },
-            series: [{
-                name: 'PM2.5',
-                data: [52,56,65,58,52,55,40,55,60,49,57,64]
-            }],
-        },
-
-        //PM10折线图
-        currentPm10LineOption:{
-            options:{
-                title: {
-                    text: null,
-                },
-                xAxis: {
-                    categories: ['22时','23时','0时','1时','2时','3时','4时','5时','6时','7时','8时','9时'],
-                    tickmarkPlacement: 'on'
-                },
-                yAxis: {
-                    title: {
-                        text: 'μg/m³'
-                    },
-                    min:0,
-                    max:400,
-                    plotLines : [{
-						color: '#DDDF0D',
-		                width: 2,
-		                value: 150,
-                    	dashStyle: 'Dot',
-                      label:{
-                             text:'轻度污染',
-                             align:'left',
-                             x:10,
-                             style: {
-                            fontSize: '8px',
-                            fontWeight: 200
-                        }
-                     }
-					},{
-						color: '#DF5353',
-		                width: 2,
-		                value: 250,
-                    	dashStyle: 'Dot',
-                      label:{
-                             text:'严重污染',
-                             align:'left',
-                             x:10,
-                             style: {
-                            fontSize: '8px',
-                            fontWeight: 200
-                        }
-                     }
-					}]
-                },
-                tooltip: {
-                    valueSuffix: 'μg/m³'
-                },
-                legend: {
-                    enabled: false
-                },
-                plotOptions:{
-                	series: {
-		                cursor: 'pointer',
-		                events: {
-		                    click: function (event) {
-		                    	$scope.$apply(function(){
-		                    		$scope.airQualityOptions.pm10Option.series[0].data = [event.point.y];
-		                    	});
-		                    }
-		                }
-		            }
-                },
-                credits: {
-                    enabled: false
-                }
-            },
-            series: [{
-                name: 'PM10',
-                data: [106,102,95,105,115,116,95,83,71,83,78,70]
-            }],
-        },
-
-        //SO2折线图
-        currentSo2LineOption:{
-            options:{
-                title: {
-                    text: null,
-                },
-                xAxis: {
-                    categories: ['22时','23时','0时','1时','2时','3时','4时','5时','6时','7时','8时','9时'],
-                    tickmarkPlacement: 'on'
-                },
-                yAxis: {
-                    title: {
-                        text: 'μg/m³'
-                    },
-                    min:0,
-                    max:700,
-                    plotLines : [{
-						color: '#DDDF0D',
-		                width: 2,
-		                value: 150,
-                    	dashStyle: 'Dot',
-                      label:{
-                             text:'轻度污染',
-                             align:'left',
-                             x:10,
-                             style: {
-                            fontSize: '8px',
-                            fontWeight: 200
-                        }
-                     }
-					},{
-						color: '#DF5353',
-		                width: 2,
-		                value: 475,
-                    	dashStyle: 'Dot',
-                      label:{
-                             text:'严重污染',
-                             align:'left',
-                             x:10,
-                             style: {
-                            fontSize: '8px',
-                            fontWeight: 200
-                        }
-                     }
-					}]
-                },
-                tooltip: {
-                    valueSuffix: 'μg/m³'
-                },
-                legend: {
-                    enabled: false
-                },
-                plotOptions:{
-                	series: {
-		                cursor: 'pointer',
-		                events: {
-		                    click: function (event) {
-		                    	$scope.$apply(function(){
-		                    		$scope.airQualityOptions.so2Option.series[0].data = [event.point.y];
-		                    	});
-		                    }
-		                }
-		            }
-                },
-                credits: {
-                    enabled: false
-                }
-            },
-            series: [{
-                name: '二氧化硫',
-                data: [109,119,93,81,80,78,69,51,47,49,28,54]
-            }],
-        },
-
-        //NO2折线图
-        currentNo2LineOption:{
-            options:{
-                title: {
-                    text: null,
-                },
-                xAxis: {
-                    categories: ['22时','23时','0时','1时','2时','3时','4时','5时','6时','7时','8时','9时'],
-                    tickmarkPlacement: 'on'
-                },
-                yAxis: {
-                    title: {
-                        text: 'μg/m³'
-                    },
-                    min:0,
-                    max:400,
-                    plotLines : [{
-						color: '#DDDF0D',
-		                width: 2,
-		                value: 80,
-                    	dashStyle: 'Dot',
-                      label:{
-                             text:'轻度污染',
-                             align:'left',
-                             x:10,
-                             style: {
-                            fontSize: '8px',
-                            fontWeight: 200
-                        }
-                     }
-					},{
-						color: '#DF5353',
-		                width: 2,
-		                value: 180,
-                    	dashStyle: 'Dot',
-                      label:{
-                             text:'严重污染',
-                             align:'left',
-                             x:10,
-                             style: {
-                            fontSize: '8px',
-                            fontWeight: 200
-                        }
-                     }
-					}]
-                },
-                tooltip: {
-                    valueSuffix: 'μg/m³'
-                },
-                legend: {
-                    enabled: false
-                },
-                plotOptions:{
-                	series: {
-		                cursor: 'pointer',
-		                events: {
-		                    click: function (event) {
-		                    	$scope.$apply(function(){
-		                    		$scope.airQualityOptions.no2Option.series[0].data = [event.point.y];
-		                    	});
-		                    }
-		                }
-		            }
-                },
-                credits: {
-                    enabled: false
-                }
-            },
-            series: [{
-                name: '二氧化氮',
-                data: [43,52,55,58,51,43,35,28,23,20,33,44]
-            }],
-        },
-
-        //CO折线图
-        currentCoLineOption:{
-            options:{
-                title: {
-                    text: null,
-                },
-                xAxis: {
-                    categories: ['22时','23时','0时','1时','2时','3时','4时','5时','6时','7时','8时','9时'],
-                    tickmarkPlacement: 'on'
-                },
-                yAxis: {
-                    title: {
-                        text: 'mg/m³'
-                    },
-                    min:0,
-                    max:20,
-                    plotLines : [{
-						color: '#DDDF0D',
-		                width: 2,
-		                value: 4,
-                    	dashStyle: 'Dot',
-                      label:{
-                             text:'轻度污染',
-                             align:'left',
-                             x:10,
-                             style: {
-                            fontSize: '8px',
-                            fontWeight: 200
-                        }
-                     }
-					},{
-						color: '#DF5353',
-		                width: 2,
-		                value: airQualityCoScan.scan[1],
-                    	dashStyle: 'Dot',
-                      label:{
-                             text:'严重污染',
-                             align:'left',
-                             x:10,
-                             style: {
-                            fontSize: '8px',
-                            fontWeight: 200
-                        }
-                     }
-
-					}]
-                },
-                tooltip: {
-                    valueSuffix: 'mg/m³'
-                },
-                legend: {
-                    enabled: false
-                },
-                plotOptions:{
-                	series: {
-		                cursor: 'pointer',
-		                events: {
-		                    click: function (event) {
-		                    	$scope.$apply(function(){
-		                    		$scope.airQualityOptions.coOption.series[0].data = [event.point.y];
-		                    	});
-		                    }
-		                }
-		            }
-                },
-                credits: {
-                    enabled: false
-                }
-            },
-            series: [{
-                name: '一氧化碳',
-                data: [1,2,1,1,2,2,2,1,1,1,1,1]
-            }],
-        },
-
-        //O3折线图
-        currentO3LineOption:{
-            options:{
-                title: {
-                    text: null,
-                },
-                xAxis: {
-                    categories: ['22时','23时','0时','1时','2时','3时','4时','5时','6时','7时','8时','9时'],
-                    tickmarkPlacement: 'on'
-                },
-                yAxis: {
-                    title: {
-                        text: 'μg/m³'
-                    },
-                    min:0,
-                    max:300,
-                    plotLines : [{
-						color: '#DDDF0D',
-		                width: 2,
-		                value: 160,
-                    	dashStyle: 'Dot',
-                      label:{
-                             text:'轻度污染',
-                             align:'left',
-                             x:10,
-                             style: {
-                            fontSize: '8px',
-                            fontWeight: 200
-                        }
-                     }
-					},{
-						color: '#DF5353',
-		                width: 2,
-		                value: 215,
-                    	dashStyle: 'Dot',
-                      label:{
-                             text:'严重污染',
-                             align:'left',
-                             x:10,
-                             style: {
-                            fontSize: '8px',
-                            fontWeight: 200
-                        }
-                     }
-					}]
-                },
-                tooltip: {
-                    valueSuffix: 'μg/m³'
-                },
-                legend: {
-                    enabled: false
-                },
-                plotOptions:{
-                	series: {
-		                cursor: 'pointer',
-		                events: {
-		                    click: function (event) {
-		                    	$scope.$apply(function(){
-		                    		$scope.airQualityOptions.o3Option.series[0].data = [event.point.y];
-		                    	});
-		                    }
-		                }
-		            }
-                },
-                credits: {
-                    enabled: false
-                }
-            },
-            series: [{
-                name: '臭氧',
-                data: [3,8,19,23,8,6,12,13,15,11,9,7]
-            }],
-
-        }
-
-    };
- 	//button状态改变标签
-	$scope.getButtonStatus = function(status) {
-		if (status == 'accept')
-			return "btn-success";
-		else if (status == 'caution')
-			return "btn-warning";
-		else if (status == 'take_action')
-			return "btn-danger"
-		else if (status == 'invalid')
-			return "";
-	};
-
- //盒子1
- $scope.temperature={
-	 	options:{
-	 	chart: {
-			renderTo: 'container',
-			type: 'spline',
-			
-			},
-    legend: {
-      itemStyle:{
-      fontWeight:'normal'
-      }
-      }},
-        title: {
-            text: '未来七天最高最低气温',
-            style: {
-            fontWeight:'bold',
-            },
-            x:20
-        },
-        xAxis: {
-            categories: ['1月9日', '1月10日', '1月11日', '1月12日', '1月13日', '1月14日','1月15日']
-        },
-        yAxis: {
             title: {
-                text: '温度 (°C)'
+              text: 'AQI',
+              y:40,
+              style:{                
+                        fontFamily:'微软雅黑'
+                       }
+
             },
-            plotLines: [{
-                value: 0,
-                width: 1,
-                color: '#808080'
-            }]
-        },
-        tooltip: {
-            valueSuffix: '°C'
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
-            borderWidth: 0,
-        },
-        series: [{
-        	name: "最高气温",
-            data: [8, 9, 10, 9, 6, 6, 7]
-        },  {
-            name: '最低气温',
-            data: [2, 5, 5, 8, -1, -1, 0]
-        }]
-    };
+            pane: {
+              startAngle: -150, 
+              endAngle: 150,
+              background: [{
+                backgroundColor: {
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                  },
+                  stops: [
+                    [0, '#FFF'],
+                    [1, '#333']
+                  ]
+                },
+                borderWidth: 0,
+                outerRadius: '109%'
+              }, {
+                backgroundColor: {
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                  },
+                  stops: [
+                    [0, '#333'],
+                    [1, '#FFF']
+                  ]
+                },
+                borderWidth: 1,
+                outerRadius: '107%'
+              }, {
+                // default background
+              }, {
+                backgroundColor: '#DDD',
+                borderWidth: 0,
+                outerRadius: '105%',
+                innerRadius: '103%'
+              }]
+            },
+            // the value axis
+            yAxis: {
+              min: 0,
+              max: 400,
+
+              minorTickInterval: 'auto',
+              minorTickWidth: 1,
+              minorTickLength: 10,
+              minorTickPosition: 'inside',
+              minorTickColor: '#666',
+
+              tickPixelInterval: 30,
+              tickWidth: 2,
+              tickPosition: 'inside',
+              tickLength: 10,
+              tickColor: '#666',
+              labels: {
+                step: 2,
+                rotation: 'auto'
+              },
+              title: {
+                text: ''
+              },
+              plotBands: [{
+                from: 0,
+                to: airQualityAQIScan.scan[0],
+                color: '#55BF3B' // green
+              }, {
+                from: airQualityAQIScan.scan[0],
+                to: airQualityAQIScan.scan[1],
+                color: '#DDDF0D' // yellow
+              }, {
+                from: airQualityAQIScan.scan[1],
+                to: 400,
+                color: '#DF5353' // red
+              }]
+            },
+            credits: {
+              enabled: false
+            }
+          },
+          series: [{
+            name: 'AQI',
+            data: [118],
+            tooltip: {
+              valueSuffix: ''
+            }
+          }],
+          },
+
+        //pm2.5
+          pm25Option:{
+            options:{
+              chart: {
+              type: 'gauge',
+              plotBackgroundColor: null,
+              plotBackgroundImage: null,
+              plotBorderWidth: 0,
+              plotShadow: false,
+              width:200
+            },
+
+            title: {
+              text: 'PM2.5',
+              y:40,
+              style:{                
+                        fontFamily:'微软雅黑'
+                       }
+            },
+
+            pane: {
+              startAngle: -150,
+              endAngle: 150,
+              background: [{
+                backgroundColor: {
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                  },
+                  stops: [
+                    [0, '#FFF'],
+                    [1, '#333']
+                  ]
+                },
+                borderWidth: 0,
+                outerRadius: '109%'
+              }, {
+                backgroundColor: {
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                  },
+                  stops: [
+                    [0, '#333'],
+                    [1, '#FFF']
+                  ]
+                },
+                borderWidth: 1,
+                outerRadius: '107%'
+              }, {
+                // default background
+              }, {
+                backgroundColor: '#DDD',
+                borderWidth: 0,
+                outerRadius: '105%',
+                innerRadius: '103%'
+              }]
+            },
+
+            // the value axis
+            yAxis: {
+              min: 0,
+              max: 250,
+
+              minorTickInterval: 'auto',
+              minorTickWidth: 1,
+              minorTickLength: 10,
+              minorTickPosition: 'inside',
+              minorTickColor: '#666',
+
+              tickPixelInterval: 30,
+              tickWidth: 2,
+              tickPosition: 'inside',
+              tickLength: 10,
+              tickColor: '#666',
+              labels: {
+                step: 2,
+                rotation: 'auto'
+              },
+              title: {
+                text: ''
+              },
+              plotBands: [{
+                from: 0,
+                to: airQualityPM25Scan.scan[0],
+                color: '#55BF3B' // green
+              }, {
+                from: airQualityPM25Scan.scan[0],
+                to: airQualityPM25Scan.scan[1],
+                color: '#DDDF0D' // yellow
+              }, {
+                from: airQualityPM25Scan.scan[1],
+                to: 250,
+                color: '#DF5353' // red
+              }]
+            },
+            credits: {
+              enabled: false
+            }
+          },
+          series: [{
+            name: 'PM2.5',
+            data: [64],
+            tooltip: {
+              valueSuffix: ''
+            }
+          }],
+          },
+
+          //pm10
+          pm10Option:{
+            options:{
+            chart: {
+              type: 'gauge',
+              plotBackgroundColor: null,
+              plotBackgroundImage: null,
+              plotBorderWidth: 0,
+              plotShadow: false,
+              width:200
+            },
+
+            title: {
+              text: 'PM10',
+              y:40,
+              style:{                
+                        fontFamily:'微软雅黑'
+                       }
+            },
+
+            pane: {
+              startAngle: -150,
+              endAngle: 150,
+              background: [{
+                backgroundColor: {
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                  },
+                  stops: [
+                    [0, '#FFF'],
+                    [1, '#333']
+                  ]
+                },
+                borderWidth: 0,
+                outerRadius: '109%'
+              }, {
+                backgroundColor: {
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                  },
+                  stops: [
+                    [0, '#333'],
+                    [1, '#FFF']
+                  ]
+                },
+                borderWidth: 1,
+                outerRadius: '107%'
+              }, {
+                // default background
+              }, {
+                backgroundColor: '#DDD',
+                borderWidth: 0,
+                outerRadius: '105%',
+                innerRadius: '103%'
+              }]
+            },
+
+            // the value axis
+            yAxis: {
+              min: 0,
+              max: 400,
+
+              minorTickInterval: 'auto',
+              minorTickWidth: 1,
+              minorTickLength: 10,
+              minorTickPosition: 'inside',
+              minorTickColor: '#666',
+
+              tickPixelInterval: 30,
+              tickWidth: 2,
+              tickPosition: 'inside',
+              tickLength: 10,
+              tickColor: '#666',
+              labels: {
+                step: 2,
+                rotation: 'auto'
+              },
+              title: {
+                text: ''
+              },
+              plotBands: [{
+                from: 0,
+                to: airQualityPM10Scan.scan[0],
+                color: '#55BF3B' // green
+              }, {
+                from: airQualityPM10Scan.scan[0],
+                to: airQualityPM10Scan.scan[1],
+                color: '#DDDF0D' // yellow
+              }, {
+                from: airQualityPM10Scan.scan[1],
+                to: 400,
+                color: '#DF5353' // red
+              }]
+            },
+
+            credits: {
+              enabled: false
+            }
+          },
+          series: [{
+            name: 'PM10',
+            data: [70],
+            tooltip: {
+              valueSuffix: 'μg/m³'
+            }
+          }],
+          },
+
+          //so2
+          so2Option:{
+            options:{
+            chart: {
+              type: 'gauge',
+              plotBackgroundColor: null,
+              plotBackgroundImage: null,
+              plotBorderWidth: 0,
+              plotShadow: false,
+              width:200
+            },
+
+            title: {
+              text: '二氧化硫',
+              y:40,
+              style:{                
+                        fontFamily:'微软雅黑'
+                       }
+            },
+
+            pane: {
+              startAngle: -150,
+              endAngle: 150,
+              background: [{
+                backgroundColor: {
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                  },
+                  stops: [
+                    [0, '#FFF'],
+                    [1, '#333']
+                  ]
+                },
+                borderWidth: 0,
+                outerRadius: '109%'
+              }, {
+                backgroundColor: {
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                  },
+                  stops: [
+                    [0, '#333'],
+                    [1, '#FFF']
+                  ]
+                },
+                borderWidth: 1,
+                outerRadius: '107%'
+              }, {
+                // default background
+              }, {
+                backgroundColor: '#DDD',
+                borderWidth: 0,
+                outerRadius: '105%',
+                innerRadius: '103%'
+              }]
+            },
+
+            // the value axis
+            yAxis: {
+              min: 0,
+              max: 700,
+
+              minorTickInterval: 'auto',
+              minorTickWidth: 1,
+              minorTickLength: 10,
+              minorTickPosition: 'inside',
+              minorTickColor: '#666',
+
+              tickPixelInterval: 30,
+              tickWidth: 2,
+              tickPosition: 'inside',
+              tickLength: 10,
+              tickColor: '#666',
+              labels: {
+                step: 2,
+                rotation: 'auto'
+              },
+              title: {
+                text: ''
+              },
+              plotBands: [{
+                from: 0,
+                to: airQualitySo2Scan.scan[0],
+                color: '#55BF3B' // green
+              }, {
+                from: airQualitySo2Scan.scan[0],
+                to: airQualitySo2Scan.scan[1],
+                color: '#DDDF0D' // yellow
+              }, {
+                from: airQualitySo2Scan.scan[1],
+                to: 700,
+                color: '#DF5353' // red
+              }]
+            },
+
+            credits: {
+              enabled: false
+            }
+          },
+          series: [{
+            name: '二氧化硫',
+            data: [54],
+            tooltip: {
+              valueSuffix: 'μg/m³'
+            }
+          }],
+          },
+
+          //NO2
+          no2Option:{
+            options:{
+            chart: {
+              type: 'gauge',
+              plotBackgroundColor: null,
+              plotBackgroundImage: null,
+              plotBorderWidth: 0,
+              plotShadow: false,
+              width:200
+            },
+
+            title: {
+              text: '二氧化氮',
+              y:40,
+              style:{                
+                        fontFamily:'微软雅黑'
+                       }
+            },
+
+            pane: {
+              startAngle: -150,
+              endAngle: 150,
+              background: [{
+                backgroundColor: {
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                  },
+                  stops: [
+                    [0, '#FFF'],
+                    [1, '#333']
+                  ]
+                },
+                borderWidth: 0,
+                outerRadius: '109%'
+              }, {
+                backgroundColor: {
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                  },
+                  stops: [
+                    [0, '#333'],
+                    [1, '#FFF']
+                  ]
+                },
+                borderWidth: 1,
+                outerRadius: '107%'
+              }, {
+                // default background
+              }, {
+                backgroundColor: '#DDD',
+                borderWidth: 0,
+                outerRadius: '105%',
+                innerRadius: '103%'
+              }]
+            },
+
+            // the value axis
+            yAxis: {
+              min: 0,
+              max: 400,
+
+              minorTickInterval: 'auto',
+              minorTickWidth: 1,
+              minorTickLength: 10,
+              minorTickPosition: 'inside',
+              minorTickColor: '#666',
+
+              tickPixelInterval: 30,
+              tickWidth: 2,
+              tickPosition: 'inside',
+              tickLength: 10,
+              tickColor: '#666',
+              labels: {
+                step: 2,
+                rotation: 'auto'
+              },
+              title: {
+                text: ''
+              },
+              plotBands: [{
+                from: 0,
+                to: airQualityNo2Scan.scan[0],
+                color: '#55BF3B' // green
+              }, {
+                from: airQualityNo2Scan.scan[0],
+                to: airQualityNo2Scan.scan[1],
+                color: '#DDDF0D' // yellow
+              }, {
+                from: airQualityNo2Scan.scan[1],
+                to: 400,
+                color: '#DF5353' // red
+              }]
+            },
+
+            credits: {
+              enabled: false
+            }
+          },
+          series: [{
+            name: '二氧化氮',
+            data: [44],
+            tooltip: {
+              valueSuffix: 'μg/m³'
+            }
+          }],
+          },
+
+            //CO
+          coOption:{
+            options:{
+            chart: {
+              type: 'gauge',
+              plotBackgroundColor: null,
+              plotBackgroundImage: null,
+              plotBorderWidth: 0,
+              plotShadow: false,
+              width:200
+            },
+
+            title: {
+              text: '一氧化碳',
+                  y:40,
+              style:{                
+                        fontFamily:'微软雅黑'
+                       }
+            },
+
+            pane: {
+              startAngle: -150,
+              endAngle: 150,
+              background: [{
+                backgroundColor: {
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                  },
+                  stops: [
+                    [0, '#FFF'],
+                    [1, '#333']
+                  ]
+                },
+                borderWidth: 0,
+                outerRadius: '109%'
+              }, {
+                backgroundColor: {
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                  },
+                  stops: [
+                    [0, '#333'],
+                    [1, '#FFF']
+                  ]
+                },
+                borderWidth: 1,
+                outerRadius: '107%'
+              }, {
+                // default background
+              }, {
+                backgroundColor: '#DDD',
+                borderWidth: 0,
+                outerRadius: '105%',
+                innerRadius: '103%'
+              }]
+            },
+
+            // the value axis
+            yAxis: {
+              min: 0,
+              max: 20,
+
+              minorTickInterval: 'auto',
+              minorTickWidth: 1,
+              minorTickLength: 10,
+              minorTickPosition: 'inside',
+              minorTickColor: '#666',
+
+              tickPixelInterval: 30,
+              tickWidth: 2,
+              tickPosition: 'inside',
+              tickLength: 10,
+              tickColor: '#666',
+              labels: {
+                step: 2,
+                rotation: 'auto'
+              },
+              title: {
+                text: ''
+              },
+              plotBands: [{
+                from: 0,
+                to: airQualityCoScan.scan[0],
+                color: '#55BF3B' // green
+              }, {
+                from: airQualityCoScan.scan[0],
+                to: airQualityCoScan.scan[1],
+                color: '#DDDF0D' // yellow
+              }, {
+                from: airQualityCoScan.scan[1],
+                to: 20,
+                color: '#DF5353' // red
+              }]
+            },
+
+            credits: {
+              enabled: false
+            }
+          },
+          series: [{
+            name: '一氧化碳',
+            data: [1],
+            tooltip: {
+              valueSuffix: 'mg/m³'
+            }
+          }],
+          },
+
+          //O3 
+          o3Option:{
+            options:{
+            chart: {
+              type: 'gauge',
+              plotBackgroundColor: null,
+              plotBackgroundImage: null,
+              plotBorderWidth: 0,
+              plotShadow: false,
+              width:200
+            },
+
+            title: {
+              text: '臭氧',
+              y:40,
+              style:{                
+                        fontFamily:'微软雅黑'
+                       }
+            },
+
+            pane: {
+              startAngle: -150,
+              endAngle: 150,
+              background: [{
+                backgroundColor: {
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                  },
+                  stops: [
+                    [0, '#FFF'],
+                    [1, '#333']
+                  ]
+                },
+                borderWidth: 0,
+                outerRadius: '109%'
+              }, {
+                backgroundColor: {
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                  },
+                  stops: [
+                    [0, '#333'],
+                    [1, '#FFF']
+                  ]
+                },
+                borderWidth: 1,
+                outerRadius: '107%'
+              }, {
+                // default background
+              }, {
+                backgroundColor: '#DDD',
+                borderWidth: 0,
+                outerRadius: '105%',
+                innerRadius: '103%'
+              }]
+            },
+
+            // the value axis
+            yAxis: {
+              min: 0,
+              max: 300,
+
+              minorTickInterval: 'auto',
+              minorTickWidth: 1,
+              minorTickLength: 10,
+              minorTickPosition: 'inside',
+              minorTickColor: '#666',
+
+              tickPixelInterval: 30,
+              tickWidth: 2,
+              tickPosition: 'inside',
+              tickLength: 10,
+              tickColor: '#666',
+              labels: {
+                step: 2,
+                rotation: 'auto'
+              },
+              title: {
+                text: ''
+              },
+              plotBands: [{
+                from: 0,
+                to: airQualityO3Scan.scan[0],
+                color: '#55BF3B' // green
+              }, {
+                from: airQualityO3Scan.scan[0],
+                to: airQualityO3Scan.scan[1],
+                color: '#DDDF0D' // yellow
+              }, {
+                from: airQualityO3Scan.scan[1],
+                to: 300,
+                color: '#DF5353' // red
+              }]
+            },
+
+            credits: {
+              enabled: false
+            }
+          },
+          series: [{
+            name: '臭氧',
+            data: [7],
+            tooltip: {
+              valueSuffix: 'μg/m³'
+            }
+          }],
+          },
+          //上面仪表盘结束
+
+          //AQI折线图
+          currentAqiLineOption:{
+                options:{
+                  chart: {
+                    height:250
+                  },
+                    title: {
+                        text: null,
+                    },
+                    xAxis: {
+                        categories: ['22时','23时','0时','1时','2时','3时','4时','5时','6时','7时','8时','9时'],
+                        tickmarkPlacement: 'on'
+                    },
+                    yAxis: {
+                        title: {
+                            text: ''
+                        },
+                        min:0,
+                        max:310,
+                        plotLines : [{
+                        color: '#DF5353',
+                        width: 2,
+                        value: 300,
+                        dashStyle: 'Dot',
+                        label:{
+                        text:'严重污染',
+                        align:'left',
+                        x:10,
+                         style: {
+                                fontSize: '8px',
+                                fontWeight: 200
+                            }
+                         }
+                         },{
+                        color: '#DDDF0D',
+                                width: 2,
+                                value: 100,
+                                dashStyle: 'Dot',
+                                 label:{
+                                 text:'轻度污染',
+                                 align:'left',
+                                 x:10,
+                                 style: {
+                                fontSize: '8px',
+                                fontWeight: 200
+                            }
+                         }
+                        }]
+                    },
+                    tooltip: {
+                        valueSuffix: ''
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    plotOptions:{
+                      series: {
+                        cursor: 'pointer',
+                        events: {
+                            click: function (event) {
+                              $scope.$apply(function(){
+                                $scope.airQualityOptions.aqiOption.series[0].data = [event.point.y];
+                              });
+                            }
+                        }
+                    }
+                    },
+                    credits: {
+                        enabled: false
+                    }
+                },
+                series: [{
+                    name: 'AQI',
+                    data: $scope.line_aqi
+                    // data: $scope.line_aqi
+                }]
+
+            },
+
+            //PM2.5折线图
+            currentPm25LineOption:{
+                options:{
+                    title: {
+                        text: null,
+                    },
+                    xAxis: {
+                        categories: ['22时','23时','0时','1时','2时','3时','4时','5时','6时','7时','8时','9时'],
+                        tickmarkPlacement: 'on'
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'μg/m³'
+                        },
+                        min:0,
+                        max:250,
+                        plotLines : [{
+                color: '#DDDF0D',
+                        width: 2,
+                        value: 75,
+                        dashStyle: 'Dot',
+                        label:{
+                                 text:'轻度污染',
+                                 align:'left',
+                                 x:10,
+                                 style: {
+                                fontSize: '8px',
+                                fontWeight: 200
+                            }
+                         }
+              },{
+                color: '#DF5353',
+                        width: 2,
+                        value: 150,
+                          dashStyle: 'Dot',
+                          label:{
+                                 text:'严重污染',
+                                 align:'left',
+                                 x:10,
+                                 style: {
+                                fontSize: '8px',
+                                fontWeight: 200
+                            }
+                         }
+              }]
+                    },
+                    tooltip: {
+                        valueSuffix: 'μg/m³'
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    plotOptions:{
+                      series: {
+                        cursor: 'pointer',
+                        events: {
+                            click: function (event) {
+                              $scope.$apply(function(){
+                                $scope.airQualityOptions.pm25Option.series[0].data = [event.point.y];
+                              });
+                            }
+                        }
+                    }
+                    },
+                    credits: {
+                        enabled: false
+                    }
+                },
+                series: [{
+                    name: 'PM2.5',
+                    data: [52,56,65,58,52,55,40,55,60,49,57,64]
+                }],
+            },
+
+            //PM10折线图
+            currentPm10LineOption:{
+                options:{
+                    title: {
+                        text: null,
+                    },
+                    xAxis: {
+                        categories: ['22时','23时','0时','1时','2时','3时','4时','5时','6时','7时','8时','9时'],
+                        tickmarkPlacement: 'on'
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'μg/m³'
+                        },
+                        min:0,
+                        max:400,
+                        plotLines : [{
+                color: '#DDDF0D',
+                        width: 2,
+                        value: 150,
+                          dashStyle: 'Dot',
+                          label:{
+                                 text:'轻度污染',
+                                 align:'left',
+                                 x:10,
+                                 style: {
+                                fontSize: '8px',
+                                fontWeight: 200
+                            }
+                         }
+              },{
+                color: '#DF5353',
+                        width: 2,
+                        value: 250,
+                          dashStyle: 'Dot',
+                          label:{
+                                 text:'严重污染',
+                                 align:'left',
+                                 x:10,
+                                 style: {
+                                fontSize: '8px',
+                                fontWeight: 200
+                            }
+                         }
+              }]
+                    },
+                    tooltip: {
+                        valueSuffix: 'μg/m³'
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    plotOptions:{
+                      series: {
+                        cursor: 'pointer',
+                        events: {
+                            click: function (event) {
+                              $scope.$apply(function(){
+                                $scope.airQualityOptions.pm10Option.series[0].data = [event.point.y];
+                              });
+                            }
+                        }
+                    }
+                    },
+                    credits: {
+                        enabled: false
+                    }
+                },
+                series: [{
+                    name: 'PM10',
+                    data: [106,102,95,105,115,116,95,83,71,83,78,70]
+                }],
+            },
+
+            //SO2折线图
+            currentSo2LineOption:{
+                options:{
+                    title: {
+                        text: null,
+                    },
+                    xAxis: {
+                        categories: ['22时','23时','0时','1时','2时','3时','4时','5时','6时','7时','8时','9时'],
+                        tickmarkPlacement: 'on'
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'μg/m³'
+                        },
+                        min:0,
+                        max:700,
+                        plotLines : [{
+                color: '#DDDF0D',
+                        width: 2,
+                        value: 150,
+                          dashStyle: 'Dot',
+                          label:{
+                                 text:'轻度污染',
+                                 align:'left',
+                                 x:10,
+                                 style: {
+                                fontSize: '8px',
+                                fontWeight: 200
+                            }
+                         }
+              },{
+                color: '#DF5353',
+                        width: 2,
+                        value: 475,
+                          dashStyle: 'Dot',
+                          label:{
+                                 text:'严重污染',
+                                 align:'left',
+                                 x:10,
+                                 style: {
+                                fontSize: '8px',
+                                fontWeight: 200
+                            }
+                         }
+              }]
+                    },
+                    tooltip: {
+                        valueSuffix: 'μg/m³'
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    plotOptions:{
+                      series: {
+                        cursor: 'pointer',
+                        events: {
+                            click: function (event) {
+                              $scope.$apply(function(){
+                                $scope.airQualityOptions.so2Option.series[0].data = [event.point.y];
+                              });
+                            }
+                        }
+                    }
+                    },
+                    credits: {
+                        enabled: false
+                    }
+                },
+                series: [{
+                    name: '二氧化硫',
+                    data: [109,119,93,81,80,78,69,51,47,49,28,54]
+                }],
+            },
+
+            //NO2折线图
+            currentNo2LineOption:{
+                options:{
+                    title: {
+                        text: null,
+                    },
+                    xAxis: {
+                        categories: ['22时','23时','0时','1时','2时','3时','4时','5时','6时','7时','8时','9时'],
+                        tickmarkPlacement: 'on'
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'μg/m³'
+                        },
+                        min:0,
+                        max:400,
+                        plotLines : [{
+                color: '#DDDF0D',
+                        width: 2,
+                        value: 80,
+                          dashStyle: 'Dot',
+                          label:{
+                                 text:'轻度污染',
+                                 align:'left',
+                                 x:10,
+                                 style: {
+                                fontSize: '8px',
+                                fontWeight: 200
+                            }
+                         }
+              },{
+                color: '#DF5353',
+                        width: 2,
+                        value: 180,
+                          dashStyle: 'Dot',
+                          label:{
+                                 text:'严重污染',
+                                 align:'left',
+                                 x:10,
+                                 style: {
+                                fontSize: '8px',
+                                fontWeight: 200
+                            }
+                         }
+              }]
+                    },
+                    tooltip: {
+                        valueSuffix: 'μg/m³'
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    plotOptions:{
+                      series: {
+                        cursor: 'pointer',
+                        events: {
+                            click: function (event) {
+                              $scope.$apply(function(){
+                                $scope.airQualityOptions.no2Option.series[0].data = [event.point.y];
+                              });
+                            }
+                        }
+                    }
+                    },
+                    credits: {
+                        enabled: false
+                    }
+                },
+                series: [{
+                    name: '二氧化氮',
+                    data: [43,52,55,58,51,43,35,28,23,20,33,44]
+                }],
+            },
+
+            //CO折线图
+            currentCoLineOption:{
+                options:{
+                    title: {
+                        text: null,
+                    },
+                    xAxis: {
+                        categories: ['22时','23时','0时','1时','2时','3时','4时','5时','6时','7时','8时','9时'],
+                        tickmarkPlacement: 'on'
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'mg/m³'
+                        },
+                        min:0,
+                        max:20,
+                        plotLines : [{
+                color: '#DDDF0D',
+                        width: 2,
+                        value: 4,
+                          dashStyle: 'Dot',
+                          label:{
+                                 text:'轻度污染',
+                                 align:'left',
+                                 x:10,
+                                 style: {
+                                fontSize: '8px',
+                                fontWeight: 200
+                            }
+                         }
+              },{
+                color: '#DF5353',
+                        width: 2,
+                        value: airQualityCoScan.scan[1],
+                          dashStyle: 'Dot',
+                          label:{
+                                 text:'严重污染',
+                                 align:'left',
+                                 x:10,
+                                 style: {
+                                fontSize: '8px',
+                                fontWeight: 200
+                            }
+                         }
+
+              }]
+                    },
+                    tooltip: {
+                        valueSuffix: 'mg/m³'
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    plotOptions:{
+                      series: {
+                        cursor: 'pointer',
+                        events: {
+                            click: function (event) {
+                              $scope.$apply(function(){
+                                $scope.airQualityOptions.coOption.series[0].data = [event.point.y];
+                              });
+                            }
+                        }
+                    }
+                    },
+                    credits: {
+                        enabled: false
+                    }
+                },
+                series: [{
+                    name: '一氧化碳',
+                    data: [1,2,1,1,2,2,2,1,1,1,1,1]
+                }],
+            },
+
+            //O3折线图
+            currentO3LineOption:{
+                options:{
+                    title: {
+                        text: null,
+                    },
+                    xAxis: {
+                        categories: ['22时','23时','0时','1时','2时','3时','4时','5时','6时','7时','8时','9时'],
+                        tickmarkPlacement: 'on'
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'μg/m³'
+                        },
+                        min:0,
+                        max:300,
+                        plotLines : [{
+                color: '#DDDF0D',
+                        width: 2,
+                        value: 160,
+                          dashStyle: 'Dot',
+                          label:{
+                                 text:'轻度污染',
+                                 align:'left',
+                                 x:10,
+                                 style: {
+                                fontSize: '8px',
+                                fontWeight: 200
+                            }
+                         }
+              },{
+                color: '#DF5353',
+                        width: 2,
+                        value: 215,
+                          dashStyle: 'Dot',
+                          label:{
+                                 text:'严重污染',
+                                 align:'left',
+                                 x:10,
+                                 style: {
+                                fontSize: '8px',
+                                fontWeight: 200
+                            }
+                         }
+              }]
+                    },
+                    tooltip: {
+                        valueSuffix: 'μg/m³'
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    plotOptions:{
+                      series: {
+                        cursor: 'pointer',
+                        events: {
+                            click: function (event) {
+                              $scope.$apply(function(){
+                                $scope.airQualityOptions.o3Option.series[0].data = [event.point.y];
+                              });
+                            }
+                        }
+                    }
+                    },
+                    credits: {
+                        enabled: false
+                    }
+                },
+                series: [{
+                    name: '臭氧',
+                    data: [3,8,19,23,8,6,12,13,15,11,9,7]
+                }],
+
+            }
+
+        };
+
+  });
 
    
 }]);
