@@ -651,27 +651,27 @@ $scope.openorclose='↓展开';
 
     $timeout(function () {
     var marker1 = new AMap.Marker({
-	position: [121.11414, 31.45605],//太仓监测站
-	map:map,
-	icon: new AMap.Icon({            
-    size: new AMap.Size(40, 50),  
-    image: "/images/marker_sprite.png",
-    })
-	});
+    position: [121.11414, 31.45605],//太仓监测站
+    map:map,
+    icon: new AMap.Icon({            
+      size: new AMap.Size(40, 50),  
+      image: "/images/marker_sprite.png",
+      })
+    });
 
-	var marker2 = new AMap.Marker({
-	position: [121.124353, 31.444371],//科教新城监测站
-	map:map,
-	icon: new AMap.Icon({            
-    size: new AMap.Size(40, 50),  
-    image: "/images/marker_sprite.png",
-    })
-	});
+    var marker2 = new AMap.Marker({
+    position: [121.124353, 31.444371],//科教新城监测站
+    map:map,
+    icon: new AMap.Icon({            
+      size: new AMap.Size(40, 50),  
+      image: "/images/marker_sprite.png",
+      })
+    });
     
 
     // 设置label标签
     var infow=[];
-    infow.push("<div style='background-color:#FFFFFF;border:2px solid #66cc66;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#66cc66;font-size:18px'>太仓监测站</div>")
+    infow.push("<div style='background-color:#FFFFFF;border:2px solid #66cc66;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#66cc66;font-size:18px'>太仓市监测站</div>")
     marker1.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
         offset: new AMap.Pixel(23, 5),//修改label相对于maker的位置
         content: infow.join('')
