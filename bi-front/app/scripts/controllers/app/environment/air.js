@@ -3,13 +3,16 @@
 
 app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFactory','forecastFactory',function($scope,$stateParams,$timeout,qService,rawFactory,forecastFactory) {
 
-  $scope.data = null;
   
-
   var promise1 = qService.tokenHttpGet(rawFactory.query,{tableName:'airPollutionData'});
   promise1.then(function(rc1) {
 
-    console.log(rc1.data);
+    // $scope.data = null;
+    // console.log(rc1.data);
+    $scope.smoke=rc1.data[0];
+    $scope.pollution_so2=rc1.data[1];
+    $scope.pollution_no=rc1.data[2];
+    $scope.discharge=rc1.data[3];
 
   });
 
