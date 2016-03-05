@@ -231,14 +231,14 @@ $scope.buttonMap1 = [{
             marker:{
                symbol:"circle" 
             },
-            data: $scope.preFirstPopulation[1]
+            data: $scope.preSecondPopulation[0]
         }, {
             name: '第三产业',
             type: 'spline',
             marker:{
                symbol:"triangle" 
             },
-            data: $scope.preFirstPopulation[2]
+            data: $scope.preThirdPopulation[0]
         }];
      }
      if(bttn.name===2035){
@@ -258,7 +258,7 @@ $scope.buttonMap1 = [{
             marker:{
                symbol:"square" 
             },
-            data: $scope.preSecondPopulation[0]
+            data: $scope.preFirstPopulation[1]
 
         }, {
             name: '第二产业',
@@ -273,7 +273,7 @@ $scope.buttonMap1 = [{
             marker:{
                symbol:"triangle" 
             },
-            data: $scope.preSecondPopulation[2]
+            data: $scope.preThirdPopulation[1]
         }];
      }
      if(bttn.name===2045){
@@ -293,7 +293,7 @@ $scope.buttonMap1 = [{
             marker:{
                symbol:"square" 
             },
-            data: $scope.preThirdPopulation[0]
+            data: $scope.preFirstPopulation[2]
 
         }, {
             name: '第二产业',
@@ -301,7 +301,7 @@ $scope.buttonMap1 = [{
             marker:{
                symbol:"circle" 
             },
-            data: $scope.preThirdPopulation[1]
+            data: $scope.preSecondPopulation[2]
         }, {
             name: '第三产业',
             type: 'spline',
@@ -447,14 +447,14 @@ $scope.jobt ={
             marker:{
                symbol:"circle" 
             },
-            data: $scope.preFirstPopulation[1]
+            data: $scope.preSecondPopulation[0]
         }, {
             name: '第三产业',
             type: 'spline',
             marker:{
                symbol:"triangle" 
             },
-            data: $scope.preFirstPopulation[2]
+            data: $scope.preThirdPopulation[0]
         }]
 
     };    
@@ -526,7 +526,7 @@ $scope.jobt ={
             name: '老龄人口比例',
             type: 'spline',
             yAxis: 1,
-            data: $scope.preInsurance[1],
+            data: $scope.preOldRate[0],
             marker: {
                 enabled: true
             },
@@ -539,7 +539,7 @@ $scope.jobt ={
             name: '劳动力人口比例',
             type: 'spline',
             yAxis: 1,
-            data: $scope.preInsurance[2],
+            data: $scope.preLaborRate[0],
             tooltip: {
                 valueSuffix: ' %'
             }
