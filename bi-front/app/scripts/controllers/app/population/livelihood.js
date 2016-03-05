@@ -1,53 +1,29 @@
 'use strict';
 
-app.controller('LivelihoodCtrl', ['$scope', function($scope) {
-    $scope.firstTenYear = ['2016', '2017', '2018', '2019', '2020', '2021','2022', '2023', '2024', '2025'];
-    $scope.firstTenYearLabPopulation = [50.2, 51.8, 52.3, 52.8, 53.1, 54.1, 54.7,55.2,55.8,56.3];
-    $scope.firstTenYearWorkPopulation = [40.0, 40.8, 42.3, 42.8, 43.7, 44.9, 45.3,46.7,47.2,47.9];
-    $scope.firstTenYearWorkPopulationByIndustry = [
-        [17.0, 16.9, 16.5, 14.5, 12.2, 11.5, 11.2, 10.5, 10.3, 9.3],
-        [45.2, 44.8, 44.7, 41.3, 37.0, 37.3, 37.8, 37.1, 36.8, 35.1],
-        [37.8, 38.3, 38.8, 44.2, 50.8, 51.2, 51, 52.4, 52.9,55.6]
-    ];
+app.controller('LivelihoodCtrl', ['$scope', 'qService','forecastFactory',function($scope,qService,forecastFactory) {
 
+    var promise = qService.tokenHttpGet(forecastFactory.query,{tableName:'populationEmployInsuranceData'});
+    promise.then(function(rc) {
+
+    $scope.preLaborPopulation = rc.data[0];
+    $scope.preEmployedPopulation = rc.data[1];
+    $scope.preFirstPopulation = rc.data[2];
+    $scope.preSecondPopulation = rc.data[3];
+    $scope.preThirdPopulation = rc.data[4];
+    $scope.preInsurance = rc.data[5];
+    $scope.preOldRate = rc.data[6];
+    $scope.preLaborRate = rc.data[7];
+    $scope.prePrimarySchool = rc.data[8];
+    $scope.preMiddleSchool = rc.data[9];
+    $scope.preHighschool = rc.data[10];
+
+    $scope.townName = ['全市','城厢镇','双凤镇','沙溪镇','浏河镇','浮桥镇','璜泾镇','新区','港区','科教新城'];
+    
+
+
+    $scope.firstTenYear  = ['2016', '2017', '2018', '2019', '2020', '2021','2022', '2023', '2024', '2025'];
     $scope.secondTenYear = ['2026', '2027', '2028', '2029', '2030', '2031','2032', '2033', '2034', '2035'];
-    $scope.secondTenYearLabPopulation = [60.2, 61.8, 62.3, 62.8, 63.1, 64.1, 64.7,65.2,65.8,66.3];
-    $scope.secondTenYearWorkPopulation = [50.0, 50.8, 52.3, 52.8, 53.7, 54.1, 55.3,56.7,57.2,57.9];
-
-
-    $scope.secondTenYearWorkPopulationByIndustry = [
-        [9.1, 8.9, 8.5, 8.1, 7.8,7.5, 7.2, 6.5, 6.3, 5.9],
-        [35.2, 34.8, 34.7, 34.3, 34.0, 33.8, 33.2, 33.1, 32.8, 32.1],
-        [55.7, 56.3, 56.8, 57.6, 58.2, 58.7, 59.6, 60.4, 60.9, 62.0]
-    ];
-
-    $scope.thirdTenYear = ['2036', '2037', '2038', '2039', '2040', '2041','2042', '2043', '2044', '2045'];
-    $scope.thirdTenYearLabPopulation = [70.2, 71.8, 72.3, 72.8, 73.1, 74.1, 74.7,75.2,75.8,76.3];
-    $scope.thirdTenYearWorkPopulation = [60.2, 60.8, 62.3, 62.8, 63.7, 64.9, 65.3,66.7,67.2,67.9];
-
-
-    $scope.thirdTenYearWorkPopulationByIndustry = [
-        [5.2, 5.8, 5.3, 4.8,4.7, 4.5, 4.2, 3.5, 3.3,3.2],
-        [32.0, 31.9, 31.5, 31.3, 31.2, 31.5, 31.2, 30.5,30.3, 29.8],
-        [62.8, 62.3, 63.2, 63.9, 64.1, 64.0, 64.6, 66.0, 66.4, 67.0]
-    ];
-
-    $scope.townName = ['城厢镇','双凤镇','沙溪镇','浏河镇','浮桥镇','璜泾镇','新区','港区','科教新城'];
-
-
-    $scope.primarySchool = [[1, 1, 1, 1, 1, 1,1, 1,1],[2,2, 2, 2, 2, 2, 2, 2, 2],[3, 3, 3,3, 3, 3, 3,3, 3]];
-    $scope.middleSchool = [[1, 2, 1, 2, 1,2, 1, 2,1],[2, 2, 1,2, 2,1, 2, 1,2],[3, 2, 2, 3, 3, 2,3,2, 3]];
-    $scope.highSchool = [[1, 2, 2, 1,0, 1, 0, 1, 1],[1, 2,2, 2, 1, 2, 1, 1, 1],[2, 2,2, 2, 2, 2, 2, 2, 2]];
-
-    $scope.populationAndInsurance = [
-        [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1],
-        [30.6,30.89, 31.1, 31.43, 31.25, 29.8, 29.08, 28.67, 28.55, 28.49],
-        [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3]
-    ];
-
-
-
-
+    $scope.thirdTenYear  = ['2036', '2037', '2038', '2039', '2040', '2041','2042', '2043', '2044', '2045'];
 
 $scope.buttonMap3 = [{
         name: 2025,
@@ -69,13 +45,13 @@ $scope.buttonMap3 = [{
     $scope.jobf.options.xAxis.categories=$scope.firstTenYear;
     $scope.jobf.series=[{
             name: '劳动力人口数',
-            data: $scope.firstTenYearLabPopulation,
+            data: $scope.preLaborPopulation[0],
             marker:{
                symbol:"square" 
            }
         }, {
             name: '就业人数',
-            data: $scope.firstTenYearWorkPopulation,
+            data: $scope.preEmployedPopulation[0],
             marker:{
                symbol:"circle" 
            }
@@ -85,13 +61,13 @@ $scope.buttonMap3 = [{
     $scope.jobf.options.xAxis.categories=$scope.secondTenYear;
      $scope.jobf.series=[{
             name: '劳动力人口数',
-            data: $scope.secondTenYearLabPopulation,
+            data: $scope.preLaborPopulation[1],
             marker:{
                symbol:"square" 
            }
         }, {
             name: '就业人数',
-            data: $scope.secondTenYearWorkPopulation,
+            data: $scope.preEmployedPopulation[1],
             marker:{
                symbol:"circle" 
            }
@@ -101,13 +77,13 @@ $scope.buttonMap3 = [{
     $scope.jobf.options.xAxis.categories=$scope.thirdTenYear;
      $scope.jobf.series=[{
             name: '劳动力人口数',
-            data: $scope.thirdTenYearLabPopulation,
+            data: $scope.preLaborPopulation[2],
             marker:{
                symbol:"square" 
            }
         }, {
             name: '就业人数',
-            data: $scope.thirdTenYearWorkPopulation,
+            data: $scope.preEmployedPopulation[2],
             marker:{
                symbol:"circle" 
            }
@@ -132,15 +108,15 @@ if(tchrGrntOne.name==="小学"){
     $scope.school.options.title.text="各城镇小学学校数量";
     $scope.school.series=[{
             name: '2020年',
-            data: $scope.primarySchool[0]
+            data: $scope.prePrimarySchool[0]
 
         }, {
             name: '2030年',
-            data: $scope.primarySchool[1]
+            data: $scope.prePrimarySchool[1]
 
         }, {
             name: '2040年',
-            data: $scope.primarySchool[2]
+            data: $scope.prePrimarySchool[2]
 
         }];
 }
@@ -148,15 +124,15 @@ if(tchrGrntOne.name==="中学"){
     $scope.school.options.title.text="各城镇中学学校数量";
     $scope.school.series=[{
             name: '2020年',
-            data: $scope.middleSchool[0]
+            data: $scope.preMiddleSchool[0]
 
         }, {
             name: '2030年',
-            data: $scope.middleSchool[1]
+            data: $scope.preMiddleSchool[1]
 
         }, {
             name: '2040年',
-            data: $scope.middleSchool[2]
+            data: $scope.preMiddleSchool[2]
 
         }];
 }
@@ -164,15 +140,15 @@ if(tchrGrntOne.name==="高中"){
     $scope.school.options.title.text="各城镇高中学校数量";
     $scope.school.series=[{
             name: '2020年',
-            data: $scope.highSchool[0]
+            data: $scope.preHighschool[0]
 
         }, {
             name: '2030年',
-            data: $scope.highSchool[1]
+            data: $scope.preHighschool[1]
 
         }, {
             name: '2040年',
-            data: $scope.highSchool[2]
+            data: $scope.preHighschool[2]
 
         }];
 }
@@ -237,7 +213,7 @@ $scope.buttonMap1 = [{
             name: '就业人数',
             type: 'column',
             yAxis: 1,
-            data: $scope.firstTenYearWorkPopulation,
+            data: $scope.preEmployedPopulation[0],
             tooltip: {
                 valueSuffix: ' 万人'
             }
@@ -248,21 +224,21 @@ $scope.buttonMap1 = [{
             marker:{
                symbol:"square" 
             },
-            data: $scope.firstTenYearWorkPopulationByIndustry[0]
+            data: $scope.preFirstPopulation[0]
         }, {
             name: '第二产业',
             type: 'spline',
             marker:{
                symbol:"circle" 
             },
-            data: $scope.firstTenYearWorkPopulationByIndustry[1]
+            data: $scope.preFirstPopulation[1]
         }, {
             name: '第三产业',
             type: 'spline',
             marker:{
                symbol:"triangle" 
             },
-            data: $scope.firstTenYearWorkPopulationByIndustry[2]
+            data: $scope.preFirstPopulation[2]
         }];
      }
      if(bttn.name===2035){
@@ -271,7 +247,7 @@ $scope.buttonMap1 = [{
             name: '就业人数',
             type: 'column',
             yAxis: 1,
-            data: $scope.secondTenYearWorkPopulation,
+            data: $scope.preEmployedPopulation[1],
             tooltip: {
                 valueSuffix: ' 万人'
             }
@@ -282,7 +258,7 @@ $scope.buttonMap1 = [{
             marker:{
                symbol:"square" 
             },
-            data: $scope.secondTenYearWorkPopulationByIndustry[0]
+            data: $scope.preSecondPopulation[0]
 
         }, {
             name: '第二产业',
@@ -290,14 +266,14 @@ $scope.buttonMap1 = [{
             marker:{
                symbol:"circle" 
             },
-            data: $scope.secondTenYearWorkPopulationByIndustry[1]
+            data: $scope.preSecondPopulation[1]
         }, {
             name: '第三产业',
             type: 'spline',
             marker:{
                symbol:"triangle" 
             },
-            data: $scope.secondTenYearWorkPopulationByIndustry[2]
+            data: $scope.preSecondPopulation[2]
         }];
      }
      if(bttn.name===2045){
@@ -306,7 +282,7 @@ $scope.buttonMap1 = [{
             name: '就业人数',
             type: 'column',
             yAxis: 1,
-            data: $scope.thirdTenYearWorkPopulation,
+            data: $scope.preEmployedPopulation[2],
             tooltip: {
                 valueSuffix: ' 万人'
             }
@@ -317,7 +293,7 @@ $scope.buttonMap1 = [{
             marker:{
                symbol:"square" 
             },
-            data: $scope.thirdTenYearWorkPopulationByIndustry[0]
+            data: $scope.preThirdPopulation[0]
 
         }, {
             name: '第二产业',
@@ -325,14 +301,14 @@ $scope.buttonMap1 = [{
             marker:{
                symbol:"circle" 
             },
-            data: $scope.thirdTenYearWorkPopulationByIndustry[1]
+            data: $scope.preThirdPopulation[1]
         }, {
             name: '第三产业',
             type: 'spline',
             marker:{
                symbol:"triangle" 
             },
-            data: $scope.thirdTenYearWorkPopulationByIndustry[2]
+            data: $scope.preThirdPopulation[2]
         }];
      }
  };
@@ -382,13 +358,13 @@ var jobfcolor=new Array('#7cb5ec','#000000');
     },
         series: [{
             name: '劳动力人口数',
-            data: $scope.firstTenYearLabPopulation,
+            data: $scope.preLaborPopulation[0],
             marker:{
                symbol:"square" 
            }
         }, {
             name: '就业人数',
-            data: $scope.firstTenYearWorkPopulation,
+            data: $scope.preEmployedPopulation[0],
             marker:{
                symbol:"circle" 
            }
@@ -453,7 +429,7 @@ $scope.jobt ={
             name: '就业人数',
             type: 'column',
             yAxis: 1,
-            data: $scope.firstTenYearWorkPopulation,
+            data: $scope.preEmployedPopulation[0],
             tooltip: {
                 valueSuffix: ' 万人'
             }
@@ -464,21 +440,21 @@ $scope.jobt ={
             marker:{
                symbol:"square" 
             },
-            data: $scope.firstTenYearWorkPopulationByIndustry[0]
+            data: $scope.preFirstPopulation[0]
         }, {
             name: '第二产业',
             type: 'spline',
             marker:{
                symbol:"circle" 
             },
-            data: $scope.firstTenYearWorkPopulationByIndustry[1]
+            data: $scope.preFirstPopulation[1]
         }, {
             name: '第三产业',
             type: 'spline',
             marker:{
                symbol:"triangle" 
             },
-            data: $scope.firstTenYearWorkPopulationByIndustry[2]
+            data: $scope.preFirstPopulation[2]
         }]
 
     };    
@@ -541,7 +517,7 @@ $scope.jobt ={
             name: '养老保险收支',
             type: 'column',
             yAxis: 0,
-            data: $scope.populationAndInsurance[0],
+            data: $scope.preInsurance[0],
             tooltip: {
                 valueSuffix: ' 亿元'
             }
@@ -550,7 +526,7 @@ $scope.jobt ={
             name: '老龄人口比例',
             type: 'spline',
             yAxis: 1,
-            data: $scope.populationAndInsurance[1],
+            data: $scope.preInsurance[1],
             marker: {
                 enabled: true
             },
@@ -563,7 +539,7 @@ $scope.jobt ={
             name: '劳动力人口比例',
             type: 'spline',
             yAxis: 1,
-            data: $scope.populationAndInsurance[2],
+            data: $scope.preInsurance[2],
             tooltip: {
                 valueSuffix: ' %'
             }
@@ -610,18 +586,19 @@ $scope.school={
         series: [{
             name: '2020年',
            // color:"#7cb5ec",
-            data: $scope.primarySchool[0]
+            data: $scope.prePrimarySchool[0]
 
         }, {
             name: '2030年',
            // color:"#000000",
-            data: $scope.primarySchool[1]
+            data: $scope.prePrimarySchool[1]
 
         }, {
             name: '2040年',
            // color:"#90ed7d",
-            data: $scope.primarySchool[2]
+            data: $scope.prePrimarySchool[2]
 
         }]
 };
+});
 }]);
