@@ -919,6 +919,13 @@ $scope.openorclose='↓展开';
 
     $scope.line_aqi=rc1.data[0];
     $scope.line_pm25=rc1.data[1];
+    $scope.line_pm10=rc1.data[2];
+    $scope.line_so2=rc1.data[3];
+    $scope.line_no2=rc1.data[4];
+    $scope.line_co=rc1.data[5];
+    $scope.line_o3=rc1.data[6];
+    $scope.gauge=rc1.data[7];
+
     $scope.airQualityOptions = {
 
           aqiOption:{
@@ -1024,7 +1031,7 @@ $scope.openorclose='↓展开';
           },
           series: [{
             name: 'AQI',
-            data: [118],
+            data: [$scope.gauge[0]],
             tooltip: {
               valueSuffix: ''
             }
@@ -1137,7 +1144,7 @@ $scope.openorclose='↓展开';
           },
           series: [{
             name: 'PM2.5',
-            data: [64],
+            data: [$scope.gauge[1]],
             tooltip: {
               valueSuffix: ''
             }
@@ -1251,7 +1258,7 @@ $scope.openorclose='↓展开';
           },
           series: [{
             name: 'PM10',
-            data: [70],
+            data: [$scope.gauge[2]],
             tooltip: {
               valueSuffix: 'μg/m³'
             }
@@ -1365,7 +1372,7 @@ $scope.openorclose='↓展开';
           },
           series: [{
             name: '二氧化硫',
-            data: [54],
+            data: [$scope.gauge[3]],
             tooltip: {
               valueSuffix: 'μg/m³'
             }
@@ -1479,7 +1486,7 @@ $scope.openorclose='↓展开';
           },
           series: [{
             name: '二氧化氮',
-            data: [44],
+            data: [$scope.gauge[4]],
             tooltip: {
               valueSuffix: 'μg/m³'
             }
@@ -1593,7 +1600,7 @@ $scope.openorclose='↓展开';
           },
           series: [{
             name: '一氧化碳',
-            data: [1],
+            data: [$scope.gauge[5]],
             tooltip: {
               valueSuffix: 'mg/m³'
             }
@@ -1707,7 +1714,7 @@ $scope.openorclose='↓展开';
           },
           series: [{
             name: '臭氧',
-            data: [7],
+            data: [$scope.gauge[6]],
             tooltip: {
               valueSuffix: 'μg/m³'
             }
@@ -1937,7 +1944,7 @@ $scope.openorclose='↓展开';
                 },
                 series: [{
                     name: 'PM10',
-                    data: [106,102,95,105,115,116,95,83,71,83,78,70]
+                    data: $scope.line_pm10
                 }],
             },
 
@@ -2011,7 +2018,7 @@ $scope.openorclose='↓展开';
                 },
                 series: [{
                     name: '二氧化硫',
-                    data: [109,119,93,81,80,78,69,51,47,49,28,54]
+                    data: $scope.line_so2
                 }],
             },
 
@@ -2085,7 +2092,7 @@ $scope.openorclose='↓展开';
                 },
                 series: [{
                     name: '二氧化氮',
-                    data: [43,52,55,58,51,43,35,28,23,20,33,44]
+                    data: $scope.line_no2
                 }],
             },
 
@@ -2160,7 +2167,7 @@ $scope.openorclose='↓展开';
                 },
                 series: [{
                     name: '一氧化碳',
-                    data: [1,2,1,1,2,2,2,1,1,1,1,1]
+                    data: $scope.line_co
                 }],
             },
 
@@ -2234,7 +2241,7 @@ $scope.openorclose='↓展开';
                 },
                 series: [{
                     name: '臭氧',
-                    data: [3,8,19,23,8,6,12,13,15,11,9,7]
+                    data: $scope.line_o3
                 }],
 
             }
