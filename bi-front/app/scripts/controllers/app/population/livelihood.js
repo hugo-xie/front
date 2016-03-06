@@ -42,6 +42,7 @@ $scope.buttonMap3 = [{
   };    
  $scope.change3=function(bttn){
    if(bttn.name===2025){
+    $scope.jobf.options.title.text="太仓市2016至2025年就业人数分析预测";
     $scope.jobf.options.xAxis.categories=$scope.firstTenYear;
     $scope.jobf.series=[{
             name: '劳动力人口数',
@@ -58,6 +59,7 @@ $scope.buttonMap3 = [{
         }];
    }
    if(bttn.name===2035){
+    $scope.jobf.options.title.text="太仓市2016至2035年就业人数分析预测";
     $scope.jobf.options.xAxis.categories=$scope.secondTenYear;
      $scope.jobf.series=[{
             name: '劳动力人口数',
@@ -74,6 +76,7 @@ $scope.buttonMap3 = [{
         }];
    }
    if(bttn.name===2045){
+    $scope.jobf.options.title.text="太仓市2016至2045年就业人数分析预测";
     $scope.jobf.options.xAxis.categories=$scope.thirdTenYear;
      $scope.jobf.series=[{
             name: '劳动力人口数',
@@ -176,13 +179,15 @@ if(tchrGrntOne.name==="高中"){
   };    
  $scope.change5=function(bttn){
     if(bttn.name===2025){
-        
+        $scope.money.options.title.text="太仓市2016至2025年养老保险分析预测";
         $scope.money.options.xAxis[0].categories=$scope.firstTenYear;
     }
     if(bttn.name===2035){
+        $scope.money.options.title.text="太仓市2016至2035年养老保险分析预测";
         $scope.money.options.xAxis[0].categories=$scope.secondTenYear;
     }
     if(bttn.name===2045){
+        $scope.money.options.title.text="太仓市2016至2045年养老保险分析预测";
         $scope.money.options.xAxis[0].categories=$scope.thirdTenYear;
     }
  };
@@ -209,6 +214,7 @@ $scope.buttonMap1 = [{
   };    
  $scope.change1=function(bttn){
      if(bttn.name===2025){
+        $scope.jobt.options.title.text="太仓市2016至2025年就业结构变化分析预测";
         $scope.jobt.options.xAxis.categories=$scope.firstTenYear;
         $scope.jobt.series=[{
             name: '就业人数',
@@ -243,6 +249,7 @@ $scope.buttonMap1 = [{
         }];
      }
      if(bttn.name===2035){
+        $scope.jobt.options.title.text="太仓市2016至2035年就业结构变化分析预测";
         $scope.jobt.options.xAxis.categories=$scope.secondTenYear;
         $scope.jobt.series=[{
             name: '就业人数',
@@ -278,6 +285,7 @@ $scope.buttonMap1 = [{
         }];
      }
      if(bttn.name===2045){
+        $scope.jobt.options.title.text="太仓市2016至2045年就业结构变化分析预测";
         $scope.jobt.options.xAxis.categories=$scope.thirdTenYear;
         $scope.jobt.series=[{
             name: '就业人数',
