@@ -8,13 +8,13 @@ app.controller('PrelationCtrl', ['$scope','$stateParams','qService','forecastFac
     promise.then(function(rc) {
 
     console.log(rc.data);
-    var popData1=[100000,100000,100000,100000,100000,100000,100000,100000,100000,100000];
-    var popData2=[100000,100000,100000,100000,100000,100000,100000,100000,100000,100000];
-    var popData3=[100000,100000,100000,100000,100000,100000,100000,100000,100000,100000];
+    var popData1=[0,0,0,0,0,0,0,0,0,0];
+    var popData2=[0,0,0,0,0,0,0,0,0,0];
+    var popData3=[0,0,0,0,0,0,0,0,0,0];
 
-    var gdp1=[1000,1000,1000,1000,1000,1000,1000,1000,1000,1000];
-    var gdp2=[2000,2000,2000,2000,2000,2000,2000,2000,2000,2000];
-    var gdp3=[3000,3000,3000,3000,3000,3000,3000,3000,3000,3000];
+    var gdp1=[0,0,0,0,0,0,0,0,0,0];
+    var gdp2=[0,0,0,0,0,0,0,0,0,0];
+    var gdp3=[0,0,0,0,0,0,0,0,0,0];
     //数据更新
      popData=rc.data;
      for(var i=0;i<popData1.length;i++){
@@ -1483,16 +1483,19 @@ $scope.r=function(){
     return $scope.selectedRange;
 };
 function h(newValue,oldValue,scope){
-    //console.log(newValue);
-  //  popData1[9]=Math.round((newValue*0.03)*50+775038);
-//    popData2[9]=Math.round((newValue*0.03)*50+843482);
-  //  popData3[9]=Math.round((newValue*0.03)*50+898577);
-   //console.log(popData[9]);
-  // $scope.selectedRange1=Math.round(($scope.selectedRange1+($scope.selectedRange*(newValue-oldValue)/200))*100)/100;
-    //$scope.selectedRange1=Math.round((($scope.selectedRange*0.2)));
-  //  gdp[9]=(newValue*0.03)*50+2022.31;
-  //  gdp1[9]=(newValue*0.03)*50+4256.65;
-  //  gdp2[9]=(newValue*0.03)*50+8373.48;
+    console.log(newValue);
+    //popData1[9]=Math.round((newValue*0.03)*50+535038);
+    //popData2[9]=Math.round((newValue*0.03)*50+598423);
+    //popData3[9]=Math.round((newValue*0.03)*50+614324);
+    popData1[9]=((newValue*0.03)*50+535038);
+    popData2[9]=((newValue*0.03)*50+598423);
+    popData3[9]=((newValue*0.03)*50+614324);
+   console.log(popData[9]);
+   $scope.selectedRange1=Math.round(($scope.selectedRange1+($scope.selectedRange*(newValue-oldValue)/200))*100)/100;
+    $scope.selectedRange1=Math.round((($scope.selectedRange*0.2)));
+    gdp1[9]=(newValue*0.03)*50+2225.9;
+    gdp2[9]=(newValue*0.03)*50+4023.4;
+    gdp3[9]=(newValue*0.03)*50+5743.34;
 }
 $scope.$watch($scope.r,h);
 
@@ -1502,13 +1505,13 @@ $scope.rr=function(){
 };
 function hh(newValue,oldValue,scope){
     console.log(newValue);
-    // $scope.selectedRange=Math.round(($scope.selectedRange+($scope.selectedRange1*(newValue-oldValue)/200))*100)/100;
-  //  popData1[9]=Math.round((newValue*0.03)*50+775038);
-//    popData2[9]=Math.round((newValue*0.03)*50+843482);
-  //  popData3[9]=Math.round((newValue*0.03)*50+898577);
-    //gdp[9]=(newValue*0.03)*50+2022.31;
-    //gdp1[9]=(newValue*0.03)*50+4256.65;
-    //gdp2[9]=(newValue*0.03)*50+8373.48;
+     $scope.selectedRange=Math.round(($scope.selectedRange+($scope.selectedRange1*(newValue-oldValue)/200))*100)/100;
+    popData1[9]=((newValue*0.03)*50+535038);
+    popData2[9]=((newValue*0.03)*50+598423);
+    popData3[9]=((newValue*0.03)*50+614324);
+    gdp1[9]=(newValue*0.03)*50+2225.9;
+    gdp2[9]=(newValue*0.03)*50+4023.4;
+    gdp3[9]=(newValue*0.03)*50+5743.34;
 }
 $scope.$watch($scope.rr,hh);
 
