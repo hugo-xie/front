@@ -13,12 +13,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
 
     });
 
-    var promise1 = qService.tokenHttpGet(rawFactory.query,{tableName:'waterIndustryData'});
-    promise1.then(function(rc2) {
 
-        console.log(rc2.data);
-
-    });
 
     var promise3 = qService.tokenHttpGet(rawFactory.query,{tableName:'waterQualityData'});
     promise3.then(function(rc4) {
@@ -44,6 +39,16 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
       $scope.list8=rc3.data[7];
       $scope.list9=rc3.data[8];
       $scope.list10=rc3.data[9];
+      $scope.list11=rc3.data[10];
+      $scope.list12=rc3.data[11];
+      $scope.list13=rc3.data[12];
+      $scope.list14=rc3.data[13];
+      $scope.list15=rc3.data[14];
+      $scope.list16=rc3.data[10];
+      $scope.list17=rc3.data[11];
+      $scope.list18=rc3.data[12];
+      $scope.list19=rc3.data[13];
+      $scope.list20=rc3.data[14];
       $scope.date=rc3.data[0];
       $scope.changePollutionType1 = !$scope.changePollutionType1
 
@@ -256,7 +261,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                 series: [{
                     name: '氨氮浓度',
                     color: "#7cb5ec",
-                    data: [0.18, 0.59, 1.04, 0.11, 0.85]
+                    data: [$scope.list11[0],$scope.list12[0], $scope.list13[0], $scope.list14[0], $scope.list15[0]]
 
                 }]
         };
@@ -323,7 +328,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                 series: [{
                     name: '总磷浓度',
                     color: "#7cb5ec",
-                    data: [0.09, 0.18, 0.1, 0.06, 0.16]
+                    data: [$scope.list16[0], $scope.list17[0], $scope.list18[0], $scope.list19[0], $scope.list20[0]]
 
                 }]
         };
@@ -477,71 +482,81 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
     
     
     //第三个框highchart
+    var promise1 = qService.tokenHttpGet(rawFactory.query,{tableName:'waterIndustryData'});
+    promise1.then(function(rc2) {
 
-$scope.factory={
-    options:{
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: '工厂废水排放'
-        },
-        subtitle: {
-            text: '来源：太仓市环保局'
-        },
-        xAxis: {
-            categories: [
-                '3月5日',
-                '3月6日',
-                '3月7日',
-                '3月8日',
-                '3月9日',
-                '3月10日',
-                '3与11日',
-              
-            ]
-        },
-        yAxis: {
-            min: 0,
+        console.log(rc2.data);
+        $scope.list11=rc2.data[0];
+        $scope.list12=rc2.data[1];
+        $scope.list13=rc2.data[2];
+        $scope.list14=rc2.data[3];
+        $scope.list15=rc2.data[4];
+
+ 
+    $scope.factory={
+        options:{
+            chart: {
+                type: 'column'
+            },
             title: {
-                text: '吨'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        }},
-        series: [{
-            name: '玖龙纸业有限公司',
-            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6]
+                text: '工厂废水排放'
+            },
+            subtitle: {
+                text: '来源：太仓市环保局'
+            },
+            xAxis: {
+                categories: [
+                    '3月5日',
+                    '3月6日',
+                    '3月7日',
+                    '3月8日',
+                    '3月9日',
+                    '3月10日',
+                    '3与11日',
+                  
+                ]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '吨'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            }},
+            series: [{
+                name: '太仓市佳煌针织印染有限公司',
+                data: $scope.list11
 
-        }, {
-            name: '太仓振辉化纤有限公司',
-            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0]
+            }, {
+                name: '洛克伍德染料有限公司',
+                data: $scope.list12
 
-        }, {
-            name: '申久化纤有限公司',
-            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0]
+            }, {
+                name: '太仓虹盛印染厂',
+                data: $scope.list13
 
-        }, {
-            name: '舍弗勒(中共)有限公司',
-            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4]
+            }, {
+                name: '太仓市金佳漂染厂',
+                data: $scope.list14
 
-        }, {
-            name: '太仓协鑫光伏科技有限公司',
-            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4]
+            }, {
+                name: '江苏长乐纤维科技有限公司',
+                data: $scope.list15
 
-        }]
+            }]
     };            
 
     //列表展示
@@ -551,16 +566,18 @@ $scope.factory={
     $scope.totaldata = { 
     tabledata:
     [
-      {yearvalue:'日期',JLfactory:'玖龙纸业有限公司' ,Afactory:'工厂A',Bfactory:'工厂B',Cfactory:'工厂C',Dfactory:'工厂D'},
-      {yearvalue:'1月9日',JLfactory:'49.9',Afactory:'83.6',Bfactory:'48.9',Cfactory:'42.4',Dfactory:'42.4'},
-      {yearvalue:'1月10日',JLfactory:'71.5', Afactory:'78.8',Bfactory:'38.8',Cfactory:'33.2',Dfactory:'33.2'},
-      {yearvalue:'1月11日', JLfactory:'106.4',Afactory:'98.5',Bfactory:'39.3',Cfactory:'34.5',Dfactory:'54.8'},
-      {yearvalue:'1月12日', JLfactory:'129.2',Afactory:'93.4',Bfactory:'41.4',Cfactory:'39.7',Dfactory:'106.5'},
-      {yearvalue:'1月13日', JLfactory:'144.0',Afactory:'106.0',Bfactory:'47.0',Cfactory:'52.6',Dfactory:'78.2'},
-      {yearvalue:'1月14日', JLfactory:'176.0',Afactory:'84.5',Bfactory:'48.3',Cfactory:'75.5',Dfactory:'68.5'},
-      {yearvalue:'1月15日', JLfactory:'135.6',Afactory:'105.0',Bfactory:'59.0',Cfactory:'57.4',Dfactory:'112.5'}
+      {yearvalue:'日期',JLfactory:'太仓市佳煌针织印染有限公司' ,Afactory:'洛克伍德燃料有限公司',Bfactory:'太仓虹盛印染厂',Cfactory:'太仓市金佳漂染厂',Dfactory:'江苏长乐纤维科技有限公司'},
+      {yearvalue:'1月9日',JLfactory:$scope.list11[0],Afactory:$scope.list12[0],Bfactory:$scope.list13[0],Cfactory:$scope.list14[0],Dfactory:$scope.list15[0]},
+      {yearvalue:'1月10日',JLfactory:$scope.list11[1], Afactory:$scope.list12[1],Bfactory:$scope.list13[1],Cfactory:$scope.list14[1],Dfactory:$scope.list15[1]},
+      {yearvalue:'1月11日', JLfactory:$scope.list11[2],Afactory:$scope.list12[2],Bfactory:$scope.list13[2],Cfactory:$scope.list14[2],Dfactory:$scope.list15[2]},
+      {yearvalue:'1月12日', JLfactory:$scope.list11[3],Afactory:$scope.list12[3],Bfactory:$scope.list13[3],Cfactory:$scope.list14[3],Dfactory:$scope.list15[3]},
+      {yearvalue:'1月13日', JLfactory:$scope.list11[4],Afactory:$scope.list12[4],Bfactory:$scope.list13[4],Cfactory:$scope.list14[4],Dfactory:$scope.list15[4]},
+      {yearvalue:'1月14日', JLfactory:$scope.list11[5],Afactory:$scope.list12[5],Bfactory:$scope.list13[5],Cfactory:$scope.list14[5],Dfactory:$scope.list15[5]},
+      {yearvalue:'1月15日', JLfactory:$scope.list11[6],Afactory:$scope.list12[6],Bfactory:$scope.list13[6],Cfactory:$scope.list14[6],Dfactory:$scope.list15[6]}
     ]
   };
+
+     });
 
     // 牛哥代码
     // app.controller('WaterEnvironmentBICtrl', function($scope, $http, $timeout) {
@@ -1318,23 +1335,23 @@ $scope.factory={
     };
     $scope.button_recommend = function() {
         var dataTemp = {
-		  waterQuality: transferWaterQuality($scope.waterQualityAnalysisMarker),
-		  waterPollutions: transferWaterPollutions($scope.wasteModelList)
-		};
+          waterQuality: transferWaterQuality($scope.waterQualityAnalysisMarker),
+          waterPollutions: transferWaterPollutions($scope.wasteModelList)
+        };
     
-		$.isLoading();
-		$timeout(function() {
-		  $.isLoading('hide');
-		  for (var i = 0; i < $scope.wasteModelList.length; i++) {
-		      $scope.wasteModelList[i].dischargeChange = parseInt(80 + Math.random()*15);
-		      $scope.wasteModelList[i].codChange = parseInt(70 + Math.random()*30);
-		      $scope.wasteModelList[i].nh4nChange = parseInt(50 + Math.random()*50);
-		      $scope.wasteModelList[i].pChange = parseInt(90 + Math.random()*10);
-		    }
-		  
+        $.isLoading();
+        $timeout(function() {
+          $.isLoading('hide');
+          for (var i = 0; i < $scope.wasteModelList.length; i++) {
+              $scope.wasteModelList[i].dischargeChange = parseInt(80 + Math.random()*15);
+              $scope.wasteModelList[i].codChange = parseInt(70 + Math.random()*30);
+              $scope.wasteModelList[i].nh4nChange = parseInt(50 + Math.random()*50);
+              $scope.wasteModelList[i].pChange = parseInt(90 + Math.random()*10);
+            }
+          
 
-		 
-		}, 1000);
+         
+        }, 1000);
     };
     $scope.source_predict = function() {
         $.isLoading();
@@ -1348,9 +1365,9 @@ $scope.factory={
 
 
    //          var promiseWaterBI = qService.tokenHttpPost(biFactory.waterBiPredict, null,dataTemp);
-			// promiseWaterBI.then(function(data) {
+            // promiseWaterBI.then(function(data) {
             //   $scope.predict_waterquality = data.data;
-				$scope.predict_waterquality = predictProcess(dataTemp.waterQuality);
+                $scope.predict_waterquality = predictProcess(dataTemp.waterQuality);
                 console.log($scope.predict_waterquality);
                 var chartWaterQualityo2 = new Highcharts.Chart({
                     chart: {
@@ -1769,7 +1786,7 @@ $scope.factory={
                     }
                 });
                 $('#Modal_Predict').modal();
-			// });
+            // });
 
 
             // $http.post("/waterEnvironmentAnalysis/predict", dataTemp).success(function(data) {
