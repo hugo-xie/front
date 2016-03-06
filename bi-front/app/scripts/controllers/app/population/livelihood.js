@@ -176,6 +176,7 @@ if(tchrGrntOne.name==="高中"){
   };    
  $scope.change5=function(bttn){
     if(bttn.name===2025){
+        
         $scope.money.options.xAxis[0].categories=$scope.firstTenYear;
     }
     if(bttn.name===2035){

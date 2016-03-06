@@ -817,16 +817,25 @@ app.controller('PopulationStructureCtrl', ['$scope','$stateParams','qService','f
    console.log(popData12);
    console.log(sumFemale5);
 
-   
+
+
+
+
+
+
+
+
+
+
 
   var columnColors = new Array( '#87CEFA','#929bce','#0787C8', '#465296');
   var pieColors = new Array('#3795BC', '#FB9705');  //'#0787C8', '#1FC22B'
 
 
-  var promise1 = qService.tokenHttpGet(forecastFactory.query,{tableName:'birthrateData'});
-    promise1.then(function(rc1) {
+  //var promise1 = qService.tokenHttpGet(forecastFactory.query,{tableName:'birthrateData'});
+  //  promise1.then(function(rc1) {
 
-    console.log(rc1.data);
+ //   console.log(rc1.data);
   
   
 
@@ -1107,7 +1116,7 @@ var points =[
 
  */
 
-});
+//});
 
  
   $scope.buttonMap = [{
@@ -1338,92 +1347,7 @@ var points =[
             }]
      }
   };
-   $scope.btn_click1=function(btn){
-    $scope.change1(btn);
-  };
-  $scope.change1=function(btn){
-    if(btn.name===2025){
-        document.getElementById('a').innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 总体来看，太仓市的人口总量处于平稳状态，呈增长趋势，随着二胎政策的全面开放，促进了人口数量的增加。";
-    $scope.sumpopulation.options.xAxis[0].categories=['2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'];
-    $scope.sumpopulation.options.title.text="太仓市2016年到2025年常住人口人口总量预测趋势图";
-    $scope.sumpopulation.series=[{
-            name: '人口总量',
-            type: 'column',
-            yAxis: 1,
-            color: "#7CB5EC",
-            data: [747046, 750908, 754570, 757963, 761066, 763863, 766970, 769950, 772652, 775038],
-            tooltip: {
-                valueSuffix: '人'
-            }
-
-        }, {
-            name: '人口增长率',
-            type: 'spline',
-             color: "#434348",
-            data: [0.21, 0.23, 0.25, 0.27, 0.33, 0.37, 0.40, 0.37, 0.44, 0.41],
-            marker:{
-                symbol:"circle"
-            },
-            tooltip: {
-                valueSuffix: '%'
-            }
-        }];
-     }
-     if(btn.name===2035){
-        document.getElementById('a').innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 总体来看，太仓市的人口总量处于平稳状态，呈增长趋势，随着二胎政策的全面开放，促进了人口数量的增加。2035年的人口增长率1.17%相比2026年的0.86%有了小幅度的增长。";
-        $scope.sumpopulation.options.xAxis[0].categories=['2026','2027','2028','2029','2030','2031','2032','2033','2034','2035'];
-        $scope.sumpopulation.options.title.text="太仓市2026年到2035年常住人口人口总量预测趋势图";
-    $scope.sumpopulation.series=[{
-            name: '人口总量',
-            type: 'column',
-            yAxis: 1,
-            color: "#7CB5EC",
-            data: [803463, 808465, 813319, 818001, 822475, 826754, 831251, 835567, 839655, 843482],
-            tooltip: {
-                valueSuffix: '人'
-            }
-
-        }, {
-            name: '人口增长率',
-            type: 'spline',
-            color: "#434348",
-            data: [0.46, 0.40, 0.46, 0.53, 0.49,0.54, 0.51, 0.46, 0.52, 0.47],
-            marker:{
-                symbol:"circle"
-            },
-            tooltip: {
-                valueSuffix: '%'
-            }
-        }];
-     }
-     if(btn.name===2045){
-    document.getElementById('a').innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 总体来看，太仓市的人口总量处于平稳状态，呈增长趋势，随着二胎政策的全面开放，促进了人口数量的增加。2045年的人口增长率1.54%相比2036年的1.22%有了小幅度的增长。";
-     $scope.sumpopulation.options.xAxis[0].categories=['2036','2037','2038','2039','2040','2041','2042','2043','2044','2045'];
-        $scope.sumpopulation.options.title.text="太仓市2036年到2045年常住人口人口总量预测趋势图";
-    $scope.sumpopulation.series=[{
-            name: '人口总量',
-            type: 'column',
-            yAxis: 1,
-            color: "#7CB5EC",
-            data: [850441, 856081, 861654, 867106, 872420, 877676, 883104, 888418, 893579, 898577],
-            tooltip: {
-                valueSuffix: '人'
-            }
-
-        }, {
-            name: '人口增长率',
-            type: 'spline',
-            color: "#434348",
-            data: [0.42, 0.41,0.45, 0.43, 0.47, 0.42, 0.39, 0.43, 0.49, 0.54],
-            marker:{
-                symbol:"circle"
-            },
-            tooltip: {
-                valueSuffix: '%'
-            }
-        }];
-     }
-  };
+   
   $scope.age_ration={
     options:{
         colors:columnColors,
@@ -1653,6 +1577,185 @@ $scope.population_year={
                 data: female20
             }]
     };
+ });  
+
+var sumData;
+var promise2 = qService.tokenHttpGet(forecastFactory.query,{tableName:'sumPopulationData'});
+    
+   // var promise = qService.tokenHttpGet(forecastFactory.query,{tableName:'populationStructurePreData'});
+    promise2.then(function(rc2) {
+
+    console.log(rc2.data);
+    var sumData=rc2.data;
+    //第二张图
+          var sum16=0;
+          var sum17=0;
+          var sum18=0;
+          var sum19=0;
+          var sum20=0;
+          var sum21=0;
+          var sum22=0;
+          var sum23=0;
+          var sum24=0;
+          var sum25=0;
+          var sum1=[];
+   for(var i=0;i<sumData.length;i++){
+            if(sumData[i].year===2016){
+               sum16=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2017){
+               sum17=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2018){
+               sum18=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2019){
+               sum19=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2020){
+               sum20=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2021){
+               sum21=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2022){
+               sum22=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2023){
+               sum23=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2024){
+               sum24=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2025){
+               sum25=sumData[i].sumPopulation;
+            }
+          }
+      sum1.push(sum16);
+      sum1.push(sum17);
+      sum1.push(sum18);
+      sum1.push(sum19);
+      sum1.push(sum20);
+      sum1.push(sum21);
+      sum1.push(sum22);
+      sum1.push(sum23);
+      sum1.push(sum24);
+      sum1.push(sum25);
+
+      console.log(sum1);
+      
+
+          var sum26=0;
+          var sum27=0;
+          var sum28=0;
+          var sum29=0;
+          var sum30=0;
+          var sum31=0;
+          var sum32=0;
+          var sum33=0;
+          var sum34=0;
+          var sum35=0;
+          var sum2=[];
+   for(var i=0;i<sumData.length;i++){
+            if(sumData[i].year===2026){
+               sum26=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2027){
+               sum27=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2028){
+               sum28=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2029){
+               sum29=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2030){
+               sum30=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2031){
+               sum31=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2032){
+               sum32=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2033){
+               sum33=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2034){
+               sum34=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2035){
+               sum35=sumData[i].sumPopulation;
+            }
+          }
+      sum2.push(sum26);
+      sum2.push(sum27);
+      sum2.push(sum28);
+      sum2.push(sum29);
+      sum2.push(sum30);
+      sum2.push(sum31);
+      sum2.push(sum32);
+      sum2.push(sum33);
+      sum2.push(sum34);
+      sum2.push(sum35);
+
+      console.log(sum2);
+
+          var sum36=0;
+          var sum37=0;
+          var sum38=0;
+          var sum39=0;
+          var sum40=0;
+          var sum41=0;
+          var sum42=0;
+          var sum43=0;
+          var sum44=0;
+          var sum45=0;
+          var sum3=[];
+   for(var i=0;i<sumData.length;i++){
+            if(sumData[i].year===2036){
+               sum36=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2037){
+               sum37=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2038){
+               sum38=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2039){
+               sum39=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2040){
+               sum40=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2041){
+               sum41=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2042){
+               sum42=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2043){
+               sum43=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2044){
+               sum44=sumData[i].sumPopulation;
+            }
+            if(sumData[i].year===2045){
+               sum45=sumData[i].sumPopulation;
+            }
+          }
+      sum3.push(sum36);
+      sum3.push(sum37);
+      sum3.push(sum38);
+      sum3.push(sum39);
+      sum3.push(sum40);
+      sum3.push(sum41);
+      sum3.push(sum42);
+      sum3.push(sum43);
+      sum3.push(sum44);
+      sum3.push(sum45);
+
+      console.log(sum3);
 $scope.sumpopulation={
     options:{
       //  colors:lineColors,
@@ -1722,7 +1825,7 @@ $scope.sumpopulation={
             type: 'column',
             yAxis: 1,
             color: "#7CB5EC",
-            data: [747046, 750908, 754570, 757963, 761066, 763863, 766970, 769950, 772652, 775038],
+            data: sum1,
             tooltip: {
                 valueSuffix: '人'
             }
@@ -1740,6 +1843,92 @@ $scope.sumpopulation={
             }
         }]
       };
+      $scope.btn_click1=function(btn){
+    $scope.change1(btn);
+  };
+  $scope.change1=function(btn){
+    if(btn.name===2025){
+        document.getElementById('a').innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 总体来看，太仓市的人口总量处于平稳状态，呈增长趋势，随着二胎政策的全面开放，促进了人口数量的增加。";
+    $scope.sumpopulation.options.xAxis[0].categories=['2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'];
+    $scope.sumpopulation.options.title.text="太仓市2016年到2025年常住人口人口总量预测趋势图";
+    $scope.sumpopulation.series=[{
+            name: '人口总量',
+            type: 'column',
+            yAxis: 1,
+            color: "#7CB5EC",
+            data: sum1,
+            tooltip: {
+                valueSuffix: '人'
+            }
 
-     });  
+        }, {
+            name: '人口增长率',
+            type: 'spline',
+             color: "#434348",
+            data: [0.21, 0.23, 0.25, 0.27, 0.33, 0.37, 0.40, 0.37, 0.44, 0.41],
+            marker:{
+                symbol:"circle"
+            },
+            tooltip: {
+                valueSuffix: '%'
+            }
+        }];
+     }
+     if(btn.name===2035){
+        document.getElementById('a').innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 总体来看，太仓市的人口总量处于平稳状态，呈增长趋势，随着二胎政策的全面开放，促进了人口数量的增加。2035年的人口增长率1.17%相比2026年的0.86%有了小幅度的增长。";
+        $scope.sumpopulation.options.xAxis[0].categories=['2026','2027','2028','2029','2030','2031','2032','2033','2034','2035'];
+        $scope.sumpopulation.options.title.text="太仓市2026年到2035年常住人口人口总量预测趋势图";
+    $scope.sumpopulation.series=[{
+            name: '人口总量',
+            type: 'column',
+            yAxis: 1,
+            color: "#7CB5EC",
+            data: sum2,
+            tooltip: {
+                valueSuffix: '人'
+            }
+
+        }, {
+            name: '人口增长率',
+            type: 'spline',
+            color: "#434348",
+            data: [0.46, 0.40, 0.46, 0.53, 0.49,0.54, 0.51, 0.46, 0.52, 0.47],
+            marker:{
+                symbol:"circle"
+            },
+            tooltip: {
+                valueSuffix: '%'
+            }
+        }];
+     }
+     if(btn.name===2045){
+    document.getElementById('a').innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 总体来看，太仓市的人口总量处于平稳状态，呈增长趋势，随着二胎政策的全面开放，促进了人口数量的增加。2045年的人口增长率1.54%相比2036年的1.22%有了小幅度的增长。";
+     $scope.sumpopulation.options.xAxis[0].categories=['2036','2037','2038','2039','2040','2041','2042','2043','2044','2045'];
+        $scope.sumpopulation.options.title.text="太仓市2036年到2045年常住人口人口总量预测趋势图";
+    $scope.sumpopulation.series=[{
+            name: '人口总量',
+            type: 'column',
+            yAxis: 1,
+            color: "#7CB5EC",
+            data: sum3,
+            tooltip: {
+                valueSuffix: '人'
+            }
+
+        }, {
+            name: '人口增长率',
+            type: 'spline',
+            color: "#434348",
+            data: [0.42, 0.41,0.45, 0.43, 0.47, 0.42, 0.39, 0.43, 0.49, 0.54],
+            marker:{
+                symbol:"circle"
+            },
+            tooltip: {
+                valueSuffix: '%'
+            }
+        }];
+     }
+  };
+});
+    
 }]);
