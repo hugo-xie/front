@@ -918,6 +918,7 @@ $scope.openorclose='↓展开';
   promise1.then(function(rc1) {
 
     $scope.line_aqi=rc1.data[0];
+    $scope.line_pm25=rc1.data[1];
     $scope.airQualityOptions = {
 
           aqiOption:{
@@ -1788,7 +1789,6 @@ $scope.openorclose='↓展开';
                 series: [{
                     name: 'AQI',
                     data: $scope.line_aqi
-                    // data: $scope.line_aqi
                 }]
 
             },
@@ -1863,7 +1863,7 @@ $scope.openorclose='↓展开';
                 },
                 series: [{
                     name: 'PM2.5',
-                    data: [52,56,65,58,52,55,40,55,60,49,57,64]
+                    data: $scope.line_pm25
                 }],
             },
 
