@@ -44,12 +44,14 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
       $scope.list13=rc3.data[12];
       $scope.list14=rc3.data[13];
       $scope.list15=rc3.data[14];
-      $scope.list16=rc3.data[10];
-      $scope.list17=rc3.data[11];
-      $scope.list18=rc3.data[12];
-      $scope.list19=rc3.data[13];
-      $scope.list20=rc3.data[14];
-      $scope.date=rc3.data[0];
+      $scope.list16=rc3.data[15];
+      $scope.list17=rc3.data[16];
+      $scope.list18=rc3.data[17];
+      $scope.list19=rc3.data[18];
+      $scope.list20=rc3.data[19];
+      $scope.date=rc3.data[20];
+      $scope.date1=rc3.data[21];
+
       $scope.changePollutionType1 = !$scope.changePollutionType1
 
     $scope.changePollutionType1=function(){
@@ -63,7 +65,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                 text: '太仓市主要污水处理厂废水排放分析'
             },
             xAxis: {
-                categories: $scope.date
+                categories: $scope.date1
             },
             yAxis: {
                 min: 0,
@@ -152,7 +154,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                     }
                 },
                 subtitle: {
-                    text: '2016年1月8日9时',
+                    text: $scope.date,
                     style: {
                         fontWeight: 'normal',
                         fontSize: 'larger',
@@ -221,7 +223,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                     }
                 },
                 subtitle: {
-                    text: '2016年1月8日9时',
+                    text: $scope.date,
                     style: {
                         fontWeight: 'normal',
                         fontSize: 'larger',
@@ -288,7 +290,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                     }
                 },
                 subtitle: {
-                    text: '2016年1月8日9时',
+                    text: $scope.date,
                     style: {
                         fontWeight: 'normal',
                         fontSize: 'larger',
@@ -357,7 +359,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                     }
                 },
                 subtitle: {
-                    text: '2016年1月8日9时',
+                    text: $scope.date,
                       style: {
                         fontWeight: 'normal',
                         fontSize: 'larger',
