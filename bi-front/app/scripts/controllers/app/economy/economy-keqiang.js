@@ -21,7 +21,7 @@ app.controller('EconomyKeqiangCtrl', ['$scope','$stateParams','qService','foreca
   $scope.loandata=[6.3, 6.6, 6.5, 7.0,7.4,7.5,7.1,6.8,7.5,8.0,8.1,8.6];
   $scope.transdata=[6.3, 6.6, 6.5, 7.0,7.4,7.5,7.1,6.8,7.5,8.0,8.1,8.6];
   $scope.elecdata=[6.3, 6.6, 6.5, 7.0,7.4,7.5,7.1,6.8,7.5,8.0,8.1,8.6];
-  $scope.keqiangdata=[6.3, 6.6, 6.5, 7.0];
+  $scope.keqiangdata=[6.9, 7.2, 6.8, 6.4];
   $scope.range=function(){
     return $scope.selectedRange;
   };
@@ -75,9 +75,12 @@ $scope.range2=function(){
             type:'spline'
         },
     },
+     credits:{
+                enabled:false,
+            },
     title: 
     {
-        text: '本年度“克强指数”走势',
+        text: '2015年度“克强指数”走势',
         style:{
         fontWeight:'bold'
       }
@@ -146,6 +149,9 @@ $scope.keqiangChart={
             type:'spline'
         },
     },
+     credits:{
+                enabled:false,
+            },
     title: 
     {
         text: '“克强指数”拟合GDP增长率',
@@ -157,20 +163,20 @@ $scope.keqiangChart={
     xAxis: 
     {
         categories: ['一季度', '二季度', '三季度', '四季度'],
-         plotBands:[{
-            from: 2.5,
-            to:4,
-            color:'rgba(68, 170, 213, .2)',
-            label: {
-                    text: '预测区',
-                    verticalAlign: 'top',
-                    style: {
-                        fontSize: '12px',
-                        fontWeight: 600
-                    }
+         // plotBands:[{
+         //    from: 2.5,
+         //    to:4,
+         //    color:'rgba(68, 170, 213, .2)',
+         //    // label: {
+         //    //         text: '预测区',
+         //    //         verticalAlign: 'top',
+         //    //         style: {
+         //    //             fontSize: '12px',
+         //    //             fontWeight: 600
+         //    //         }
                    
-                }
-            }]
+         //    //     }
+         //    }]
     },
     yAxis: 
     {
@@ -197,7 +203,7 @@ $scope.keqiangChart={
     },
     series:[{
         name: 'GDP实际增长率',
-        data: [7.9, 8.1, 7.5, null]
+        data: [7.9, 8.1, 7.5, 7.2]
         }, {
         name: '“克强指数”拟合GDP增长率',
         data: $scope.keqiangdata
@@ -210,6 +216,9 @@ $scope.loanChart = {
             type: 'column'
         }
     },
+     credits:{
+                enabled:false,
+            },
     series: [{
         name: '真实值',
         data: [7.9, 8.1, 7.5, 7.7,7.2,7.4,7.6,7.1,7.9,8.2,8.3,null]
@@ -241,9 +250,12 @@ $scope.transChart = {
             type: 'column'
         }
     },
+     credits:{
+                enabled:false,
+            },
     series: [{
         name: '真实值',
-        data: [7.9, 8.1, 7.5, 7.7,7.2,7.4,7.6,7.1,7.9,8.2,8.3,null]
+        data: [ 8.1,7.9, 7.5, 8.3,7.2,7.9,7.7,7.4,7.6,7.1,8.2,null]
     },{
         name: '预测值',
         type:'line',
@@ -269,9 +281,12 @@ $scope.elecChart = {
             type: 'column'
         }
     },
+     credits:{
+                enabled:false,
+            },
     series: [{
         name: '真实值',
-        data: [7.9, 8.1, 7.5, 7.7,7.2,7.4,7.6,7.1,7.9,8.2,8.3,null]
+        data: [7.9, 8.1, 7.1,7.9,8.2,8.3,7.5, 7.7,7.2,7.4,7.6,null]
     },{
         name: '预测值',
         type:'line',

@@ -200,25 +200,25 @@ app.controller('EconomyGdpCtrl', ['$scope','$stateParams','qService','forecastFa
             xAxis: {
                categories: [
                     '第一季度',
-                    '',
+                    '第二季度',
                     '第三季度',
-                    ''
+                    '第四季度'
                     
                 ],
-                 plotBands:[{
-                from: 2.5,
-                to:3.5,
-                color:'rgba(68, 170, 213, .2)',
-                label: {
-                        text: '预测区',
-                        verticalAlign: 'top',
-                        style: {
-                            fontSize: '12px',
-                            fontWeight: 600
-                        }
+                //  plotBands:[{
+                // from: 2.5,
+                // to:3.5,
+                // color:'rgba(68, 170, 213, .2)',
+                // label: {
+                //         text: '预测区',
+                //         verticalAlign: 'top',
+                //         style: {
+                //             fontSize: '12px',
+                //             fontWeight: 600
+                //         }
                        
-                    }
-                }]
+                //     }
+                // }]
             },
             yAxis: [{
                 min: 0,
@@ -228,7 +228,7 @@ app.controller('EconomyGdpCtrl', ['$scope','$stateParams','qService','forecastFa
                  plotLines:[{
                 color:'red',
                 dashStyle:'DashDot',
-                value:1150,
+                value:1050,
                 width:2,
                 label:{
                     text:'本年度GDP目标',
@@ -362,7 +362,7 @@ app.controller('EconomyGdpCtrl', ['$scope','$stateParams','qService','forecastFa
                 data: $scope.firstindustryvalue
 
             }, {
-                
+                color:'#2E8B57',
                 name: '第二产业',
                 data: $scope.secondindustryvalue
 
@@ -388,9 +388,9 @@ app.controller('EconomyGdpCtrl', ['$scope','$stateParams','qService','forecastFa
             xAxis: {
                 categories: [
                     '第一季度',
-                    '',
+                    '第二季度',
                     '第三季度',
-                    ''
+                    '第四季度'
                     
                 ]
             },
