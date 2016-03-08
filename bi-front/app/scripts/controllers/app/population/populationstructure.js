@@ -856,7 +856,7 @@ AMap.plugin(['AMap.ToolBar','AMap.Scale'],function(){
 
 
  var marker1 = new AMap.Marker({
-        position: [121.046329, 31.471813],   //新湖镇
+        position: [121.20748, 31.622211],   //浮桥镇  121.20748,31.622211
         map:map,
         icon: new AMap.Icon({            
           size: new AMap.Size(40, 50),  //图标大小
@@ -867,7 +867,7 @@ AMap.plugin(['AMap.ToolBar','AMap.Scale'],function(){
     // 设置鼠标划过点标记显示的文字提示
     marker1.setTitle('');
 var infow=[];
-infow.push("<div style='background-color:#FFFFFF;border:2px solid #CC0033;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#CC0033;font-size:18px'>新湖镇</div>")
+infow.push("<div style='background-color:#FFFFFF;border:2px solid #CC0033;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#CC0033;font-size:18px'>浮桥镇</div>")
     // 设置label标签
     marker1.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
         offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
@@ -888,8 +888,8 @@ infow5.push("<div style='background-color:#FFFFFF;border:2px solid #66cc66;borde
         offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
         content: infow5.join('')
     });
- var marker4 = new AMap.Marker({            //板桥镇
-        position: [121.134911, 31.491627],
+ var marker4 = new AMap.Marker({            //城厢镇
+        position: [121.1124,31.456376],
         map:map,
         icon: new AMap.Icon({            
           size: new AMap.Size(40, 50),  //图标大小
@@ -897,7 +897,7 @@ infow5.push("<div style='background-color:#FFFFFF;border:2px solid #66cc66;borde
         })
     });
   var infow4=[];
-infow4.push("<div style='background-color:#FFFFFF;border:2px solid #CC0033;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#CC0033;font-size:18px'>板桥镇</div>")
+infow4.push("<div style='background-color:#FFFFFF;border:2px solid #CC0033;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#CC0033;font-size:18px'>城厢镇</div>")
     // 设置label标签
     marker4.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
         offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
@@ -934,7 +934,7 @@ infow3.push("<div style='background-color:#FFFFFF;border:2px solid #66cc66;borde
         content: infow3.join('')
     });
    var marker6 = new AMap.Marker({
-        position: [121.190549, 31.467665],  //陆渡镇
+        position: [121.036167,31.519103],  //双凤镇
         map:map,
         icon: new AMap.Icon({            
           size: new AMap.Size(40, 50),  //图标大小
@@ -942,7 +942,7 @@ infow3.push("<div style='background-color:#FFFFFF;border:2px solid #66cc66;borde
         })
     });
    var infow6=[];
-infow6.push("<div style='background-color:#FFFFFF;border:2px solid #66cc66;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#66cc66;font-size:18px'>陆渡镇</div>")
+infow6.push("<div style='background-color:#FFFFFF;border:2px solid #66cc66;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#66cc66;font-size:18px'>双凤镇</div>")
     // 设置label标签
     marker6.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
         offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
@@ -963,9 +963,67 @@ infow7.push("<div style='background-color:#FFFFFF;border:2px solid #CC0033;borde
         offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
         content: infow7.join('')
     });
+
+var marker8 = new AMap.Marker({
+        position: [121.126845,31.434877],   //科教新城  121.20748,31.622211
+        map:map,
+        icon: new AMap.Icon({            
+          size: new AMap.Size(40, 50),  //图标大小
+          image: "/images/marker_sprite.png",
+        })        
+    });
+ marker8.setMap(map);
+    // 设置鼠标划过点标记显示的文字提示
+    marker8.setTitle('');
+var infow=[];
+infow.push("<div style='background-color:#FFFFFF;border:2px solid #CC0033;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#CC0033;font-size:18px'>科教新城</div>")
+    // 设置label标签
+    marker8.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
+        offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
+        content: infow.join('')
+    });
+
+var marker9 = new AMap.Marker({
+        position: [121.132514,31.479037],   //新区  121.20748,31.622211
+        map:map,
+        icon: new AMap.Icon({            
+          size: new AMap.Size(40, 50),  //图标大小
+          image: "/images/marker_sprite.png",
+        })        
+    });
+ marker9.setMap(map);
+    // 设置鼠标划过点标记显示的文字提示
+    marker9.setTitle('');
+var infow=[];
+infow.push("<div style='background-color:#FFFFFF;border:2px solid #CC0033;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#CC0033;font-size:18px'>新区</div>")
+    // 设置label标签
+    marker9.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
+        offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
+        content: infow.join('')
+    });
+
+var marker10 = new AMap.Marker({
+        position: [121.212609,31.600756],   //港区  121.20748,31.622211
+        map:map,
+        icon: new AMap.Icon({            
+          size: new AMap.Size(40, 50),  //图标大小
+          image: "/images/marker_sprite.png",
+        })        
+    });
+ marker10.setMap(map);
+    // 设置鼠标划过点标记显示的文字提示
+    marker10.setTitle('');
+var infow=[];
+infow.push("<div style='background-color:#FFFFFF;border:2px solid #CC0033;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#CC0033;font-size:18px'>港区</div>")
+    // 设置label标签
+    marker10.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
+        offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
+        content: infow.join('')
+    });
+
 //显示信息窗体(可单击位置显示隐藏的信息窗体)
 var info1=[];
-   info1.push("<h4><strong>新湖镇人口自然增长率</strong></h4>");
+   info1.push("<h4><strong>浮桥镇人口自然增长率</strong></h4>");//121.20748,31.622211
     info1.push("<table class='table table-bordered table-striped'>");
     info1.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>6.31‰</td></tr>");
     info1.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>6.34‰</td></tr>");
@@ -1014,7 +1072,7 @@ var clickHandle3 = AMap.event.addListener(marker3, 'click', function() {
 })
 
 var info4=[];
-    info4.push("<h4><strong>板桥镇人口自然增长率</strong></h4>");
+    info4.push("<h4><strong>城厢镇人口自然增长率</strong></h4>");
     info4.push("<table class='table table-bordered table-striped'>");
     info4.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>7.54‰</td></tr>");
     info4.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>7.85‰</td></tr>");
@@ -1046,7 +1104,7 @@ var clickHandle5 = AMap.event.addListener(marker5, 'click', function() {
 })
 
 var info6=[];
-   info6.push("<h4><strong>陆渡镇人口自然增长率</strong></h4>");
+   info6.push("<h4><strong>双凤镇人口自然增长率</strong></h4>");
     info6.push("<table class='table table-bordered table-striped'>");
     info6.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>8.54‰</td></tr>");
     info6.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>8.24‰</td></tr>");
@@ -1061,7 +1119,7 @@ var clickHandle6 = AMap.event.addListener(marker6, 'click', function() {
     infowindow6.open(map, marker6.getPosition())
 })
 var info7=[];
-   info7.push("<h4><strong>璜泾镇人口自然增长率</strong></h4>");
+    info7.push("<h4><strong>璜泾镇人口自然增长率</strong></h4>");
     info7.push("<table class='table table-bordered table-striped'>");
     info7.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>8.34‰</td></tr>");
     info7.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>8.54‰</td></tr>");
@@ -1074,6 +1132,51 @@ var infowindow7 = new AMap.InfoWindow({
 })
 var clickHandle7 = AMap.event.addListener(marker7, 'click', function() {
     infowindow7.open(map, marker7.getPosition())
+})
+var info8=[];
+    info8.push("<h4><strong>科教新城人口自然增长率</strong></h4>");
+    info8.push("<table class='table table-bordered table-striped'>");
+    info8.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>8.34‰</td></tr>");
+    info8.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>8.54‰</td></tr>");
+    info8.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-0.2‰</td></tr>");
+    info8.push("</table>");
+var infowindow8 = new AMap.InfoWindow({
+     content: info8.join(''),
+     offset: new AMap.Pixel(0, -30),
+     size:new AMap.Size(300,0)
+})
+var clickHandle8 = AMap.event.addListener(marker8, 'click', function() {
+    infowindow8.open(map, marker8.getPosition())
+})
+var info9=[];
+    info9.push("<h4><strong>新区人口自然增长率</strong></h4>");
+    info9.push("<table class='table table-bordered table-striped'>");
+    info9.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>8.34‰</td></tr>");
+    info9.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>8.54‰</td></tr>");
+    info9.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-0.2‰</td></tr>");
+    info9.push("</table>");
+var infowindow9 = new AMap.InfoWindow({
+     content: info9.join(''),
+     offset: new AMap.Pixel(0, -30),
+     size:new AMap.Size(300,0)
+})
+var clickHandle9 = AMap.event.addListener(marker9, 'click', function() {
+    infowindow9.open(map, marker9.getPosition())
+})
+var info10=[];
+    info10.push("<h4><strong>港区人口自然增长率</strong></h4>");
+    info10.push("<table class='table table-bordered table-striped'>");
+    info10.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>8.34‰</td></tr>");
+    info10.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>8.54‰</td></tr>");
+    info10.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-0.2‰</td></tr>");
+    info10.push("</table>");
+var infowindow10 = new AMap.InfoWindow({
+     content: info10.join(''),
+     offset: new AMap.Pixel(0, -30),
+     size:new AMap.Size(300,0)
+})
+var clickHandle10 = AMap.event.addListener(marker10, 'click', function() {
+    infowindow10.open(map, marker10.getPosition())
 })
 //var heatmap;
 var points =[
@@ -1599,36 +1702,58 @@ var promise2 = qService.tokenHttpGet(forecastFactory.query,{tableName:'sumPopula
           var sum24=0;
           var sum25=0;
           var sum1=[];
+
+          var rate16=0;
+          var rate17=0;
+          var rate18=0;
+          var rate19=0;
+          var rate20=0;
+          var rate21=0;
+          var rate22=0;
+          var rate23=0;
+          var rate24=0;
+          var rate25=0;
+          var rate1=[];
    for(var i=0;i<sumData.length;i++){
             if(sumData[i].year===2016){
                sum16=sumData[i].sumPopulation;
+               rate16=sumData[i].popRate;
             }
             if(sumData[i].year===2017){
                sum17=sumData[i].sumPopulation;
+               rate17=sumData[i].popRate;
             }
             if(sumData[i].year===2018){
                sum18=sumData[i].sumPopulation;
+               rate18=sumData[i].popRate;
             }
             if(sumData[i].year===2019){
                sum19=sumData[i].sumPopulation;
+               rate19=sumData[i].popRate;
             }
             if(sumData[i].year===2020){
                sum20=sumData[i].sumPopulation;
+               rate20=sumData[i].popRate;
             }
             if(sumData[i].year===2021){
                sum21=sumData[i].sumPopulation;
+               rate21=sumData[i].popRate;
             }
             if(sumData[i].year===2022){
                sum22=sumData[i].sumPopulation;
+               rate22=sumData[i].popRate;
             }
             if(sumData[i].year===2023){
                sum23=sumData[i].sumPopulation;
+               rate23=sumData[i].popRate;
             }
             if(sumData[i].year===2024){
                sum24=sumData[i].sumPopulation;
+               rate24=sumData[i].popRate;
             }
             if(sumData[i].year===2025){
                sum25=sumData[i].sumPopulation;
+               rate25=sumData[i].popRate;
             }
           }
       sum1.push(sum16);
@@ -1641,6 +1766,17 @@ var promise2 = qService.tokenHttpGet(forecastFactory.query,{tableName:'sumPopula
       sum1.push(sum23);
       sum1.push(sum24);
       sum1.push(sum25);
+
+      rate1.push(rate16);
+      rate1.push(rate17);
+      rate1.push(rate18);
+      rate1.push(rate19);
+      rate1.push(rate20);
+      rate1.push(rate21);
+      rate1.push(rate22);
+      rate1.push(rate23);
+      rate1.push(rate24);
+      rate1.push(rate25);
 
       console.log(sum1);
       
@@ -1656,36 +1792,58 @@ var promise2 = qService.tokenHttpGet(forecastFactory.query,{tableName:'sumPopula
           var sum34=0;
           var sum35=0;
           var sum2=[];
+
+          var rate26=0;
+          var rate27=0;
+          var rate28=0;
+          var rate29=0;
+          var rate30=0;
+          var rate31=0;
+          var rate32=0;
+          var rate33=0;
+          var rate34=0;
+          var rate35=0;
+          var rate2=[];
    for(var i=0;i<sumData.length;i++){
             if(sumData[i].year===2026){
                sum26=sumData[i].sumPopulation;
+               rate26=sumData[i].popRate;
             }
             if(sumData[i].year===2027){
                sum27=sumData[i].sumPopulation;
+               rate27=sumData[i].popRate;
             }
             if(sumData[i].year===2028){
                sum28=sumData[i].sumPopulation;
+               rate28=sumData[i].popRate;
             }
             if(sumData[i].year===2029){
                sum29=sumData[i].sumPopulation;
+               rate29=sumData[i].popRate;
             }
             if(sumData[i].year===2030){
                sum30=sumData[i].sumPopulation;
+               rate30=sumData[i].popRate;
             }
             if(sumData[i].year===2031){
                sum31=sumData[i].sumPopulation;
+               rate31=sumData[i].popRate;
             }
             if(sumData[i].year===2032){
                sum32=sumData[i].sumPopulation;
+               rate32=sumData[i].popRate;
             }
             if(sumData[i].year===2033){
                sum33=sumData[i].sumPopulation;
+               rate33=sumData[i].popRate;
             }
             if(sumData[i].year===2034){
                sum34=sumData[i].sumPopulation;
+               rate34=sumData[i].popRate;
             }
             if(sumData[i].year===2035){
                sum35=sumData[i].sumPopulation;
+               rate35=sumData[i].popRate;
             }
           }
       sum2.push(sum26);
@@ -1698,6 +1856,17 @@ var promise2 = qService.tokenHttpGet(forecastFactory.query,{tableName:'sumPopula
       sum2.push(sum33);
       sum2.push(sum34);
       sum2.push(sum35);
+
+      rate2.push(rate26);
+      rate2.push(rate27);
+      rate2.push(rate28);
+      rate2.push(rate29);
+      rate2.push(rate30);
+      rate2.push(rate31);
+      rate2.push(rate32);
+      rate2.push(rate33);
+      rate2.push(rate34);
+      rate2.push(rate35);
 
       console.log(sum2);
 
@@ -1712,36 +1881,58 @@ var promise2 = qService.tokenHttpGet(forecastFactory.query,{tableName:'sumPopula
           var sum44=0;
           var sum45=0;
           var sum3=[];
+
+          var rate36=0;
+          var rate37=0;
+          var rate38=0;
+          var rate39=0;
+          var rate40=0;
+          var rate41=0;
+          var rate42=0;
+          var rate43=0;
+          var rate44=0;
+          var rate45=0;
+          var rate3=[];
    for(var i=0;i<sumData.length;i++){
             if(sumData[i].year===2036){
                sum36=sumData[i].sumPopulation;
+               rate36=sumData[i].popRate;
             }
             if(sumData[i].year===2037){
                sum37=sumData[i].sumPopulation;
+               rate37=sumData[i].popRate;
             }
             if(sumData[i].year===2038){
                sum38=sumData[i].sumPopulation;
+               rate38=sumData[i].popRate;
             }
             if(sumData[i].year===2039){
                sum39=sumData[i].sumPopulation;
+               rate39=sumData[i].popRate;
             }
             if(sumData[i].year===2040){
                sum40=sumData[i].sumPopulation;
+               rate40=sumData[i].popRate;
             }
             if(sumData[i].year===2041){
                sum41=sumData[i].sumPopulation;
+               rate41=sumData[i].popRate;
             }
             if(sumData[i].year===2042){
                sum42=sumData[i].sumPopulation;
+               rate42=sumData[i].popRate;
             }
             if(sumData[i].year===2043){
                sum43=sumData[i].sumPopulation;
+               rate43=sumData[i].popRate;
             }
             if(sumData[i].year===2044){
                sum44=sumData[i].sumPopulation;
+               rate44=sumData[i].popRate;
             }
             if(sumData[i].year===2045){
                sum45=sumData[i].sumPopulation;
+               rate45=sumData[i].popRate;
             }
           }
       sum3.push(sum36);
@@ -1754,6 +1945,17 @@ var promise2 = qService.tokenHttpGet(forecastFactory.query,{tableName:'sumPopula
       sum3.push(sum43);
       sum3.push(sum44);
       sum3.push(sum45);
+
+      rate3.push(rate36);
+      rate3.push(rate37);
+      rate3.push(rate38);
+      rate3.push(rate39);
+      rate3.push(rate40);
+      rate3.push(rate41);
+      rate3.push(rate42);
+      rate3.push(rate43);
+      rate3.push(rate44);
+      rate3.push(rate45);
 
       console.log(sum3);
 $scope.sumpopulation={
@@ -1802,15 +2004,19 @@ $scope.sumpopulation={
                 text: '人口总量',
                 style: {
                     color: Highcharts.getOptions().colors[0]
-                }
+                },
+                
+                 //tickPositions: [0, 100000, 200000, 300000,400000,500000,600000,700000,800000,900000] 
             },
             labels: {
                 format: '{value} 人',
                 style: {
                     color: Highcharts.getOptions().colors[0]
-                }
+                },
+
             },
-            opposite: true
+            opposite: true,
+            tickPositions: [0, 100000, 200000, 300000,400000,500000,600000,700000,800000,900000]
         }],
         tooltip: {
             shared: true
@@ -1834,7 +2040,7 @@ $scope.sumpopulation={
             name: '人口增长率',
             type: 'spline',
              color: "#434348",
-            data: [0.21, 0.23, 0.25, 0.27, 0.33, 0.37, 0.40, 0.37, 0.44, 0.41],
+            data: rate1,
             marker:{
                 symbol:"circle"
             },
@@ -1865,7 +2071,7 @@ $scope.sumpopulation={
             name: '人口增长率',
             type: 'spline',
              color: "#434348",
-            data: [0.21, 0.23, 0.25, 0.27, 0.33, 0.37, 0.40, 0.37, 0.44, 0.41],
+            data: rate1,
             marker:{
                 symbol:"circle"
             },
@@ -1892,7 +2098,7 @@ $scope.sumpopulation={
             name: '人口增长率',
             type: 'spline',
             color: "#434348",
-            data: [0.46, 0.40, 0.46, 0.53, 0.49,0.54, 0.51, 0.46, 0.52, 0.47],
+            data: rate2,
             marker:{
                 symbol:"circle"
             },
@@ -1919,7 +2125,7 @@ $scope.sumpopulation={
             name: '人口增长率',
             type: 'spline',
             color: "#434348",
-            data: [0.42, 0.41,0.45, 0.43, 0.47, 0.42, 0.39, 0.43, 0.49, 0.54],
+            data: rate3,
             marker:{
                 symbol:"circle"
             },
