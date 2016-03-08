@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('LoginController', function($scope,$localStorage,$http,
-    sessionService, tokenFactory, qService, ToasterTool) {
+    sessionService, tokenFactory, $state,qService, ToasterTool,BASE_URL) {
 
   $scope.accountCharacter = 'TEACHER';
   $scope.login_name = "";
@@ -20,23 +20,37 @@ app.controller('LoginController', function($scope,$localStorage,$http,
       return;
     }
     
-    tokenFactory.login({
-      'X-Username': _n,
-      'X-Password': _p
-    }).post({},
-      function success(data, headers) {
-        sessionService.saveToken(data.data, headers()['x-auth-token']);
-        $http.get(base_Url+'/api/predictData/gdpRawData/list',
-          {headers:{'x-auth-token':headers()['x-auth-token']}})
-        .success(function(rc){
-          sessionService.saveCurrSemeter(rc.data);
-        }).error(function(error){
-          ToasterTool.error('未知错误发生!','');
-        });
-      },
-      function error(data) {
-        ToasterTool.error('登录失败','用户名或密码错误');
-      });
+    // tokenFactory.login({
+    //   'X-Username': _n,
+    //   'X-Password': _p
+    // }).post({},
+    //   function success(data, headers) {
+    //     $http.get(base_Url+'/api/predictData/gdpRawData/list',
+    //       {headers:{'x-auth-token':headers()['x-auth-token']}})
+    //     .success(function(rc){
+    //       sessionService.saveCurrSemeter(rc.data);
+    //     }).error(function(error){
+    //       ToasterTool.error('未知错误发生!','');
+    //     });
+    //   },
+    //   function error(data) {
+    //     ToasterTool.error('登录失败','用户名或密码错误');
+    //   });
+    $http({
+        method:'POST',
+        url:BASE_URL+'/account/authentication',
+        headers:{
+          'X-Username': _n,
+          'X-Password': _p
+        }
+    })
+    .success(function(data){
+      console.log(data);
+      $state.go("app.index.economy.gdp");
+    })
+    .error(function(error){
+      $scope.errorMsg =error.message;
+    })
   };
 
   $scope.forgotPassword = function(){

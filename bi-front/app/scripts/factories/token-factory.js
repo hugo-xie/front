@@ -2,7 +2,7 @@
 
 angular.module('nevermore').factory('tokenFactory', function($resource) {
 	this.login = function(headers) {
-		return $resource(base_Url+'/api/token', null, {
+		return $resource(base_Url+'/account/authentication', null, {
 			'post': {
 				method: 'POST',
 				headers: headers
