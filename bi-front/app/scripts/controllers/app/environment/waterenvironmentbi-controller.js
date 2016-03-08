@@ -127,26 +127,26 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
     var promise2 = qService.tokenHttpGet(rawFactory.query,{tableName:'waterPollutionData'});
     promise2.then(function(rc3) {
 
-      $scope.list1=rc3.data[0];
-      $scope.list2=rc3.data[1];
-      $scope.list3=rc3.data[2];
-      $scope.list4=rc3.data[3];
-      $scope.list5=rc3.data[4];
-      $scope.list6=rc3.data[5];
-      $scope.list7=rc3.data[6];
-      $scope.list8=rc3.data[7];
-      $scope.list9=rc3.data[8];
-      $scope.list10=rc3.data[9];
-      $scope.list11=rc3.data[10];
-      $scope.list12=rc3.data[11];
-      $scope.list13=rc3.data[12];
-      $scope.list14=rc3.data[13];
-      $scope.list15=rc3.data[14];
-      $scope.list16=rc3.data[15];
-      $scope.list17=rc3.data[16];
-      $scope.list18=rc3.data[17];
-      $scope.list19=rc3.data[18];
-      $scope.list20=rc3.data[19];
+      $scope.JiuLONGDischarge=rc3.data[0];
+      $scope.TCCityzoneDischarge=rc3.data[1];
+      $scope.LiuHeDischarge=rc3.data[2];
+      $scope.GangChengDischarge=rc3.data[3];
+      $scope.TCRivertownDischarge=rc3.data[4];
+      $scope.JiuLONGCod=rc3.data[5];
+      $scope.TCCityzoneCod=rc3.data[6];
+      $scope.LiuHeCod=rc3.data[7];
+      $scope.GangChengCod=rc3.data[8];
+      $scope.TCRivertownCod=rc3.data[9];
+      $scope.JiuLONGNh4n=rc3.data[10];
+      $scope.TCCityzoneNh4n=rc3.data[11];
+      $scope.LiuHeNh4n=rc3.data[12];
+      $scope.GangChengNh4n=rc3.data[13];
+      $scope.TCRivertownNh4n=rc3.data[14];
+      $scope.JiuLONGP=rc3.data[15];
+      $scope.TCCityzoneP=rc3.data[16];
+      $scope.LiuHeP=rc3.data[17];
+      $scope.GangChengP=rc3.data[18];
+      $scope.TCRivertownP=rc3.data[19];
       $scope.date=rc3.data[20];
       $scope.date1=rc3.data[21];
 
@@ -212,23 +212,23 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
             series: [{
                 name: '太仓市城区污水处理厂',
                 color:'#69afcd',
-                data: $scope.list2
+                data: $scope.TCCityzoneDischarge
             }, {
                 name: '太仓江城城市污水处理有限公司',
                 color:'#57d160',
-                data: $scope.list5
+                data: $scope.TCRivertownDischarge
             }, {
                 name: '浏河镇污水处理厂',
                 color:'#c7e74f',
-                data: $scope.list3
+                data: $scope.LiuHeDischarge
             }, {
                 name: '港城组团污水处理厂',
                 color:'#f8d940',
-                data: $scope.list4
+                data: $scope.GangChengDischarge
             }, {
                 name: '玖龙纸业有限公司',
                 color:'#ffb143',
-                data: $scope.list1
+                data: $scope.JiuLONGDischarge
             }]
         };
     //堆积柱状图第二层膜
@@ -293,23 +293,23 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
             series: [{
                 name: '太仓市城区污水处理厂',
                 color:'#69afcd',
-                data: $scope.list2
+                data: $scope.TCCityzoneDischarge
             }, {
                 name: '太仓江城城市污水处理有限公司',
                 color:'#57d160',
-                data: $scope.list5
+                data: $scope.TCRivertownDischarge
             }, {
                 name: '浏河镇污水处理厂',
                 color:'#c7e74f',
-                data: $scope.list3
+                data: $scope.LiuHeDischarge
             }, {
                 name: '港城组团污水处理厂',
                 color:'#f8d940',
-                data: $scope.list4
+                data: $scope.GangChengDischarge
             }, {
                 name: '玖龙纸业有限公司',
                 color:'#ffb143',
-                data: $scope.list1
+                data: $scope.JiuLONGDischarge
             }]
         };
         };
@@ -377,7 +377,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                 series: [{
                     name: '溶解氧浓度',
                     color: "#7cb5ec",
-                    data: [$scope.list6[0], $scope.list7[0], $scope.list8[0], $scope.list9[0], $scope.list10[0]]
+                    data: [$scope.TCCityzoneCod[0], $scope.TCRivertownCod[0], $scope.LiuHeCod[0], $scope.GangChengCod[0], $scope.JiuLONGCod[0]]
 
                 }]
         };
@@ -444,7 +444,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                 series: [{
                     name: '氨氮浓度',
                     color: "#7cb5ec",
-                    data: [$scope.list11[0],$scope.list12[0], $scope.list13[0], $scope.list14[0], $scope.list15[0]]
+                    data:  [$scope.TCCityzoneNh4n[0], $scope.TCRivertownNh4n[0], $scope.LiuHeNh4n[0], $scope.GangChengNh4n[0], $scope.JiuLONGNh4n[0]]
 
                 }]
         };
@@ -511,7 +511,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                 series: [{
                     name: '总磷浓度',
                     color: "#7cb5ec",
-                    data: [$scope.list16[0], $scope.list17[0], $scope.list18[0], $scope.list19[0], $scope.list20[0]]
+                    data: [$scope.TCCityzoneP[0], $scope.TCRivertownP[0], $scope.LiuHeP[0], $scope.GangChengP[0], $scope.JiuLONGP[0]]
 
                 }]
         };
