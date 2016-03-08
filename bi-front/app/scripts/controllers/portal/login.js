@@ -6,6 +6,7 @@ app.controller('LoginController', function($scope,$localStorage,$http,
   $scope.accountCharacter = 'TEACHER';
   $scope.login_name = "";
   $scope.login_password = "";
+  $scope.autoLogin = false;
 
   //登录方法
   $scope.login = function() {
@@ -51,6 +52,7 @@ app.controller('LoginController', function($scope,$localStorage,$http,
     .error(function(error){
       $scope.errorMsg =error.message;
     })
+    
   };
 
   $scope.forgotPassword = function(){
