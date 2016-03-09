@@ -9,14 +9,14 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
     var promise = qService.tokenHttpGet(rawFactory.query,{tableName:'waterConditionData'});
     promise.then(function(rc1) {
 
-        console.log(rc1.data);
+       
 
     });
 
     var promise3 = qService.tokenHttpGet(rawFactory.query,{tableName:'waterQualityData'});
     promise3.then(function(rc4) {
 
-        console.log(rc4.data);
+        
 
     });
 
@@ -25,7 +25,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
     var promise1 = qService.tokenHttpGet(rawFactory.query,{tableName:'waterIndustryData'});
     promise1.then(function(rc2) {
 
-        console.log(rc2.data);
+        
         $scope.list11=rc2.data[0];
         $scope.list12=rc2.data[1];
         $scope.list13=rc2.data[2];
@@ -580,7 +580,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                 series: [{
                     name: '高锰酸钾浓度',
                     color: "#7cb5ec",
-                    data: [4.02, 3.83, 3.91, 4.12, 3.89]
+                    data: [3.05, 1.25, 1.01, 2.02, 2.12]
 
                 }]
             };
