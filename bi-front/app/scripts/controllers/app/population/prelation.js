@@ -508,7 +508,7 @@ $scope.change3=function(btn){
         }];
    }
    if(btn.name===2025){
-    document.getElementById("b").innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp结合两者的平均比重，结合两者的平均比重，即第一、二、三产业就业人口比重分别为"+(fpop[9]/popData1[9]*100).toFixed(1)+"%、"+(spop[9]/popData1[9]*100).toFixed(1)+"%和"+(tpop[9]/popData1[9]*100).toFixed(1)+"%。产值比重分别是"+(fgdp[9]/gdp1[9]*100).toFixed(1)
+    document.getElementById("b").innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp结合两者的平均比重，即第一、二、三产业就业人口比重分别为"+(fpop[9]/popData1[9]*100).toFixed(1)+"%、"+(spop[9]/popData1[9]*100).toFixed(1)+"%和"+(tpop[9]/popData1[9]*100).toFixed(1)+"%。产值比重分别是"+(fgdp[9]/gdp1[9]*100).toFixed(1)
     +"%、"+(sgdp[9]/gdp1[9]*100).toFixed(1)+"%和"+(tgdp[9]/gdp1[9]*100).toFixed(1)+"%。一般情况下，随着经济发展和人均国民收入提高，第二、三产业人口将提高，第三产业人口将占绝对优势。";
     $scope.populationPie.options.title.text="太仓市2025年产业就业人口比重分析预测";
     $scope.industryPie.options.title.text="太仓市2025年产业产值比重分析预测";
@@ -600,7 +600,7 @@ $scope.change3=function(btn){
         }];
    }
    if(btn.name===2045){
-    document.getElementById("b").innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp结合两者的平均比重，即第一、二、三产业就业人口比重分别为即第一、二、三产业就业人口比重分别为"+(fpop[29]/popData3[9]*100).toFixed(1)+"%、"+(spop[29]/popData3[9]*100).toFixed(1)+"%和"+(tpop[29]/popData3[9]*100).toFixed(1)+"%。产值比重分别是"+(fgdp[29]/gdp3[9]*100).toFixed(1)
+    document.getElementById("b").innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp结合两者的平均比重，即第一、二、三产业就业人口比重分别为"+(fpop[29]/popData3[9]*100).toFixed(1)+"%、"+(spop[29]/popData3[9]*100).toFixed(1)+"%和"+(tpop[29]/popData3[9]*100).toFixed(1)+"%。产值比重分别是"+(fgdp[29]/gdp3[9]*100).toFixed(1)
     +"%、"+(sgdp[29]/gdp3[9]*100).toFixed(1)+"%和"+(tgdp[29]/gdp3[9]*100).toFixed(1)+"%。一般情况下，随着经济发展和人均国民收入提高，第二、三产业人口将提高，第三产业人口将占绝对优势。";
     $scope.populationPie.options.title.text="太仓市2045年产业就业人口比重分析预测";
     $scope.industryPie.options.title.text="太仓市2045年产业产值比重分析预测";
