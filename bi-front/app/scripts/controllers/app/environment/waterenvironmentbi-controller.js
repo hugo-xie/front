@@ -2032,7 +2032,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
         var promise3 = qService.tokenHttpGet(rawFactory.query,{tableName:'waterQualityData'});
         promise3.then(function(rc4,status,headers,config) {
 
-        console.log(rc4.data);
+ 
 
     });
         $http({method: 'GET', url: '/waterQuality.json'}).
