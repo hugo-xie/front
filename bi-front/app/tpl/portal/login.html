@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-ioc">
     <div class="container">
         <div class="navbar-header" style="margin-top:15px">
@@ -34,17 +35,17 @@
                                     </span>
                                     <input type="password" class="form-control" ng-model="login_password" placeholder="请输入密码" required/>
                                 </div>
-                                <div class="clearfix m-t-sm">
+                                <!-- <div class="clearfix m-t-sm">
                                     <label class="i-checks i-checks-sm pull-left" style="font-size:85%">
                                         <input type="checkbox" ng-model="autoLogin" ng-disabled="true">
                                         <i></i>&nbsp;自动登录
                                     </label>
                                     <a class="pull-right forgotpwd-link" ng-click="forgotPassword()" style="font-size:85%">忘记密码?</a>
-                                </div>
+                                </div> -->
                                 <div class="clearfix m-t-sm" style="font-size:85%">
                                     <span class="text-danger">{{errorMsg}}</span>
                                 </div>
-                                <button class="btn btn-primary w-full m-t-sm" ng-click="login()">登录</button>
+                                <button class="btn btn-primary w-full m-t-sm" ng-click="login()" style="margin-top: 1em">登录</button>
                                 <!-- <button class="btn btn-primary w-full m-t-sm" ui-sref="app.index.economy.gdp">登录</button> -->
                             </form>
                         </div>
