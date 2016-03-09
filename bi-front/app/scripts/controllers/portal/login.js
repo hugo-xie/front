@@ -46,11 +46,12 @@ app.controller('LoginController', function($scope,$localStorage,$http,
         }
     })
     .success(function(data){
-      console.log(data);
       $state.go("app.index.economy.gdp");
     })
     .error(function(error){
-      $scope.errorMsg =error.message;
+      if (error!=null) {
+        $scope.errorMsg =error.message;
+      }
     })
     
   };
