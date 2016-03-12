@@ -7,6 +7,8 @@
 </style>
 <div class="vbox">
     <div class="wrapper lter b-b bg-white">
+     <input type="number" min='2015'  step='1' placeholder="请选择年份" ng-model="yearchoose" >
+    <input type="submit" ng-click="changeyear()">
     <a href="" class="pull-right btn btn-sm btn-info m-t-n-xs" ng-click="createNote()">税收收入预测</a>
       <div class="subview3_title">{{title}}</div>
   </div>
