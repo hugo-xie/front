@@ -7,8 +7,6 @@
 </style>
 <div class="vbox">
     <div class="wrapper lter b-b bg-white">
-     <input type="number" min='2015'  step='1' placeholder="请选择年份" ng-model="yearchoose" >
-    <input type="submit" ng-click="changeyear()">
     <a href="" class="pull-right btn btn-sm btn-info m-t-n-xs" ng-click="createNote()">税收收入预测</a>
       <div class="subview3_title">{{title}}</div>
   </div>
@@ -62,11 +60,11 @@
             </span>
           </div>
 
-          <div class="btn-group-vertical" role="group" aria-label="Left Align ">
-            <button class="btn btn-success" style="margin-top:30px" ng-click="changeViewsYear()">切换图标视图</button>
-            <button class="btn btn-info" style="margin-top:10px" ng-click="checkdeviationYear()">查看预测误差记录</button>
-            <button class="btn btn-info" style="margin-top:10px" ng-click="checkforecastYear()">查看预测详情</button>
-            <button class="btn btn-info" style="margin-top:10px;color:white" ng-click="adjustParameterYear()">重置调节</button>
+          <div class="row">
+            <button class="btn btn-success col-md-5" style="margin-top:20px;margin-left:10px" ng-click="changeViewsYear()">切换图标视图</button>
+            <button class="btn btn-info col-md-5" style="margin-top:20px;margin-left:10px" ng-click="checkdeviationYear()">查看预测误差记录</button>
+            <button class="btn btn-info col-md-5" style="margin-top:20px;margin-left:10px" ng-click="checkforecastYear()">查看预测详情</button>
+            <button class="btn btn-info col-md-5" style="margin-top:20px;color:white;margin-left:10px" ng-click="adjustParameterYear()">重置调节</button>
           </div>
         </div>
         <div class="col-md-12 table-responsive" style="margin-top:10px" ng-if="forecastYear">
@@ -301,14 +299,34 @@
               月度税收收入预测采用的是多元回归模型，通过该模型分析预测得出：本年的税收增速较往年的增速有所放缓
             </span>
           </div>
+  
 
-          <div class="btn-group-vertical" role="group" aria-label="Left Align ">
-            <button class="btn btn-success" style="margin-top:30px" ng-click="changeViews()">切换图标视图</button>
-            <button class="btn btn-info" style="margin-top:10px" ng-click="checkdeviation()">查看预测误差记录</button>
-            <button class="btn btn-info" style="margin-top:10px" ng-click="checkforecast()">查看预测详情</button>
-            <button class="btn btn-info" style="margin-top:10px;color:white" ng-click="adjustParameter()">重置调节</button>
+
+
+
+          <div class="row">
+            <button class="btn btn-success col-md-5" style="margin-top:20px;margin-left:10px" ng-click="changeViews()">切换图标视图</button>
+            <button class="btn btn-info col-md-5" style="margin-top:20px;margin-left:10px" ng-click="checkdeviation()">查看预测误差记录</button>
+            <button class="btn btn-info col-md-5" style="margin-top:20px;margin-left:10px" ng-click="checkforecast()">查看预测详情</button>
+            <button class="btn btn-info col-md-5" style="margin-top:20px;color:white;margin-left:10px" ng-click="adjustParameter()">重置调节</button>
+ 
+
+            <div class="btn-group " style="margin-top:20px;margin-left:10px">
+                 <button type="button" class="btn btn-success dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:160px">
+                   选择年份 <span class="caret"></span>
+                 </button>
+                  <ul class="dropdown-menu">
+                     <li><a ng-click="changeyear('2015')">2015</a></li>
+                     <li><a ng-click="changeyear('2016')">2016</a></li>
+                  </ul>
+           </div>
+
+
           </div>
-        </div>
+
+
+
+        </div>       
         <div class="col-md-12 " style="margin-top:10px" ng-if="forecast">
           <table class="table table-bordered" style="font-size:90%">
             <tr>

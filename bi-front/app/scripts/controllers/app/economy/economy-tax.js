@@ -3,8 +3,12 @@
 app.controller('EconomyTaxCtrl', ['$scope','$stateParams','qService','forecastFactory_gdp',function($scope, $stateParams,qService,forecastFactory_gdp) {
   var year;
   var promise = qService.tokenHttpGet(forecastFactory_gdp.query,{tableName:'taxForecastData',year:year});
-   $scope.changeyear=function(){
-      year=$scope.yearchoose;
+   $scope.changeyear=function(param){
+     $scope.monthselectedRange = 0;
+    $scope.monthselectedRange2 = 0;
+    $scope.monthselectedRange3 = 0;
+    $scope.monthselectedRange4 = 0;
+      year=param;
       var promise = qService.tokenHttpGet(forecastFactory_gdp.query,{tableName:'taxForecastData',year:year});
        promise.then(function(rc) {
 
@@ -200,20 +204,20 @@ var changedetail=function(newValue,oldValue,scope){
 
     xAxis: {
       categories: $scope.monthArray,
-        plotBands:[{
-            from: 9.5,
-            to:10.5,
-            color:'rgba(68, 170, 213, .2)',
-            label: {
-                    text: '预测区',
-                    verticalAlign: 'top',
-                    style: {
-                        fontSize: '12px',
-                        fontWeight: 600
-                    }
+        // plotBands:[{
+        //     from: 9.5,
+        //     to:10.5,
+        //     color:'rgba(68, 170, 213, .2)',
+        //     label: {
+        //             text: '预测区',
+        //             verticalAlign: 'top',
+        //             style: {
+        //                 fontSize: '12px',
+        //                 fontWeight: 600
+        //             }
                    
-                }
-            }]
+        //         }
+        //     }]
     },
     yAxis: 
     [{
@@ -280,111 +284,8 @@ var changedetail=function(newValue,oldValue,scope){
             data: $scope.ratedate1
         }]   
   };
-
-  $scope.yearTaxChart = {
-    options: {
-      chart: {
-        type:'column'
-      },
-    },
-    credits:{
-        enabled:false,
-     },
-    title: {
-      text:'年度税收收入预测',
-      style:{
-        fontWeight:'bold'
-      }
-    },
-
-    xAxis: {
-      categories: $scope.yearArray,
-        plotBands:[{
-            from: 9.5+(2015-year),
-            to:12.5,
-            color:'rgba(68, 170, 213, .2)',
-            label: {
-                    text: '预测区',
-                    verticalAlign: 'top',
-                    style: {
-                        fontSize: '12px',
-                        fontWeight: 600
-                    }
-                   
-                }
-            }]
-
-    },
-    yAxis: 
-    [{
-      min: 0,
-      title: {
-        text: '税收收入（亿元）'
-      },
-       plotLines:[{
-            color:'red',
-            dashStyle:'DashDot',
-            value:95.62,
-            width:2,
-            label:{
-                text:'本年度税收目标',
-                align:'left',
-                x:10,
-                 style: {
-                        fontSize: '8px',
-                        fontWeight: 200
-                    }
-            }
-            }]
-
-    },
-    {
-            title: {
-                text: '同比增长率'
-            },
-            labels: {
-                format: '{value} %',
-                style: {
-                    color: Highcharts.getOptions().colors[0]
-                }
-        },
-        opposite:true}],
-    tooltip: 
-    {
-
-      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-          '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-      footerFormat: '</table>',
-      shared: true,
-      useHTML: true
-    },
-    plotOptions: {
-        column: {
-          pointPadding: 0.2,
-          borderWidth: 0
-        }
-    },
-    series: [{
-            color:'#7CB5EC',
-            name: '真实值',
-            data: $scope.taxthisyearrealvalue
-
-        }, {
-            color:'#434348',
-            name: '预测值',
-            data: $scope.date
-
-        },
-         {   
-            color:'#90ED7D',
-            yAxis: 1,
-            type:'spline',
-            name: '同比增长率',
-            data: $scope.ratedate
-        }]   
-  };
-
+   
+ 
     });
    };
 
@@ -696,20 +597,20 @@ $scope.$watch($scope.monthrange4,changemonthdetail4);
 
     xAxis: {
       categories: $scope.monthArray,
-        plotBands:[{
-            from: 9.5,
-            to:10.5,
-            color:'rgba(68, 170, 213, .2)',
-            label: {
-                    text: '预测区',
-                    verticalAlign: 'top',
-                    style: {
-                        fontSize: '12px',
-                        fontWeight: 600
-                    }
+        // plotBands:[{
+        //     from: 9.5,
+        //     to:10.5,
+        //     color:'rgba(68, 170, 213, .2)',
+        //     label: {
+        //             text: '预测区',
+        //             verticalAlign: 'top',
+        //             style: {
+        //                 fontSize: '12px',
+        //                 fontWeight: 600
+        //             }
                    
-                }
-            }]
+        //         }
+        //     }]
     },
     yAxis: 
     [{
@@ -978,20 +879,20 @@ $scope.$watch($scope.monthrange4,changemonthdetail4);
 
     xAxis: {
       categories: $scope.monthArray,
-        plotBands:[{
-            from: 9.5,
-            to:10.5,
-            color:'rgba(68, 170, 213, .2)',
-            label: {
-                    text: '预测区',
-                    verticalAlign: 'top',
-                    style: {
-                        fontSize: '12px',
-                        fontWeight: 600
-                    }
+        // plotBands:[{
+        //     from: 9.5,
+        //     to:10.5,
+        //     color:'rgba(68, 170, 213, .2)',
+        //     label: {
+        //             text: '预测区',
+        //             verticalAlign: 'top',
+        //             style: {
+        //                 fontSize: '12px',
+        //                 fontWeight: 600
+        //             }
                    
-                }
-            }]
+        //         }
+        //     }]
     },
     yAxis: 
     [{

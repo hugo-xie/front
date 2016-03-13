@@ -64,9 +64,9 @@ $scope.range2=function(){
     $scope.elecdata[11]=8.6;
     $scope.keqiangdata[3]=7.0;
   }
-  $scope.$watch($scope.range,changeloandata);
-  $scope.$watch($scope.range2,changeloandata2);
-  $scope.$watch($scope.range3,changeloandata3);
+  // $scope.$watch($scope.range,changeloandata);
+  // $scope.$watch($scope.range2,changeloandata2);
+  // $scope.$watch($scope.range3,changeloandata3);
   $scope.keqiangindex={
      options: 
     {
@@ -221,7 +221,7 @@ $scope.loanChart = {
             },
     series: [{
         name: '真实值',
-        data: [7.9, 8.1, 7.5, 7.7,7.2,7.4,7.6,7.1,7.9,8.2,8.3,null]
+        data: [7.9, 8.1, 7.5, 7.7,7.2,7.4,7.6,7.1,7.9,8.2,8.3,7.6]
     },{
         name: '预测值',
         type:'line',
@@ -255,7 +255,7 @@ $scope.transChart = {
             },
     series: [{
         name: '真实值',
-        data: [ 8.1,7.9, 7.5, 8.3,7.2,7.9,7.7,7.4,7.6,7.1,8.2,null]
+        data: [ 8.1,7.9, 7.5, 8.3,7.2,7.9,7.7,7.4,7.6,7.1,8.2,7.3]
     },{
         name: '预测值',
         type:'line',
@@ -286,7 +286,7 @@ $scope.elecChart = {
             },
     series: [{
         name: '真实值',
-        data: [7.9, 8.1, 7.1,7.9,8.2,8.3,7.5, 7.7,7.2,7.4,7.6,null]
+        data: [7.9, 8.1, 7.1,7.9,8.2,8.3,7.5, 7.7,7.2,7.4,7.6,8.1]
     },{
         name: '预测值',
         type:'line',

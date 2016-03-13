@@ -1,7 +1,5 @@
 <div class="vbox">
     <div class="wrapper lter b-b bg-white">
-     <input type="number" min='2015'  step='1' placeholder="请选择年份" ng-model="yearchoose" value="2015">
-    <input type="submit" ng-click="changeyear()">
 		<a href="" class="pull-right btn btn-sm btn-info m-t-n-xs" ng-click="createNote()">GDP分析预测</a>
    		<div class="subview3_title">{{title}}</div>
  	</div>
@@ -28,7 +26,7 @@
                   </div>
                 </div>
                 <div class="col dk padder-v r-r">
-                  <span class="text-xs"style="color:white">{{yearchoose}}年度GDP预测值:</span>
+                  <span class="text-xs"style="color:white">本年度GDP预测值:</span>
                   <div class="text-primary-dk font-thin h2"><span style="margin-left:15%;color:white;text-shadow:1px 2px 3px #000000">{{forecastvalue}}亿元</span></div>
                   <span class="text-xs"style="margin-left:45%;color:white">预测误差范围<span class="text-primary"style="color:white">3%</span></span>
                 </div>
@@ -185,8 +183,8 @@
                <div class="r  dker item hbox no-border" style="background-color:rgba(55,148,188,1);border-bottom-left-radius:10px;border-bottom-right-radius:10px">
 
                 
-                <div class="col dk padder-v r-r">
-                 <span class="text-xs" style="margin-left:10%;color:white">本年度至第四季度结束,实际GDP为<span class="text font-thin h3"style="color:white;color:white;text-shadow:1px 2px 3px #000000">1100.08</span>亿元</span>
+                <div class="col dk padder-v r-r" ng-if="expression">
+                 <span class="text-xs" style="margin-left:10%;color:white" >本年度至第四季度结束,实际GDP为<span class="text font-thin h3"style="color:white;color:white;text-shadow:1px 2px 3px #000000">1152.6</span>亿元</span>
                   <div class="text font-thin h5" style="margin-left:10%"><span style="color:white">已完成年度GDP目标<!-- <span class="text font-thin h3"style="color:white;text-shadow:1px 2px 3px #000000">329.25</span>亿元 --></span></div>
                  </span></span>
                 </div>
@@ -209,8 +207,10 @@
           季度GDP预测采用的是基于时间序列的自回归积分滑动平均模型，通过该模型分析预测得出：第四季度经济增速保持稳定。
         </span>
       </div>
+
+    
       <div class="btn-group-vertical" role="group" aria-label="Left Align ">
-     <div class="btn-group" style="margin-top:5px">
+     <div class="btn-group " style="margin-top:5px">
          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            切换图表视图 <span class="caret"></span>
          </button>
@@ -221,10 +221,26 @@
              <li><a ng-click="monthexchange('area')">区域图</a></li>
           </ul>
      </div>
+
+     <div class="btn-group " style="margin-top:5px">
+         <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           选择年份 <span class="caret"></span>
+         </button>
+          <ul class="dropdown-menu">
+             <li><a ng-click="changeyear('2015')">2015</a></li>
+             <li><a ng-click="changeyear('2016')">2016</a></li>
+          </ul>
+     </div>
       <button class="btn btn-info" style="margin-top:5px" ng-click="monthcheckdeviation()">查看预测误差记录</button>
       <button class="btn btn-info" style="margin-top:5px" ng-click="monthcheckforecast()">查看预测详情</button>
       </div>
     </div>
+    
+  
+
+
+
+
     <div class="col-md-12" style="margin-top:10px" ng-if="monthforecast">
       <table class="table table-bordered" >
         <tr>
@@ -236,17 +252,17 @@
         </tr>
         <tr>
           <td class="info" style="text-align:center;">GDP真实值(亿)</td>
-          <td class="info" style="text-align:center;">225.51</td>
-          <td class="info" style="text-align:center;">555.72</td>
-          <td class="info" style="text-align:center;">849.66</td>
-          <td class="info" style="text-align:center;">-</td>
+          <td class="info" style="text-align:center;">{{gdpquarterrealvalue[0]}}</td>
+          <td class="info" style="text-align:center;">{{gdpquarterrealvalue[1]}}</td>
+          <td class="info" style="text-align:center;">{{gdpquarterrealvalue[2]}}</td>
+          <td class="info" style="text-align:center;">{{gdpquarterrealvalue[3]}}</td>
         </tr>
         <tr>
           <td class="info" style="text-align:center;">GDP预测值(亿)</td>
-          <td class="info" style="text-align:center;">248.77</td>
-          <td class="info" style="text-align:center;">541.86</td>
-          <td class="info" style="text-align:center;">867.74</td>
-          <td class="info" style="text-align:center;">1152.67</td>
+          <td class="info" style="text-align:center;">{{gdpquarterforcastvalue[0]}}</td>
+          <td class="info" style="text-align:center;">{{gdpquarterforcastvalue[1]}}</td>
+          <td class="info" style="text-align:center;">{{gdpquarterforcastvalue[2]}}</td>
+          <td class="info" style="text-align:center;">{{gdpquarterforcastvalue[3]}}</td>
         </tr>
 
       </table>
@@ -374,10 +390,20 @@
  </div>
  <div class="panel panel-primary" style="margin-top:30px" ng-if="industrydetail">
    <div class="panel-heading">
-        <div class="panel-title">
-          本年度各产业分析预测
+   <div class="row">
+        <div class="panel-title col-md-3">
+          {{thisyear}}年度各产业分析预测
         </div>
-      
+         <div class="btn-group col-md-1">
+         <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           选择年份 <span class="caret"></span>
+         </button>
+          <ul class="dropdown-menu">
+             <li><a ng-click="industrychangeyear('2015')">2015</a></li>
+             <li><a ng-click="industrychangeyear('2016')">2016</a></li>
+          </ul>
+     </div>
+    </div>
     </div>
     <div class="row">
       <div class="col-md-4" style="border-right:1px solid">
