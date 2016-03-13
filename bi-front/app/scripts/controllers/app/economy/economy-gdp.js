@@ -1,5 +1,5 @@
 //controller: 'EconomyGdpCtrl'
-'use strict';
+// 'use strict';
 
 app.controller('EconomyGdpCtrl', ['$scope','$stateParams','qService','forecastFactory_gdp',function($scope,$stateParams,qService,forecastFactory_gdp) {
     var year;
