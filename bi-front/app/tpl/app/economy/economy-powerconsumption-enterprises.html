@@ -38,7 +38,7 @@
             <!--highchart图表-->
             <div class="col-md-9" style="padding:2em 1em 0 1em">              
               <highchart  id="singlechartvocationbyyear" config='SingleVocationChartByYear'></highchart>
-              <div class="float-table-year" ng-if="isshow.isShowYearTable">
+              <div class="float-table-year" ng-if="isShowYearTable">
                 <table st-table="rowCollectionBasic" class="table table-bordered table-striped">
                 <tr st-select-row="row" class="ng-scope ng-isolate-scope">
                   <td><span style="color:rgb(100,214,40);">{{temptable.selectedindustry}}</span>数据：</td>
@@ -51,7 +51,7 @@
                   <td>{{industriesdata.total.years[6]}}</td>
                 </tr>
                 <tr st-select-row="row" class="ng-scope ng-isolate-scope">
-                  <td>GDP同比增长率</td>
+                  <td>企业产值同比增长率</td>
                   <td>{{temptable.year.gdp[0]}}%</td>
                   <td>{{temptable.year.gdp[1]}}%</td>
                   <td>{{temptable.year.gdp[2]}}%</td>
@@ -61,7 +61,7 @@
                   <td>{{temptable.year.gdp[6]}}%</td>
                 </tr>
                 <tr st-select-row="row" class="ng-scope ng-isolate-scope">
-                  <td>工业用电量同比增长率</td>
+                  <td>企业用电量同比增长率</td>
                   <td>{{temptable.year.power[0]}}%</td>
                   <td>{{temptable.year.power[1]}}%</td>
                   <td>{{temptable.year.power[2]}}%</td>
@@ -81,7 +81,7 @@
                   <td></td>
                 </tr>
                 <tr st-select-row="row" class="ng-scope ng-isolate-scope">
-                  <td>GDP同比增长率</td>
+                  <td>企业产值同比增长率</td>
                   <td>{{temptable.year.gdp[7]}}%</td>
                   <td>{{temptable.year.gdp[8]}}%</td>
                   <td>{{temptable.year.gdp[9]}}%</td>
@@ -91,7 +91,7 @@
                   <td></td>
                 </tr>
                 <tr st-select-row="row" class="ng-scope ng-isolate-scope">
-                  <td>工业用电量同比增长率</td>
+                  <td>企业用电量同比增长率</td>
                   <td>{{temptable.year.power[7]}}%</td>
                   <td>{{temptable.year.power[8]}}%</td>
                   <td>{{temptable.year.power[9]}}%</td>
@@ -174,7 +174,7 @@
             <div class="col-md-6 chartshow" style="padding:1em;border-left:1px dashed #428bca;padding:1em">
                 <highchart  id="singlechartvocation2" config='IndustryPowerChartBySeasonPie'></highchart>
             </div>
-                  <table st-table="rowCollectionBasic" class="table table-bordered table-striped float-table-season" ng-if="isshow.isShowYearTable">
+                  <table st-table="rowCollectionBasic" class="table table-bordered table-striped float-table-season" ng-if="isShowYearTable">
                   <tr st-select-row="row" class="ng-scope ng-isolate-scope">
                     <td><span style="color:orange">{{temptable.selectedyear}}</span>年<span style="color:rgb(100,214,40);">{{temptable.selectedindustry}}</span>数据：</td>
                     <td>第一季度</td>

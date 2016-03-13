@@ -1013,7 +1013,10 @@ promise.then(function(result) {
         },
     },
   };
-
+  $scope.isShowYearTable = false;
+  $scope.showTables = function(){
+    $scope.isShowYearTable = !$scope.isShowYearTable;
+  }
   //界面初始化时展示5001的数据
   $scope.temptable = {
     selectedyear:'2015',
