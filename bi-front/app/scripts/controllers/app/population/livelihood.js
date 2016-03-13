@@ -178,7 +178,7 @@ $scope.buttonMap8 = [{
   };    
  $scope.change8=function(bttn){
     if(bttn.name===2025){
-        $scope.school.options.title.text="各城镇小学学校数量";
+        $scope.school.options.title.text="太仓市各城镇2025年学校数量分析预测";
     $scope.school.series=[{
             name: '小学',
             data: $scope.prePrimarySchool[0]
@@ -195,7 +195,7 @@ $scope.buttonMap8 = [{
 
     }
     if(bttn.name===2035){
-        $scope.school.options.title.text="各城镇中学学校数量";
+        $scope.school.options.title.text="太仓市各城镇2035年学校数量分析预测";
     $scope.school.series=[{
             name: '小学',
             data: $scope.prePrimarySchool[1]
@@ -211,7 +211,7 @@ $scope.buttonMap8 = [{
         }];
     }
     if(bttn.name===2045){
-       $scope.school.options.title.text="各城镇高中学校数量";
+       $scope.school.options.title.text="太仓市各城镇2045年学校数量分析预测";
     $scope.school.series=[{
             name: '小学',
             data: $scope.prePrimarySchool[2]
@@ -626,7 +626,7 @@ $scope.jobt ={
             }
 
         }, {
-            name: '劳动力人口比例',
+            name: '就业人口比例',
             type: 'spline',
             yAxis: 1,
             data: $scope.preLaborRate[0],
@@ -643,7 +643,7 @@ $scope.school={
             type: 'column'
         },
         title: {
-            text: '太仓市各城镇小学学校数量分析预测'
+            text: '太仓市各城镇2025年学校数量分析预测'
         },
         credits:{
             enabled:false

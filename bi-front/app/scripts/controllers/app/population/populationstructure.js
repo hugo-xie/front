@@ -1075,8 +1075,8 @@ var info4=[];
     info4.push("<h4><strong>城厢镇人口自然增长率</strong></h4>");
     info4.push("<table class='table table-bordered table-striped'>");
     info4.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>3.54‰</td></tr>");
-    info4.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>3.85‰</td></tr>");
-    info4.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-0.31‰</td></tr>");
+    info4.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>3.58‰</td></tr>");
+    info4.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-0.04‰</td></tr>");
     info4.push("</table>");
 var infowindow4 = new AMap.InfoWindow({
      content: info4.join(''),
