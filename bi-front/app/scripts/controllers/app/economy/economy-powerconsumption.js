@@ -588,6 +588,26 @@ promise.then(function(result) {
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
+        xAxis: {
+            categories:[
+            '农、林、牧、渔业',
+            '工业',
+            '建筑业',
+            '交通运输、仓储和邮政业',
+            '信息传输、计算机服务和软件业',
+            '批发和零售、住宿和餐饮业',
+            '金融、房地产、商务及居民服务业',
+            '公共事业及管理组织'],
+
+            labels: {
+                rotation: -45,
+                align: 'right',
+                style: {
+                    fontSize: '8px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
         plotOptions: {
             pie: {
                 allowPointSelect: true,
@@ -601,7 +621,7 @@ promise.then(function(result) {
             }
         },
         series: [{
-            type: 'pie',
+            type: 'column',
             name: '同比增长率',
             data: [
                 ['农、林、牧、渔业',   $scope.industrydata._2015.powerdata[0]],
@@ -645,8 +665,19 @@ promise.then(function(result) {
                 }
             }
         },
+        xAxis: {
+            categories:[],
+            labels: {
+                rotation: -45,
+                align: 'right',
+                style: {
+                    fontSize: '8px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
         series: [{
-            type: 'pie',
+            type: 'column',
             name: '同比增长率',
             data: [
                 ['农、林、牧、渔业',   $scope.industrydata._2015.gdpdata[0]],
@@ -1504,6 +1535,23 @@ promise.then(function(result) {
   }
   $scope.showTables = function(){
     $scope.isshow.isShowYearTable = !$scope.isshow.isShowYearTable;
+  }
+  $scope.changeForcastArea = function(param){
+    switch (param){
+        case 6:$scope.SingleVocationChart.xAxis.plotBands[0].from=8;break;
+        case 7:$scope.SingleVocationChart.xAxis.plotBands[0].from=8;break;
+        case 8:$scope.SingleVocationChart.xAxis.plotBands[0].from=8;break;
+        case 9:$scope.SingleVocationChart.xAxis.plotBands[0].from=8;break;
+        case 10:$scope.SingleVocationChart.xAxis.plotBands[0].from=8;break;
+        case 11:$scope.SingleVocationChart.xAxis.plotBands[0].from=8;break;
+        case 12:$scope.SingleVocationChart.xAxis.plotBands[0].from=8;break;
+        case 13:$scope.SingleVocationChart.xAxis.plotBands[0].from=8;break;
+        case 14:$scope.SingleVocationChart.xAxis.plotBands[0].from=8;break;
+        case 15:$scope.SingleVocationChart.xAxis.plotBands[0].from=8;break;
+        case 16:$scope.SingleVocationChart.xAxis.plotBands[0].from=0.5;break;
+        case 17:$scope.SingleVocationChart.xAxis.plotBands[0].from=-0.5;break;
+        case 18:$scope.SingleVocationChart.xAxis.plotBands[0].from=-0.5;break;
+    }
   }
   $scope.changeYear = function(param){
     switch($scope.industrymark){
@@ -3445,6 +3493,10 @@ promise.then(function(result) {
       }break;
     }   
   }
+
+
+
+
   $scope.changeIndustry = function(param){
     switch(param){
       case 0:{
@@ -3699,6 +3751,8 @@ promise.then(function(result) {
         }]
   };
 
+  //设置预测区
+  $scope.forcastmark = 0.5;
   /*下——第一图*/
   $scope.SingleVocationChart={  
        options:{
@@ -3720,6 +3774,17 @@ promise.then(function(result) {
       },
       xAxis: {
           categories: ['第一季度', '第二季度', '第三季度', '第四季度'],
+          plotBands: [{
+                from: 8,
+                to: 8,
+                label: { 
+                    text:"预测区",
+                    style: {
+                        color: 'grey',
+                    },
+                },
+                color: 'rgba(68, 170, 213, .2)'
+            }],
       },
       yAxis: {
           title: {
@@ -3776,8 +3841,19 @@ promise.then(function(result) {
                 center: ['50%', '70%']
             }
         },
+        xAxis: {
+            categories:[],
+            labels: {
+                rotation: -45,
+                align: 'right',
+                style: {
+                    fontSize: '8px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
         series: [{
-            type: 'pie',
+            type: 'column',
             name: '增长率',
             data: [
                 ['第一季度',   $scope.industriesdata.agriculture._2015.season.gdpdata[0]],
@@ -3812,8 +3888,19 @@ promise.then(function(result) {
         plotOptions: {
           
         },
+        xAxis: {
+            categories:[],
+            labels: {
+                rotation: -45,
+                align: 'right',
+                style: {
+                    fontSize: '8px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
         series: [{
-            type: 'pie',
+            type: 'column',
             name: '增长率',
             data: [
                 ['第一季度',   $scope.industriesdata.agriculture._2015.season.powerdata[0]],
