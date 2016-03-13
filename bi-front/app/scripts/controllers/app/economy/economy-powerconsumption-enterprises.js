@@ -3405,6 +3405,16 @@ promise.then(function(result) {
                 }
             }
         },
+        yAxis: {
+            title: {
+                text: '增长率 (%)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
         series: [{
             type: 'column',
             name: '增长率',
@@ -3451,6 +3461,16 @@ promise.then(function(result) {
                     fontFamily: 'Verdana, sans-serif'
                 }
             }
+        },
+        yAxis: {
+            title: {
+                text: '增长率 (%)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
         },
         series: [{
             type: 'column',
