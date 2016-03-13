@@ -98,65 +98,136 @@ $scope.buttonMap3 = [{
     $scope.totalshow= !$scope.totalshow;
   };
 
-$scope.tchrGrntList=[{
-    name:'小学'
-},{
-    name:'中学'
-},{
-    name:'高中'
-}];
+// $scope.tchrGrntList=[{
+//     name:'小学'
+// },{
+//     name:'中学'
+// },{
+//     name:'高中'
+// }];
 
-$scope.tchrGrntKindChange=function(tchrGrntOne){
-if(tchrGrntOne.name==="小学"){
-    $scope.school.options.title.text="各城镇小学学校数量";
+// $scope.tchrGrntKindChange=function(tchrGrntOne){
+// if(tchrGrntOne.name==="小学"){
+//     $scope.school.options.title.text="各城镇小学学校数量";
+//     $scope.school.series=[{
+//             name: '小学',
+//             data: $scope.prePrimarySchool[0]
+
+//         }, {
+//             name: '初中',
+//             data: $scope.prePrimarySchool[1]
+
+//         }, {
+//             name: '高中',
+//             data: $scope.prePrimarySchool[2]
+
+//         }];
+// }
+// if(tchrGrntOne.name==="中学"){
+//     $scope.school.options.title.text="各城镇中学学校数量";
+//     $scope.school.series=[{
+//             name: '小学',
+//             data: $scope.preMiddleSchool[0]
+
+//         }, {
+//             name: '2030年',
+//             data: $scope.preMiddleSchool[1]
+
+//         }, {
+//             name: '2040年',
+//             data: $scope.preMiddleSchool[2]
+
+//         }];
+// }
+// if(tchrGrntOne.name==="高中"){
+//     $scope.school.options.title.text="各城镇高中学校数量";
+//     $scope.school.series=[{
+//             name: '2020年',
+//             data: $scope.preHighschool[0]
+
+//         }, {
+//             name: '2030年',
+//             data: $scope.preHighschool[1]
+
+//         }, {
+//             name: '2040年',
+//             data: $scope.preHighschool[2]
+
+//         }];
+// }
+// };
+
+
+$scope.buttonMap8 = [{
+        name: 2025,
+        label: 2025 + "年",
+        radio: "Middle"
+      },
+      {
+        name: 2035,
+        label: 2035 + "年",
+        radio: "Middle"
+      },
+      {
+        name: 2045,
+        label: 2045 + "年",
+        radio: "Right"
+      }];
+ $scope.btn_click8=function(bttn){
+     $scope.change8(bttn);
+  };    
+ $scope.change8=function(bttn){
+    if(bttn.name===2025){
+        $scope.school.options.title.text="各城镇小学学校数量";
     $scope.school.series=[{
-            name: '2020年',
+            name: '小学',
             data: $scope.prePrimarySchool[0]
 
         }, {
-            name: '2030年',
-            data: $scope.prePrimarySchool[1]
-
-        }, {
-            name: '2040年',
-            data: $scope.prePrimarySchool[2]
-
-        }];
-}
-if(tchrGrntOne.name==="中学"){
-    $scope.school.options.title.text="各城镇中学学校数量";
-    $scope.school.series=[{
-            name: '2020年',
+            name: '初中',
             data: $scope.preMiddleSchool[0]
 
         }, {
-            name: '2030年',
+            name: '高中',
+            data: $scope.preHighschool[0]
+
+        }];
+
+    }
+    if(bttn.name===2035){
+        $scope.school.options.title.text="各城镇中学学校数量";
+    $scope.school.series=[{
+            name: '小学',
+            data: $scope.prePrimarySchool[1]
+
+        }, {
+            name: '初中',
             data: $scope.preMiddleSchool[1]
 
         }, {
-            name: '2040年',
-            data: $scope.preMiddleSchool[2]
-
-        }];
-}
-if(tchrGrntOne.name==="高中"){
-    $scope.school.options.title.text="各城镇高中学校数量";
-    $scope.school.series=[{
-            name: '2020年',
-            data: $scope.preHighschool[0]
-
-        }, {
-            name: '2030年',
+            name: '高中',
             data: $scope.preHighschool[1]
 
+        }];
+    }
+    if(bttn.name===2045){
+       $scope.school.options.title.text="各城镇高中学校数量";
+    $scope.school.series=[{
+            name: '小学',
+            data: $scope.prePrimarySchool[2]
+
         }, {
-            name: '2040年',
+            name: '初中',
+            data: $scope.preMiddleSchool[2]
+
+        }, {
+            name: '高中',
             data: $scope.preHighschool[2]
 
         }];
 }
-};
-
+    
+ };
 
        $scope.buttonMap5 = [{
         name: 2025,
@@ -603,19 +674,19 @@ $scope.school={
         }
     },
         series: [{
-            name: '2020年',
+            name: '小学',
            // color:"#7cb5ec",
             data: $scope.prePrimarySchool[0]
 
         }, {
-            name: '2030年',
+            name: '初中',
            // color:"#000000",
-            data: $scope.prePrimarySchool[1]
+            data: $scope.preMiddleSchool[1]
 
         }, {
-            name: '2040年',
+            name: '高中',
            // color:"#90ed7d",
-            data: $scope.prePrimarySchool[2]
+            data: $scope.preHighschool[2]
 
         }]
 };

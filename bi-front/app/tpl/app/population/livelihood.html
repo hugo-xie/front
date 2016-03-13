@@ -229,13 +229,14 @@
                   </div>
 <div style="width:369px;height:1px;margin:15px auto;padding:0px;background-color:#FFFFFF;overflow:hidden;"></div>
   <hr />
-                  <h4>学校类别选择</h4>
-                  <div class="radio" ng-repeat="tchrGrntOne in tchrGrntList">
-                    <label>
-                      <input type="radio" ng-model="tchrGrntKindSelected" ng-value="tchrGrntOne.name" name="tchrGrntList" ng-click="tchrGrntKindChange(tchrGrntOne)">
-                            <font size="3">{{tchrGrntOne.name}}</font>
-                        </label>
-                  </div>
+  <div class="btn-group dropdown">
+          <button class="btn btn-primary">年份选择</button>
+          <button class="btn btn-primary" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+             <button ng-repeat="bttn in buttonMap8" class="btn btn-primary" ng-model="predictionModal" style="width:150px;margin-left: 4px;margin-bottom:2px;margin-right:1px" btn-radio="bttn.radio" ng-click="btn_click8(bttn)">{{bttn.label}}</button>
+          </ul>
+        </div>
+                  
                    </div>
 
                  </div>
