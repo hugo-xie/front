@@ -18,9 +18,9 @@ app.controller('EconomyKeqiangCtrl', ['$scope','$stateParams','qService','foreca
     };
   $scope.title = $stateParams.title;
   $scope.selectedRange=0;
-  $scope.loandata=[6.3, 6.6, 6.5, 7.0,7.4,7.5,7.1,6.8,7.5,8.0,8.1,8.6];
-  $scope.transdata=[6.3, 6.6, 6.5, 7.0,7.4,7.5,7.1,6.8,7.5,8.0,8.1,8.6];
-  $scope.elecdata=[6.3, 6.6, 6.5, 7.0,7.4,7.5,7.1,6.8,7.5,8.0,8.1,8.6];
+  $scope.loandata=[8.9, 18.1, 2.0, 18.2,32.3,2.2,28.2,1.7,20.0,7.2,22.3,18.7];
+  $scope.transdata=[-3.2, -4.3, -8, -0.7,6.7,8.2,7.3,10.5,4.3,4.7,-0.9,1.2];
+  $scope.elecdata=[7.9, 10.1, 9.5, 7.7,12.3,7.4,7.5,7.7,-3.3,9.9,2.4,3.2];
   $scope.keqiangdata=[6.9, 7.2, 6.8, 6.4];
   $scope.range=function(){
     return $scope.selectedRange;
@@ -221,10 +221,10 @@ $scope.loanChart = {
             },
     series: [{
         name: '真实值',
-        data: [7.9, 8.1, 7.5, 7.7,7.2,7.4,7.6,7.1,7.9,8.2,8.3,7.6]
+        data: [8.5, 17.6, 2.1, 19.2,30.0,2.1,26.1,1.3,16.2,4.7,18.4,17.2]
     },{
         name: '预测值',
-        type:'line',
+        type:'spline',
         data: $scope.loandata
     }],
     title: {
@@ -255,10 +255,10 @@ $scope.transChart = {
             },
     series: [{
         name: '真实值',
-        data: [ 8.1,7.9, 7.5, 8.3,7.2,7.9,7.7,7.4,7.6,7.1,8.2,7.3]
+        data: [-3.0, -4.1, -7.2, -0.9,6.3,8.1,7.2,10.2,5.2,6.3,-0.8,1.2]
     },{
         name: '预测值',
-        type:'line',
+        type:'spline',
         data: $scope.transdata
     }],
     title: {
@@ -286,10 +286,10 @@ $scope.elecChart = {
             },
     series: [{
         name: '真实值',
-        data: [7.9, 8.1, 7.1,7.9,8.2,8.3,7.5, 7.7,7.2,7.4,7.6,8.1]
+        data: [7.3, 8.1, 7.5, 7.3,11.3,6.2,5.7,8.7,-2.3,9.3,2.1,3.1]
     },{
         name: '预测值',
-        type:'line',
+        type:'spline',
         data: $scope.elecdata
     }],
     xAxis: {
