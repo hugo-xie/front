@@ -473,7 +473,7 @@ $scope.$watch($scope.monthrange4,changemonthdetail4);
   $scope.taxrealvalue=rc.data[3]
   $scope.date2=rc.data[4];
   $scope.ratedate1=rc.data[5];
-  
+  $scope.thisyearforecastvalue=rc.data[1][9];
 
 
  $scope.monthArray = ['2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
