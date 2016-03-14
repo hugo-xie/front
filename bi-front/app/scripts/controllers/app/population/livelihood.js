@@ -560,7 +560,7 @@ $scope.jobt ={
             enabled:false
         },
         xAxis: [{
-            categories: $scope.secondTenYear,
+            categories: $scope.firstTenYear,
             crosshair: true
         }],
         yAxis: [ { // Secondary yAxis
