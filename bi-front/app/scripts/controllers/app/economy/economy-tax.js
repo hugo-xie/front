@@ -2,6 +2,7 @@
 
 app.controller('EconomyTaxCtrl', ['$scope','$stateParams','qService','forecastFactory_gdp',function($scope, $stateParams,qService,forecastFactory_gdp) {
   var year;
+  $scope.panelyear=2015;
   var promise = qService.tokenHttpGet(forecastFactory_gdp.query,{tableName:'taxForecastData',year:year});
    $scope.changeyear=function(param){
      $scope.monthselectedRange = 0;
@@ -9,6 +10,7 @@ app.controller('EconomyTaxCtrl', ['$scope','$stateParams','qService','forecastFa
     $scope.monthselectedRange3 = 0;
     $scope.monthselectedRange4 = 0;
       year=param;
+      $scope.panelyear=param;
       var promise = qService.tokenHttpGet(forecastFactory_gdp.query,{tableName:'taxForecastData',year:year});
        promise.then(function(rc) {
 
@@ -90,7 +92,7 @@ app.controller('EconomyTaxCtrl', ['$scope','$stateParams','qService','forecastFa
   $scope.taxrealvalue=rc.data[3]
   $scope.date2=rc.data[4];
   $scope.ratedate1=rc.data[5];
-  $scope.thisyearforecastvalue=rc.data[1][10];
+  $scope.thisyearforecastvalue=rc.data[1][9];
 $scope.range = function() {
         return $scope.selectedRange;
       };
@@ -196,7 +198,7 @@ var changedetail=function(newValue,oldValue,scope){
         enabled:false,
      },
     title: {
-      text:'2015年月度税收收入预测',
+      text:'本年月度税收收入预测',
       style:{
         fontWeight:'bold'
       }
@@ -471,8 +473,7 @@ $scope.$watch($scope.monthrange4,changemonthdetail4);
   $scope.taxrealvalue=rc.data[3]
   $scope.date2=rc.data[4];
   $scope.ratedate1=rc.data[5];
-  $scope.thisyearforecastvalue=rc.data[1][9];
-
+  
 
 
  $scope.monthArray = ['2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
@@ -857,7 +858,7 @@ $scope.$watch($scope.monthrange4,changemonthdetail4);
   $scope.taxrealvalue=rc.data[3]
   $scope.date2=rc.data[4];
   $scope.ratedate1=rc.data[5];
-  $scope.thisyearforecastvalue=rc.data[1][10];
+  
 
 
   $scope.yearArray = rc.data[6];
@@ -1085,7 +1086,7 @@ $scope.$watch($scope.monthrange4,changemonthdetail4);
   $scope.taxrealvalue=rc.data[3]
   $scope.date2=rc.data[4];
   $scope.ratedate1=rc.data[5];
-  $scope.thisyearforecastvalue=rc.data[1][10];
+  $scope.thisyearforecastvalue=rc.data[1][9];
 $scope.range = function() {
         return $scope.selectedRange;
       };
@@ -1192,7 +1193,7 @@ $scope.$watch($scope.monthrange4,changemonthdetail4);
         enabled:false,
      },
     title: {
-      text:'2015年月度税收收入预测',
+      text:'本年月度税收收入预测',
       style:{
         fontWeight:'bold'
       }
