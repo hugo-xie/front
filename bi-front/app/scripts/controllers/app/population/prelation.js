@@ -1585,6 +1585,9 @@ options:{ chart: {
         title: {
             text: '太仓市2016至2025年劳动力总人口与GDP关联分析预测'
         },
+         credits:{
+                    enabled:false
+                },
         xAxis: {
             categories: ['2016', '2017', '2018', '2019', '2020', '2021',
                 '2022', '2023', '2024', '2025']
@@ -1716,7 +1719,9 @@ $scope.populationChart ={
                 title: {
                     text: '太仓市2016至2025年劳动力总人口预测值'
                 },
-
+                credits:{
+                    enabled:false
+                },
                 xAxis: {
                     categories: [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
                     title:{
@@ -1750,6 +1755,9 @@ $scope.populationChart ={
                 }],
                 title: {
                     text: '太仓市2016至2025年GDP总量预测值'
+                },
+                 credits:{
+                    enabled:false
                 },
                 xAxis: {
                     categories: [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
