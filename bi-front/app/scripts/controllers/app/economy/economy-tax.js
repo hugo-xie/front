@@ -341,7 +341,7 @@ var changedetail=function(newValue,oldValue,scope){
       var promise = qService.tokenHttpGet(forecastFactory_gdp.query,{tableName:'taxForecastData',year:year});
        promise.then(function(rc) {
 var changedetail=function(newValue,oldValue,scope){
-
+$scope.panelyear=2015;
   $scope.date[10]=Math.round($scope.date[10]*(1+(newValue-oldValue)/200)*100)/100;
   $scope.date[11]=Math.round($scope.date[11]*(1+(newValue-oldValue)/200)*100)/100;
   $scope.date[12]=Math.round($scope.date[12]*(1+(newValue-oldValue)/200)*100)/100;
