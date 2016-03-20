@@ -192,31 +192,6 @@ angular.module('nevermore')
               }]
             }
           })
-          .state('app.emenu.watertest', {
-          url: '^/app/environment/emenu/watertest',
-          templateUrl: 'tpl/app/environment/watertest.html',
-          controller: 'WaterTestCtrl',
-          resolve: {
-          controller: ['$ocLazyLoad', function($ocLazyLoad) {
-          return $ocLazyLoad.load([
-          'scripts/controllers/app/environment/watertest.js',
-                 ]);
-              }]
-            }
-          })
-          .state('app.emenu.watertitle', {
-          url: '^/app/environment/emenu/watertitle',
-          templateUrl: 'tpl/app/environment/watertitle.html',
-          controller: 'WaterCtrl',
-          resolve: {
-          controller: ['$ocLazyLoad', function($ocLazyLoad) {
-          return $ocLazyLoad.load([
-          'scripts/controllers/app/environment/waterenvironmentbi.js',
-          'scripts/controllers/app/environment/echarts.js',
-                 ]);
-              }]
-            }
-          })
           .state('app.emenu.waterEnvironmentBI', {
           url: '^/app/environment/emenu/waterEnvironmentBI',
           templateUrl: 'tpl/app/environment/waterEnvironmentBI.html',
@@ -224,7 +199,7 @@ angular.module('nevermore')
           resolve: {
           controller: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
-          'scripts/controllers/app/environment/waterEnvironmentbi-controller.js',
+          'scripts/controllers/app/environment/waterenvironmentbi-controller.js',
           'scripts/controllers/app/environment/echarts-plain.js'
                  ]);
               }]
