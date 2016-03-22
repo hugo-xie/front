@@ -51,7 +51,7 @@
                                     <span>&nbsp;&nbsp;最低气温</span> 
                                   </a>
                                   <a class="list-group-item" href="">
-                                    <span class="badge bg-light">东风3~4级</span>
+                                    <span class="badge bg-light">东北风2~3级</span>
                                     <i class="icon ion-cloud" style="color: #24a8dd"></i> 
                                     &nbsp;风向风级
                                   </a>
@@ -119,7 +119,8 @@
                       <div class="panel b-a">
                         <div class="panel-heading text-center bg-info no-border">
                           <h4 class="text-u-c m-b-none" style="font-size:20px;">实时空气质量状况</h4>
-                          <span style="font-size:65%">当前时间:{{datetime[6]}}</span>
+                          <!-- <span style="font-size:65%">采样时间:{{datetime[6]}}</span> -->
+                          <span style="font-size:65%">采样时间:3月31日6时</span>
                           <h2 class="m-t-none">
                             <span class="text-2x text-lt">{{aqi[6]}}</span>
                             <span class="text-xs" > {{airQualityLevel[6]}}</span>
@@ -332,7 +333,7 @@
                                 </tr>
                             </table>
                         </div>
-                        <div style="overflow: auto; overflow-x:hidden;border-bottom:solid 1px lightgrey;" ng-show="mapTableStatus.airCondition">
+                        <div style="overflow: auto; overflow-x:hidden;border-bottom:solid px lightgrey;" ng-show="mapTableStatus.airCondition">
                             <table class="table table-hover table-responsive" style="font-size:14px">
                                 <tr >
                                     <td style="width:20%">太仓市气象局</td>
@@ -340,13 +341,13 @@
                                         <span>多云</span>
                                     </td>
                                     <td style="width:20%">
-                                        <span>8</span>
+                                        <span>22</span>
                                     </td>
                                     <td style="width:20%">
-                                        <span>1</span>
+                                        <span>9</span>
                                     </td>
                                      <td style="width:20%">
-                                        <span>东南风2级</span>
+                                        <span>东北风2~3级</span>
                                     </td>
                                 </tr>
                             </table>
@@ -437,7 +438,7 @@
                                     <span>{{pollution_no[2]}}</span>
                                 </td>
                             </tr>
-                            <tr >
+                            <!-- <tr >
                                 <td style="width:25%">国华太仓发电</td>
                                 <td style="width:19%">
                                     <span>{{discharge[3]}}</span>
@@ -451,7 +452,7 @@
                                 <td style="width:18%">
                                     <span>{{pollution_no[3]}}</span>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </table>
                     </div>
                   </div> 
@@ -569,7 +570,8 @@
                             <div class="list-group panel panel-primary" style="border-top:solid white">
                                 <a href="" class="list-group-item">
                                   <i class="fa fa-calendar fa-fw m-r-xs"style="color: #009f95"></i> 日期
-                                   <span class="badge fc-nobg" style=" width:40%">2016年{{date[6]}}</span>
+                                  <span class="badge fc-nobg" style=" width:40%">2016年3月31日</span>
+                                   <!-- <span class="badge fc-nobg" style=" width:40%">2016年{{date[6]}}</span> -->
                                 </a>
 
                                 <a href="" class="list-group-item" ng-click = "openAQI1List()">

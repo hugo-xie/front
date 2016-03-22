@@ -376,13 +376,13 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
     })//太仓港协鑫发电
   });
 
-  var marker7 = new AMap.Marker({
-  position: [121.256718,31.582652],//图标大小
-  icon: new AMap.Icon({            
-      size: new AMap.Size(40, 50),  
-      image: "/images/marker_sprite.png",
-    })//国华太仓发电公司
-  });
+  // var marker7 = new AMap.Marker({
+  // position: [121.256718,31.582652],//图标大小
+  // icon: new AMap.Icon({            
+  //     size: new AMap.Size(40, 50),  
+  //     image: "/images/marker_sprite.png",
+  //   })//国华太仓发电公司
+  // });
 	$scope.airQualityBtn = function() {
   $scope.istownairquality = true;
   $scope.istownaircondition=false;
@@ -449,10 +449,10 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
   var info3=[];
   info3.push("<h4><strong>太仓市气象局(明日天气预报)</strong></h4>");
   info3.push("<table class='table table-bordered table-striped'>");
-  info3.push("<tr><td class='maptable' style='line-height:35px;'>明日气温</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:2.5px;margin-top:4px;'>1℃~8℃</div></td></tr>");
+  info3.push("<tr><td class='maptable' style='line-height:35px;'>明日气温</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:2.5px;margin-top:4px;'>9℃~22℃</div></td></tr>");
   info3.push("<tr><td class='maptable' style='line-height:35px;'>相对湿度</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:2.5px;margin-top:4px;'>50%</div></td></tr>");
-  info3.push("<tr><td class='maptable' style='line-height:35px;'>风级</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:2.5px;margin-top:4px;'>2</div></td></tr>");
-  info3.push("<tr><td class='maptable' style='line-height:35px;'>风向</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:2.5px;margin-top:4px;'>东南风</div></td></tr>");
+  info3.push("<tr><td class='maptable' style='line-height:35px;'>风级</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:2.5px;margin-top:4px;'>2~3</div></td></tr>");
+  info3.push("<tr><td class='maptable' style='line-height:35px;'>风向</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:2.5px;margin-top:4px;'>东北风</div></td></tr>");
   info3.push("</table>");
 	var infowindow3 = new AMap.InfoWindow({
     content: info3.join(''),
@@ -562,30 +562,30 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
   })
 
   //国华太仓发电公司
-  marker7.setMap(map);
-  var infow=[];
-  infow.push("<div style='background-color:#FFFFFF;border:2px solid #66cc66;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#66cc66;font-size:18px'>国华太仓发电公司</div>")
-  marker7.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
-    offset: new AMap.Pixel(23, 5),//修改label相对于maker的位置
-    content: infow.join('')
-  });
-  var info7=[];
-  info7.push("<h4><strong>国华太仓发电有限公司(实时数据)</strong></h4>");
-  info7.push("<table class='table table-bordered table-striped'>");
-  info7.push("<tr><td class='maptable' style='line-height:35px;'>排放量</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:10px;margin-top:4px;'>0.12亿</div></td></tr>");
-  info7.push("<tr><td class='maptable' style='line-height:35px;'>烟尘浓度</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:10px;margin-top:4px;'>2.13mg/m³</div></td></tr>");
-  info7.push("<tr><td class='maptable' style='line-height:35px;'>二氧化硫浓度</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:10px;margin-top:4px;'>30.15mg/m³</div></td></tr>");
-  info7.push("<tr><td class='maptable' style='line-height:35px;'>氮氧化物浓度</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:10px;margin-top:4px;'>70.63mg/m³</div></td></tr>");
-  info7.push("<tr><td class='maptable' style='line-height:35px;'>废气排放状况</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:10px;margin-top:4px;'>正常</div></td></tr>");
-  info7.push("</table>");
-  var infowindow7 = new AMap.InfoWindow({
-    content: info7.join(''),
-    offset: new AMap.Pixel(0, -30),
-    size:new AMap.Size(320,0)
-  })
-  var clickHandle7 = AMap.event.addListener(marker7, 'click', function() {
-    infowindow7.open(map, marker7.getPosition())
-  })
+  // marker7.setMap(map);
+  // var infow=[];
+  // infow.push("<div style='background-color:#FFFFFF;border:2px solid #66cc66;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#66cc66;font-size:18px'>国华太仓发电公司</div>")
+  // marker7.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
+  //   offset: new AMap.Pixel(23, 5),//修改label相对于maker的位置
+  //   content: infow.join('')
+  // });
+  // var info7=[];
+  // info7.push("<h4><strong>国华太仓发电有限公司(实时数据)</strong></h4>");
+  // info7.push("<table class='table table-bordered table-striped'>");
+  // info7.push("<tr><td class='maptable' style='line-height:35px;'>排放量</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:10px;margin-top:4px;'>0.12亿</div></td></tr>");
+  // info7.push("<tr><td class='maptable' style='line-height:35px;'>烟尘浓度</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:10px;margin-top:4px;'>2.13mg/m³</div></td></tr>");
+  // info7.push("<tr><td class='maptable' style='line-height:35px;'>二氧化硫浓度</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:10px;margin-top:4px;'>30.15mg/m³</div></td></tr>");
+  // info7.push("<tr><td class='maptable' style='line-height:35px;'>氮氧化物浓度</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:10px;margin-top:4px;'>70.63mg/m³</div></td></tr>");
+  // info7.push("<tr><td class='maptable' style='line-height:35px;'>废气排放状况</td><td><div class='map-table-right' style='background-Color:#5cb85c;margin-left:10px;margin-top:4px;'>正常</div></td></tr>");
+  // info7.push("</table>");
+  // var infowindow7 = new AMap.InfoWindow({
+  //   content: info7.join(''),
+  //   offset: new AMap.Pixel(0, -30),
+  //   size:new AMap.Size(320,0)
+  // })
+  // var clickHandle7 = AMap.event.addListener(marker7, 'click', function() {
+  //   infowindow7.open(map, marker7.getPosition())
+  // })
 }; 
 
   var mapObj, marker;
@@ -730,8 +730,8 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
                 enabled:false
             },
             xAxis: {
-                categories: $scope.date
-                // ['1月1日', '1月2日', '1月3日', '1月4日', '1月5日','1月6日','1月7日']
+                // categories: $scope.date
+                categories: ['3月25日', '3月26日', '3月27日', '3月28日', '3月29日','3月30日','3月31日']
             },
             yAxis: {
                 title: {
@@ -746,12 +746,12 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
           },
             series: [{
                 type: 'column',
-                name: '实际AQI值',
+                name: '实际AQI',
                 color:"#95ceff",
                 data: $scope.aqi
             },  {
                 type: 'spline',
-                name: '预测AQI值',
+                name: '预测AQI',
                 color:"#1F1F1F",
                 data: $scope.predictaqi
             }]
@@ -782,7 +782,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
         x:20
     },
     xAxis: {
-        categories: ['3月25日', '3月26日', '3月27日', '3月28日', '3月29日', '3月30日','3月31日']
+        categories: ['4月1日', '4月2日', '4月3日', '4月4日', '4月5日', '4月6日','4月7日']
     },
     yAxis: {
         title: {
@@ -805,10 +805,10 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
     },
     series: [{
       name: "最高气温",
-        data: [13, 14, 17, 18, 19, 20, 21]
+        data: [22, 19, 18, 19, 19, 20, 21]
     },  {
         name: '最低气温',
-        data: [5, 6, 8, 11, 11, 13, 13]
+        data: [9, 10, 14, 12, 11, 13, 13]
     }]
   };
 
@@ -817,13 +817,13 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
     tabledata:
     [
       {yearvalue:'日期',weather:'天气状况' ,Htemperature:'最高气温(°C)',Ltemperature:'最低气温(°C)',wind:'风向风级'},
-      {yearvalue:'1月9日',weather:'多云',Htemperature:'8',Ltemperature:'2',wind:'东风3~4级'},
-      {yearvalue:'1月10日',weather:'小雨', Htemperature:'9',Ltemperature:'5',wind:'东风3~4级'},
-      {yearvalue:'1月11日', weather:'中雨',Htemperature:'10',Ltemperature:'5',wind:'东北风4~5级'},
-      {yearvalue:'1月12日', weather:'小雨转多云',Htemperature:'9',Ltemperature:'8',wind:'西风3级'},
-      {yearvalue:'1月13日', weather:'多云',Htemperature:'6',Ltemperature:'-1',wind:'西北风3~4级'},
-      {yearvalue:'1月14日', weather:'多云',Htemperature:'6',Ltemperature:'-1',wind:'南风3级'},
-      {yearvalue:'1月15日', weather:'多云',Htemperature:'7',Ltemperature:'0',wind:'西南风转西风3级'}
+      {yearvalue:'4月1日',weather:'多云',Htemperature:'22',Ltemperature:'9',wind:'东北风2~3级'},
+      {yearvalue:'4月2日',weather:'多云转阴', Htemperature:'19',Ltemperature:'10',wind:'东南风2~3级'},
+      {yearvalue:'4月3日', weather:'雨',Htemperature:'18',Ltemperature:'14',wind:'东南风3~4级'},
+      {yearvalue:'4月4日', weather:'雨',Htemperature:'19',Ltemperature:'12',wind:'东南风转东北风2~3级'},
+      {yearvalue:'4月5日', weather:'多云转阴',Htemperature:'19',Ltemperature:'11',wind:'东北风转东风3~4级'},
+      {yearvalue:'4月6日', weather:'多云',Htemperature:'20',Ltemperature:'13',wind:'东南风3级'},
+      {yearvalue:'4月7日', weather:'多云',Htemperature:'21',Ltemperature:'13',wind:'东南风转东风3级'}
     ]
   };
 
