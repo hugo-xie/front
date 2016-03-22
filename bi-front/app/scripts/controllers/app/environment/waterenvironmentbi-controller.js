@@ -49,13 +49,13 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
             },
             xAxis: {
                 categories: [
+                    '3月24日',
                     '3月25日',
                     '3月26日',
                     '3月27日',
                     '3月28日',
                     '3月29日',
-                    '3月30日',
-                    '3与31日',
+                    '3与30日',
                 ]
                 // categories: $scope.date_industry
             },
