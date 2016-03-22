@@ -782,7 +782,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
         x:20
     },
     xAxis: {
-        categories: ['1月9日', '1月10日', '1月11日', '1月12日', '1月13日', '1月14日','1月15日']
+        categories: ['3月25日', '3月26日', '3月27日', '3月28日', '3月29日', '3月30日','3月31日']
     },
     yAxis: {
         title: {
@@ -805,10 +805,10 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
     },
     series: [{
       name: "最高气温",
-        data: [8, 9, 10, 9, 6, 6, 7]
+        data: [13, 14, 17, 18, 19, 20, 21]
     },  {
         name: '最低气温',
-        data: [2, 5, 5, 8, -1, -1, 0]
+        data: [5, 6, 8, 11, 11, 13, 13]
     }]
   };
 
@@ -872,11 +872,11 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
         type: 'asc'
     };
     var airQualityNo2Scan = {
-        scan:[200,200],
+        scan:[80,180],
         type: 'asc'
     };
     var airQualityCoScan = {
-        scan:[10,10],
+        scan:[4,14],
         type: 'asc'
     };
     var airQualityO3Scan = {
@@ -884,7 +884,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
         type: 'asc'
     };
 
-    //整个盒子4的highchart图, 包含gauge和折线
+    //整个盒子4的highchart图, 包含gauge(前)和折线(后)
     $scope.airQualityOptions = {
 
           aqiOption:{
@@ -1353,8 +1353,8 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
             text: '二氧化氮',
             y:40,
             style:{                
-                      fontFamily:'微软雅黑'
-                     }
+                    fontFamily:'微软雅黑'
+                   }
           },
 
           pane: {
@@ -1403,7 +1403,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
           // the value axis
           yAxis: {
             min: 0,
-            max: 400,
+            max: 280,
 
             minorTickInterval: 'auto',
             minorTickWidth: 1,
@@ -1433,7 +1433,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
               color: '#DDDF0D' // yellow
             }, {
               from: airQualityNo2Scan.scan[1],
-              to: 400,
+              to: 280,
               color: '#DF5353' // red
             }]
           },
@@ -1517,7 +1517,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
           // the value axis
           yAxis: {
             min: 0,
-            max: 20,
+            max: 24,
 
             minorTickInterval: 'auto',
             minorTickWidth: 1,
@@ -1547,7 +1547,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
               color: '#DDDF0D' // yellow
             }, {
               from: airQualityCoScan.scan[1],
-              to: 20,
+              to: 24,
               color: '#DF5353' // red
             }]
           },
@@ -1702,7 +1702,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
                     color: '#DF5353',
                     width: 2,
                     value: 300,
-                    dashStyle: 'Dot',
+                    dashStyle: 'Dash',
                     label:{
                     text:'严重污染',
                     align:'left',
@@ -1716,7 +1716,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
                     color: '#DDDF0D',
                             width: 2,
                             value: 100,
-                            dashStyle: 'Dot',
+                            dashStyle: 'Dash',
                              label:{
                              text:'轻度污染',
                              align:'left',
@@ -1777,7 +1777,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
             color: '#DDDF0D',
                     width: 2,
                     value: 75,
-                    dashStyle: 'Dot',
+                    dashStyle: 'Dash',
                     label:{
                              text:'轻度污染',
                              align:'left',
@@ -1791,7 +1791,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
             color: '#DF5353',
                     width: 2,
                     value: 150,
-                      dashStyle: 'Dot',
+                      dashStyle: 'Dash',
                       label:{
                              text:'严重污染',
                              align:'left',
@@ -1851,7 +1851,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
             color: '#DDDF0D',
                     width: 2,
                     value: 150,
-                      dashStyle: 'Dot',
+                      dashStyle: 'Dash',
                       label:{
                              text:'轻度污染',
                              align:'left',
@@ -1865,7 +1865,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
             color: '#DF5353',
                     width: 2,
                     value: 250,
-                      dashStyle: 'Dot',
+                      dashStyle: 'Dash',
                       label:{
                              text:'严重污染',
                              align:'left',
@@ -1925,7 +1925,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
             color: '#DDDF0D',
                     width: 2,
                     value: 150,
-                      dashStyle: 'Dot',
+                      dashStyle: 'Dash',
                       label:{
                              text:'轻度污染',
                              align:'left',
@@ -1939,7 +1939,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
             color: '#DF5353',
                     width: 2,
                     value: 475,
-                      dashStyle: 'Dot',
+                      dashStyle: 'Dash',
                       label:{
                              text:'严重污染',
                              align:'left',
@@ -1994,12 +1994,12 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
                         text: 'μg/m³'
                     },
                     min:0,
-                    max:400,
+                    max:280,
                     plotLines : [{
             color: '#DDDF0D',
                     width: 2,
                     value: 80,
-                      dashStyle: 'Dot',
+                      dashStyle: 'Dash',
                       label:{
                              text:'轻度污染',
                              align:'left',
@@ -2013,7 +2013,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
             color: '#DF5353',
                     width: 2,
                     value: 180,
-                      dashStyle: 'Dot',
+                      dashStyle: 'Dash',
                       label:{
                              text:'严重污染',
                              align:'left',
@@ -2068,16 +2068,16 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
                         text: 'mg/m³'
                     },
                     min:0,
-                    max:20,
+                    max:24,
                     plotLines : [{
             color: '#DDDF0D',
                     width: 2,
                     value: 4,
-                      dashStyle: 'Dot',
+                      dashStyle: 'Dash',
                       label:{
                              text:'轻度污染',
                              align:'left',
-                             x:10,
+                             x:4,
                              style: {
                             fontSize: '8px',
                             fontWeight: 200
@@ -2087,11 +2087,11 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
             color: '#DF5353',
                     width: 2,
                     value: airQualityCoScan.scan[1],
-                      dashStyle: 'Dot',
+                      dashStyle: 'Dash',
                       label:{
                              text:'严重污染',
                              align:'left',
-                             x:10,
+                             x:14,
                              style: {
                             fontSize: '8px',
                             fontWeight: 200
@@ -2148,7 +2148,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
             color: '#DDDF0D',
                     width: 2,
                     value: 160,
-                      dashStyle: 'Dot',
+                      dashStyle: 'Dash',
                       label:{
                              text:'轻度污染',
                              align:'left',
@@ -2162,7 +2162,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
             color: '#DF5353',
                     width: 2,
                     value: 215,
-                      dashStyle: 'Dot',
+                      dashStyle: 'Dash',
                       label:{
                              text:'严重污染',
                              align:'left',
