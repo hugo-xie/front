@@ -681,12 +681,12 @@ $scope.school={
         }, {
             name: '初中',
            // color:"#000000",
-            data: $scope.preMiddleSchool[1]
+            data: $scope.preMiddleSchool[0]
 
         }, {
             name: '高中',
            // color:"#90ed7d",
-            data: $scope.preHighschool[2]
+            data: $scope.preHighschool[0]
 
         }]
 };
