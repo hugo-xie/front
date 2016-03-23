@@ -525,8 +525,8 @@ promise.then(function(result) {
     5006:{
         title:'江苏长乐纤维科技有限公司',
         yeardata:{
-          gdpdata: $scope.getData[5006][0],                                                                             
-          powerdata: $scope.getData[5006][1],
+          gdpdata: [null,null,null,null,null,10.1,9.56,9.35,8.45,9.88,10.45,6.71,7.48],                                                                             
+          powerdata: [null,null,null,null,null,15.1,9.56,12.35,11.45,9.88,10.45,11.71,12.48],
         },
         _2018:{
             season:
