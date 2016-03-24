@@ -4,14 +4,22 @@
 app.controller('EconomyGdpCtrl', ['$scope','$stateParams','qService','forecastFactory_gdp',function($scope,$stateParams,qService,forecastFactory_gdp) {
     var year;
      $scope.expression=true;
+     $scope.vicemonthdeviation=false;
     var promise = qService.tokenHttpGet(forecastFactory_gdp.query,{tableName:'gdpForecastData',year:year});
     $scope.changeyear=function(param){
        year=param;
        if (year>2015) {
         $scope.expression=false;
+        // $scope.vicemonthdeviation=true;
+        // $scope.monthdeviation=false;
        }else{
         $scope.expression=true;
+        // $scope.vicemonthdeviation=false;
+        // $scope.monthdeviation=true;
        };
+       $scope.vicemonthdeviation=false;
+       $scope.monthdeviation=false;
+       $scope.monthforecast=false;
        var promise = qService.tokenHttpGet(forecastFactory_gdp.query,{tableName:'gdpForecastData',year:year});
         promise.then(function(rc) {
          
@@ -60,7 +68,13 @@ app.controller('EconomyGdpCtrl', ['$scope','$stateParams','qService','forecastFa
         $scope.monthGDPChart.series[1].type=param;
       };
       $scope.monthcheckdeviation=function(){
+        if (year==2015) {
+            $scope.vicemonthdeviation=false;
         $scope.monthdeviation=!$scope.monthdeviation;
+        }else if (year==2016) {
+            $scope.monthdeviation=false;
+            $scope.vicemonthdeviation=!$scope.vicemonthdeviation;
+        };
       };
       $scope.monthcheckforecast=function(){
         $scope.monthforecast=!$scope.monthforecast;

@@ -82,9 +82,10 @@
           <th class="active" style="text-align:center;">2015</th>
           <th class="active" style="text-align:center;">2016</th>
           <th class="active" style="text-align:center;">2017</th>
+          <th class="active" style="text-align:center;">2018</th>
         </tr>
         <tr>
-          <td class="info" style="text-align:center;">GDP预测误差</td>
+          <td class="info" style="text-align:center;">GDP预测误差(%)</td>
           <td class="info" style="text-align:center;">{{errorvalue[0]}}</td>
           <td class="info" style="text-align:center;">{{errorvalue[1]}}</td>
           <td class="info" style="text-align:center;">{{errorvalue[2]}}</td>
@@ -94,6 +95,7 @@
           <td class="info" style="text-align:center;">{{errorvalue[6]}}</td>
           <td class="info" style="text-align:center;">{{errorvalue[7]}}</td>
           <td class="info" style="text-align:center;">{{errorvalue[8]}}</td>
+          <td class="info" style="text-align:center;">--</td>
           <td class="info" style="text-align:center;">--</td>
           <td class="info" style="text-align:center;">--</td>
         </tr>
@@ -117,6 +119,7 @@
           <th class="active" style="text-align:center;">2015</th>
           <th class="active" style="text-align:center;">2016</th>
           <th class="active" style="text-align:center;">2017</th>
+          <th class="active" style="text-align:center;">2018</th>
         </tr>
         <tr>
           <td class="info" style="text-align:center;">GDP真实值(亿元)</td>
@@ -129,6 +132,7 @@
           <td class="info" style="text-align:center;">{{gdprealvalue[6]}}</td>
           <td class="info" style="text-align:center;">{{gdprealvalue[7]}}</td>
           <td class="info" style="text-align:center;">{{gdprealvalue[8]}}</td>
+          <td class="info" style="text-align:center;">--</td>
           <td class="info" style="text-align:center;">--</td>
           <td class="info" style="text-align:center;">--</td>
          
@@ -146,6 +150,7 @@
           <td class="info" style="text-align:center;">{{gdpforecastvalue[8]}}</td>
          <td class="info" style="text-align:center;">{{gdpforecastvalue[9]}}</td>
          <td class="info" style="text-align:center;">{{gdpforecastvalue[10]}}</td>
+         <td class="info" style="text-align:center;">{{gdpforecastvalue[11]}}</td>
         </tr>
       </table>
       
@@ -282,6 +287,26 @@
           <td class="info" style="text-align:center;">2.7%</td>
           <td class="info" style="text-align:center;">3.3%</td>
           <td class="info" style="text-align:center;">3.0%</td>
+        </tr>
+
+      </table>
+      
+    </div>
+    <div class="col-md-12" style="margin-top:10px" ng-if="vicemonthdeviation">
+    <table class="table table-bordered" >
+        <tr>
+          <th class="active" style="text-align:center;">季度</th>
+          <th class="active" style="text-align:center;">第一季度</th>
+          <th class="active" style="text-align:center;">第二季度</th>
+          <th class="active" style="text-align:center;">第三季度</th>
+          <th class="active" style="text-align:center;">第四季度</th>
+        </tr>
+        <tr>
+          <td class="info" style="text-align:center;">误差</td>
+          <td class="info" style="text-align:center;">0%</td>
+          <td class="info" style="text-align:center;">0%</td>
+          <td class="info" style="text-align:center;">0%</td>
+          <td class="info" style="text-align:center;">0%</td>
         </tr>
 
       </table>
