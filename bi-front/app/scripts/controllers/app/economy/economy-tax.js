@@ -761,10 +761,10 @@ var changemonthdetail4=function(newValue,oldValue,scope){
 // $scope.$watch($scope.range2,changedetail2);
 // $scope.$watch($scope.range3,changedetail3);
 // $scope.$watch($scope.range4,changedetail4);
-$scope.$watch($scope.monthrange,changemonthdetail);
-$scope.$watch($scope.monthrange2,changemonthdetail2);
-$scope.$watch($scope.monthrange3,changemonthdetail3);
-$scope.$watch($scope.monthrange4,changemonthdetail4);
+// $scope.$watch($scope.monthrange,changemonthdetail);
+// $scope.$watch($scope.monthrange2,changemonthdetail2);
+// $scope.$watch($scope.monthrange3,changemonthdetail3);
+// $scope.$watch($scope.monthrange4,changemonthdetail4);
     
     //alert(rc.data);
     //$scope.forecastvalue=rc.data[0].gdpForecastValue;
