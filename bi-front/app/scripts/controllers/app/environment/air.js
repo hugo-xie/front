@@ -732,7 +732,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
             },
             xAxis: {
                 // categories: $scope.date
-                categories: ['3月25日', '3月26日', '3月27日', '3月28日', '3月29日','3月30日','3月31日']
+                categories: ['3月24日', '3月25日', '3月26日', '3月27日', '3月28日','3月29日','3月30日']
             },
             yAxis: {
                 title: {
