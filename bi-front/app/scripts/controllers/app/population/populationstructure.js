@@ -912,7 +912,7 @@ infow4.push("<div style='background-color:#FFFFFF;border:2px solid #CC0033;borde
         })
     });
    var infow2=[];
-infow2.push("<div style='background-color:#FFFFFF;border:2px solid #66cc66;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#66cc66;font-size:18px'>浏河镇</div>")
+infow2.push("<div style='background-color:#FFFFFF;border:2px solid #CC0033;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#CC0033;font-size:18px'>浏河镇</div>")
     // 设置label标签
     marker2.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
         offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
@@ -927,7 +927,7 @@ infow2.push("<div style='background-color:#FFFFFF;border:2px solid #66cc66;borde
         })
     });
    var infow3=[];
-infow3.push("<div style='background-color:#FFFFFF;border:2px solid #66cc66;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#66cc66;font-size:18px'>太仓城区</div>")
+infow3.push("<div style='background-color:#FFFFFF;border:2px solid #CC0033;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#CC0033;font-size:18px'>太仓城区</div>")
     // 设置label标签
     marker3.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
         offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
@@ -995,7 +995,7 @@ var marker9 = new AMap.Marker({
     // 设置鼠标划过点标记显示的文字提示
     marker9.setTitle('');
 var infow=[];
-infow.push("<div style='background-color:#FFFFFF;border:2px solid #66cc66;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#66cc66;font-size:18px'>新区</div>")
+infow.push("<div style='background-color:#FFFFFF;border:2px solid #CC0033;border-radius:10px;padding:10px 10px;position:absolute;top:-10px;left:-5px;white-space:nowrap;color:#CC0033;font-size:18px'>新区</div>")
     // 设置label标签
     marker9.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
         offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
@@ -1025,9 +1025,9 @@ infow.push("<div style='background-color:#FFFFFF;border:2px solid #CC0033;border
 var info1=[];
    info1.push("<h4><strong>浮桥镇人口自然增长率</strong></h4>");//121.20748,31.622211
     info1.push("<table class='table table-bordered table-striped'>");
-    info1.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>6.31‰</td></tr>");
-    info1.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>6.34‰</td></tr>");
-    info1.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-0.03‰</td></tr>");
+    info1.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>7.31‰</td></tr>");
+    info1.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>8.65‰</td></tr>");
+    info1.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-1.34‰</td></tr>");
     info1.push("</table>");
 var infowindow1 = new AMap.InfoWindow({
      content: info1.join(''),
@@ -1041,9 +1041,9 @@ var clickHandle1 = AMap.event.addListener(marker1, 'click', function() {
 var info2=[];
    info2.push("<h4><strong>浏河镇人口自然增长率</strong></h4>");
     info2.push("<table class='table table-bordered table-striped'>");
-    info2.push("<tr><td style='font-size:15px;width:150px;text-align:center'>出生率</td><td style='text-align:center'>8.05‰</td></tr>");
-    info2.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>7.95‰</td></tr>");
-    info2.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>0.1‰</td></tr>");
+    info2.push("<tr><td style='font-size:15px;width:150px;text-align:center'>出生率</td><td style='text-align:center'>7.05‰</td></tr>");
+    info2.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>8.85‰</td></tr>");
+    info2.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-1.8‰</td></tr>");
     info2.push("</table>");
 var infowindow2 = new AMap.InfoWindow({
      content: info2.join(''),
@@ -1057,9 +1057,9 @@ var clickHandle2 = AMap.event.addListener(marker2, 'click', function() {
 var info3=[];
    info3.push("<h4><strong>太仓城区人口自然增长率</strong></h4>");
     info3.push("<table class='table table-bordered table-striped'>");
-    info3.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>4.34‰</td ></tr>");
-    info3.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>4.22‰</td ></tr>");
-    info3.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>0.12‰</td></tr>");
+    info3.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>6.34‰</td ></tr>");
+    info3.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>8.22‰</td ></tr>");
+    info3.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-1.88‰</td></tr>");
     info3.push("</table>");
 var infowindow3 = new AMap.InfoWindow({
      content: info3.join(''),
@@ -1074,9 +1074,9 @@ var clickHandle3 = AMap.event.addListener(marker3, 'click', function() {
 var info4=[];
     info4.push("<h4><strong>城厢镇人口自然增长率</strong></h4>");
     info4.push("<table class='table table-bordered table-striped'>");
-    info4.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>3.54‰</td></tr>");
-    info4.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>3.58‰</td></tr>");
-    info4.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-0.04‰</td></tr>");
+    info4.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>6.54‰</td></tr>");
+    info4.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>7.51‰</td></tr>");
+    info4.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-0.97‰</td></tr>");
     info4.push("</table>");
 var infowindow4 = new AMap.InfoWindow({
      content: info4.join(''),
@@ -1091,8 +1091,8 @@ var info5=[];
    info5.push("<h4><strong>沙溪镇人口自然增长率</strong></h4>");
     info5.push("<table class='table table-bordered table-striped'>");
     info5.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>8.11‰</td></tr>");
-    info5.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>7.98‰</td></tr>");
-    info5.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>0.13‰</td></tr>");
+    info5.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>7.82‰</td></tr>");
+    info5.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>0.29‰</td></tr>");
     info5.push("</table>");
 var infowindow5 = new AMap.InfoWindow({
      content: info5.join(''),
@@ -1107,8 +1107,8 @@ var info6=[];
    info6.push("<h4><strong>双凤镇人口自然增长率</strong></h4>");
     info6.push("<table class='table table-bordered table-striped'>");
     info6.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>8.54‰</td></tr>");
-    info6.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>8.24‰</td></tr>");
-    info6.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>0.3‰</td></tr>");
+    info6.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>7.88‰</td></tr>");
+    info6.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>0.66‰</td></tr>");
     info6.push("</table>");
 var infowindow6 = new AMap.InfoWindow({
      content: info6.join(''),
@@ -1122,8 +1122,8 @@ var info7=[];
     info7.push("<h4><strong>璜泾镇人口自然增长率</strong></h4>");
     info7.push("<table class='table table-bordered table-striped'>");
     info7.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>8.34‰</td></tr>");
-    info7.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>8.54‰</td></tr>");
-    info7.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-0.2‰</td></tr>");
+    info7.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>8.66‰</td></tr>");
+    info7.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-0.32‰</td></tr>");
     info7.push("</table>");
 var infowindow7 = new AMap.InfoWindow({
      content: info7.join(''),
@@ -1136,9 +1136,9 @@ var clickHandle7 = AMap.event.addListener(marker7, 'click', function() {
 var info8=[];
     info8.push("<h4><strong>科教新城人口自然增长率</strong></h4>");
     info8.push("<table class='table table-bordered table-striped'>");
-    info8.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>2.34‰</td></tr>");
-    info8.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>2.54‰</td></tr>");
-    info8.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-0.2‰</td></tr>");
+    info8.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>5.34‰</td></tr>");
+    info8.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>7.54‰</td></tr>");
+    info8.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-2.2‰</td></tr>");
     info8.push("</table>");
 var infowindow8 = new AMap.InfoWindow({
      content: info8.join(''),
@@ -1151,9 +1151,9 @@ var clickHandle8 = AMap.event.addListener(marker8, 'click', function() {
 var info9=[];
     info9.push("<h4><strong>新区人口自然增长率</strong></h4>");
     info9.push("<table class='table table-bordered table-striped'>");
-    info9.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>2.84‰</td></tr>");
-    info9.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>2.68‰</td></tr>");
-    info9.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>0.16‰</td></tr>");
+    info9.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>6.84‰</td></tr>");
+    info9.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>8.68‰</td></tr>");
+    info9.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-1.84‰</td></tr>");
     info9.push("</table>");
 var infowindow9 = new AMap.InfoWindow({
      content: info9.join(''),
@@ -1166,9 +1166,9 @@ var clickHandle9 = AMap.event.addListener(marker9, 'click', function() {
 var info10=[];
     info10.push("<h4><strong>港区人口自然增长率</strong></h4>");
     info10.push("<table class='table table-bordered table-striped'>");
-    info10.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>3.56‰</td></tr>");
-    info10.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>3.44‰</td></tr>");
-    info10.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-0.12‰</td></tr>");
+    info10.push("<tr><td style='font-size:15px;text-align:center'>出生率</td><td style='text-align:center'>5.56‰</td></tr>");
+    info10.push("<tr><td style='font-size:15px;text-align:center'>死亡率</td><td style='text-align:center'>7.44‰</td></tr>");
+    info10.push("<tr><td style='font-size:15px;text-align:center'>人口自然增长率</td><td style='text-align:center'>-1.88‰</td></tr>");
     info10.push("</table>");
 var infowindow10 = new AMap.InfoWindow({
      content: info10.join(''),
