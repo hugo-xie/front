@@ -901,6 +901,10 @@ app.controller('EconomyGdpCtrl', ['$scope','$stateParams','qService','forecastFa
                 text: '第一产业本年度GDP分析'
             },
             xAxis: {
+                labels:{
+                    step:2,
+                },
+                
                 categories: [
                     '第一季度',
                     '第二季度',
@@ -974,11 +978,14 @@ app.controller('EconomyGdpCtrl', ['$scope','$stateParams','qService','forecastFa
                 text: '第二产业本年度GDP分析'
             },
             xAxis: {
+                labels:{
+                    step:2,
+                },
                 categories: [
                     '第一季度',
-                    '',
+                    '第二季度',
                     '第三季度',
-                    ''
+                    '第四季度'
                     
                 ]
             },
@@ -1049,11 +1056,14 @@ app.controller('EconomyGdpCtrl', ['$scope','$stateParams','qService','forecastFa
                 text: '第三产业本年度GDP分析'
             },
             xAxis: {
+                labels:{
+                    step:2,
+                },
                 categories: [
                     '第一季度',
-                    '',
+                    '第二季度',
                     '第三季度',
-                    ''
+                    '第四季度'
                     
                 ]
             },
