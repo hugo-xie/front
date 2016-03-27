@@ -819,6 +819,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
     [
       {yearvalue:'日期',weather:'天气状况' ,Htemperature:'最高气温(°C)',Ltemperature:'最低气温(°C)',wind:'风向风级'},
       {yearvalue:'4月1日',weather:'多云转阴',Htemperature:'24',Ltemperature:'10',wind:'东南风3~4级'},
+
       {yearvalue:'4月2日',weather:'多云转大雨', Htemperature:'18',Ltemperature:'15',wind:'北风4~5级'},
       {yearvalue:'4月3日', weather:'雨转多云',Htemperature:'12',Ltemperature:'6',wind:'东南风3~4级'},
       {yearvalue:'4月4日', weather:'多云',Htemperature:'16',Ltemperature:'8',wind:'东风2~3级'},
