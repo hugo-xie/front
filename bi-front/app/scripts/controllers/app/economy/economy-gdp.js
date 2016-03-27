@@ -6,17 +6,20 @@ app.controller('EconomyGdpCtrl', ['$scope','$stateParams','qService','forecastFa
      $scope.expression=true;
      $scope.vicemonthdeviation=false;
      $scope.yearchoose=2015;
+     $scope.txtexpression="季度GDP预测采用的是基于时间序列的自回归积分滑动平均模型，通过该模型分析预测得出：第四季度经济增速保持稳定。";
     var promise = qService.tokenHttpGet(forecastFactory_gdp.query,{tableName:'gdpForecastData',year:year});
     $scope.changeyear=function(param){
        year=param;
        if (year>2015) {
         $scope.expression=false;
         $scope.yearchoose=2016;
+        $scope.txtexpression="季度GDP预测采用的是基于时间序列的自回归积分滑动平均模型，通过该模型分析预测得出：本年度经济增速放缓，基本保持稳定。";
         // $scope.vicemonthdeviation=true;
         // $scope.monthdeviation=false;
        }else{
         $scope.expression=true;
         $scope.yearchoose=2015;
+        $scope.txtexpression="季度GDP预测采用的是基于时间序列的自回归积分滑动平均模型，通过该模型分析预测得出：第四季度经济增速保持稳定。";
         // $scope.vicemonthdeviation=false;
         // $scope.monthdeviation=true;
        };
