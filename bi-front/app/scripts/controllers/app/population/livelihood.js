@@ -643,7 +643,7 @@ $scope.school={
             type: 'column'
         },
         title: {
-            text: '太仓市各城镇2025年学校数量分析预测'
+            text: '太仓市各乡镇2025年学校数量分析预测'
         },
         credits:{
             enabled:false
