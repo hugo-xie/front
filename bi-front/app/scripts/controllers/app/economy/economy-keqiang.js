@@ -18,8 +18,8 @@ app.controller('EconomyKeqiangCtrl', ['$scope','$stateParams','qService','foreca
     };
   $scope.title = $stateParams.title;
   $scope.selectedRange=0;
-  $scope.loandata=[7.1, 8.0, 6.2,5.3,7.2,6.2,5.9,6.3,7.2,5.3,8.7];
-  $scope.transdata=[6.3, 7.2, 7.7,6.7,8.2,7.3,8.5,6.3,7.7,7.9,6.2];
+  $scope.loandata=[552.17, 630.36,559.20,566.49,623.61,548.74,621.46,609.25,624.85,551.95,652.09];
+  $scope.transdata=[168,186, 182,174,192,206,194,183,186,183,190];
   $scope.elecdata=[ 8.3, 6.0, 6.4,6.4,6.6,7.0,7.3,6.5,6.2,6.9,7.4];
   $scope.keqiangdata=[6.9, 7.0, 6.9, 6.9];
   $scope.range=function(){
@@ -221,7 +221,7 @@ $scope.loanChart = {
             },
     series: [{
         name: '真实值',
-        data: [7.3, 8.0, 5.2,5.5,6.9,6.4,6.3,6.5,6.9,6.2,7.6]
+        data: [592.17, 600.36,599.20,596.49,593.61,588.74,581.46,579.25,584.85,591.95,612.09]
     },{
         name: '预测值',
         type:'spline',
@@ -255,7 +255,7 @@ $scope.transChart = {
             },
     series: [{
         name: '真实值',
-        data: [6.2, 7.0, 7.3,6.3,7.8,7.5,8.2,6.0,7.2,7.3,6.5]
+        data: [188,166, 192,184,202,196,180,173,196,193,180]
     },{
         name: '预测值',
         type:'spline',

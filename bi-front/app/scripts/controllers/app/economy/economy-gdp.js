@@ -453,6 +453,7 @@ app.controller('EconomyGdpCtrl', ['$scope','$stateParams','qService','forecastFa
                 text: '第三产业本年度GDP分析'
             },
             xAxis: {
+                
                 categories: [
                     '第一季度',
                     '',
