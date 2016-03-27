@@ -18,10 +18,10 @@ app.controller('EconomyKeqiangCtrl', ['$scope','$stateParams','qService','foreca
     };
   $scope.title = $stateParams.title;
   $scope.selectedRange=0;
-  $scope.loandata=[18.1, 2.0, 18.2,32.3,2.2,28.2,1.7,20.0,7.2,22.3,18.7];
-  $scope.transdata=[-4.3, -8, -0.7,6.7,8.2,7.3,10.5,4.3,4.7,-0.9,1.2];
-  $scope.elecdata=[ 10.1, 9.5, 7.7,12.3,7.4,7.5,7.7,2.2,9.9,2.4,3.2];
-  $scope.keqiangdata=[6.9, 7.2, 6.8, 6.4];
+  $scope.loandata=[7.1, 8.0, 6.2,5.3,7.2,6.2,5.9,6.3,7.2,5.3,8.7];
+  $scope.transdata=[6.3, 7.2, 7.7,6.7,8.2,7.3,8.5,6.3,7.7,7.9,6.2];
+  $scope.elecdata=[ 8.3, 6.0, 6.4,6.4,6.6,7.0,7.3,6.5,6.2,6.9,7.4];
+  $scope.keqiangdata=[6.9, 7.0, 6.9, 6.9];
   $scope.range=function(){
     return $scope.selectedRange;
   };
@@ -94,7 +94,7 @@ $scope.range2=function(){
     { plotLines:[{
             color:'red',
             dashStyle:'solid',
-            value:7.9,
+            value:7.2,
             width:2,
             label:{
                 text:'本年度GDP增长率预测值',
@@ -127,17 +127,17 @@ $scope.range2=function(){
     series:[{
         name: '工业用电量',
         color:"rgb(205,130,61)",
-        data: [10.1, 9.5, 7.7,12.3,7.4,7.5,7.7,2.9,9.9,2.4,3.2]
+        data: [ 8.3, 6.0, 6.4,6.4,6.6,7.0,7.3,6.5,6.2,6.9,7.4]
         },
         {
         name: '新增贷款',
         color:"rgb(51,181,88)",
-        data: [18.1, 2.1, 18.2,32.3,2.2,28.2,1.7,20.0,7.2,22.3,18.7]
+        data: [7.1, 8.0, 6.2,5.3,7.2,6.2,5.9,6.3,7.2,5.3,8.7]
         },
         {
         name: '货运量',
         color:"rgb(62,160,200)",
-        data: [-4.3, -2, -1.7,6.7,8.2,7.3,10.5,4.3,4.7,1.3,1.2]
+        data: [6.3, 7.2, 7.7,6.7,8.2,7.3,8.5,6.3,7.7,7.9,6.2]
         }]
 };
 
@@ -203,7 +203,7 @@ $scope.keqiangChart={
     },
     series:[{
         name: 'GDP实际增长率',
-        data: [7.9, 8.1, 7.5, 7.2]
+        data: [7.1, 7.3, 7.2, 7.1]
         }, {
         name: '“克强指数”拟合GDP增长率',
         data: $scope.keqiangdata
@@ -221,7 +221,7 @@ $scope.loanChart = {
             },
     series: [{
         name: '真实值',
-        data: [ 17.6, 2.1, 19.2,30.0,2.1,26.1,1.3,16.2,4.7,18.4,17.2]
+        data: [7.3, 8.0, 5.2,5.5,6.9,6.4,6.3,6.5,6.9,6.2,7.6]
     },{
         name: '预测值',
         type:'spline',
@@ -255,7 +255,7 @@ $scope.transChart = {
             },
     series: [{
         name: '真实值',
-        data: [ -4.1, -7.2, -1.9,6.3,8.1,7.2,10.2,5.2,6.3,-0.8,1.2]
+        data: [6.2, 7.0, 7.3,6.3,7.8,7.5,8.2,6.0,7.2,7.3,6.5]
     },{
         name: '预测值',
         type:'spline',
@@ -286,7 +286,7 @@ $scope.elecChart = {
             },
     series: [{
         name: '真实值',
-        data: [ 8.1, 7.5, 7.3,11.3,6.2,5.7,8.7,2.7,9.3,2.1,3.1]
+        data: [ 7.9, 6.3, 6.0,5.9,6.3,7.2,7.1,6.2,6.4,6.5,7.0]
     },{
         name: '预测值',
         type:'spline',

@@ -5,15 +5,18 @@ app.controller('EconomyGdpCtrl', ['$scope','$stateParams','qService','forecastFa
     var year;
      $scope.expression=true;
      $scope.vicemonthdeviation=false;
+     $scope.yearchoose=2015;
     var promise = qService.tokenHttpGet(forecastFactory_gdp.query,{tableName:'gdpForecastData',year:year});
     $scope.changeyear=function(param){
        year=param;
        if (year>2015) {
         $scope.expression=false;
+        $scope.yearchoose=2016;
         // $scope.vicemonthdeviation=true;
         // $scope.monthdeviation=false;
        }else{
         $scope.expression=true;
+        $scope.yearchoose=2015;
         // $scope.vicemonthdeviation=false;
         // $scope.monthdeviation=true;
        };
