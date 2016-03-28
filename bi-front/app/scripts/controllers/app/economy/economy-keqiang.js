@@ -55,15 +55,15 @@ $scope.range2=function(){
        $scope.selectedRange2=Math.round(($scope.selectedRange2+($scope.selectedRange3*(newValue-oldValue)/200)));
        $scope.selectedRange=Math.round(($scope.selectedRange+($scope.selectedRange3*(newValue-oldValue)/150)));
   };
-  $scope.reset=function(){
-    $scope.selectedRange=0;
-    $scope.selectedRange2=0;
-    $scope.selectedRange3=0;
-    $scope.loandata[11]=8.6;
-    $scope.transdata[11]=8.6;
-    $scope.elecdata[11]=8.6;
-    $scope.keqiangdata[3]=7.0;
-  }
+  // $scope.reset=function(){
+  //   $scope.selectedRange=0;
+  //   $scope.selectedRange2=0;
+  //   $scope.selectedRange3=0;
+  //   $scope.loandata[11]=8.6;
+  //   $scope.transdata[11]=8.6;
+  //   $scope.elecdata[11]=8.6;
+  //   $scope.keqiangdata[3]=7.0;
+  // }
   // $scope.$watch($scope.range,changeloandata);
   // $scope.$watch($scope.range2,changeloandata2);
   // $scope.$watch($scope.range3,changeloandata3);
