@@ -806,10 +806,10 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
     },
     series: [{
       name: "最高气温",
-        data: [24, 18, 12, 16, 19, 19, 23]
+        data: [24, 22, 14, 17, 19, 19, 15]
     },  {
         name: '最低气温',
-        data: [10, 15, 6, 8, 11, 8, 11]
+        data: [14, 9, 1, 9, 12, 12, 5]
     }]
   };
 
@@ -818,14 +818,14 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
     tabledata:
     [
       {yearvalue:'日期',weather:'天气状况' ,Htemperature:'最高气温(°C)',Ltemperature:'最低气温(°C)',wind:'风向风级'},
-      {yearvalue:'4月1日',weather:'多云转阴',Htemperature:'24',Ltemperature:'10',wind:'东南风3~4级'},
+      {yearvalue:'4月1日',weather:'多云转阴',Htemperature:'24',Ltemperature:'14',wind:'南风4~5级'},
 
-      {yearvalue:'4月2日',weather:'多云转大雨', Htemperature:'18',Ltemperature:'15',wind:'北风4~5级'},
-      {yearvalue:'4月3日', weather:'雨转多云',Htemperature:'12',Ltemperature:'6',wind:'东南风3~4级'},
-      {yearvalue:'4月4日', weather:'多云',Htemperature:'16',Ltemperature:'8',wind:'东风2~3级'},
-      {yearvalue:'4月5日', weather:'多云',Htemperature:'19',Ltemperature:'11',wind:'东北风转东风3~4级'},
-      {yearvalue:'4月6日', weather:'多云',Htemperature:'19',Ltemperature:'8',wind:'东北风3级'},
-      {yearvalue:'4月7日', weather:'雨',Htemperature:'23',Ltemperature:'11',wind:'东风转西南风3级'}
+      {yearvalue:'4月2日',weather:'中雨转雷阵雨', Htemperature:'22',Ltemperature:'9',wind:'南风4~5级'},
+      {yearvalue:'4月3日', weather:'雷阵雨',Htemperature:'14',Ltemperature:'1',wind:'东北风3~4级'},
+      {yearvalue:'4月4日', weather:'多云转雨',Htemperature:'17',Ltemperature:'9',wind:'东南风2~3级'},
+      {yearvalue:'4月5日', weather:'雨',Htemperature:'19',Ltemperature:'12',wind:'东南风转东风3~4级'},
+      {yearvalue:'4月6日', weather:'雨',Htemperature:'19',Ltemperature:'12',wind:'东北风转北风2~3级'},
+      {yearvalue:'4月7日', weather:'雨转多云',Htemperature:'15',Ltemperature:'5',wind:'西北风3级'}
     ]
   };
 
