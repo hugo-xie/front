@@ -2056,7 +2056,7 @@ $scope.sumpopulation={
     if(btn.name===2025){
         document.getElementById('a').innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 总体来看，太仓市的人口总量处于平稳状态，呈增长趋势，随着二胎政策的全面开放，促进了人口数量的增加。";
     $scope.sumpopulation.options.xAxis[0].categories=['2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'];
-    $scope.sumpopulation.options.title.text="太仓市2016年到2025年常住人口人口总量预测趋势图";
+    $scope.sumpopulation.options.title.text="太仓市2016年到2025年常住人口总量预测趋势图";
     $scope.sumpopulation.series=[{
             name: '人口总量',
             type: 'column',
@@ -2083,7 +2083,7 @@ $scope.sumpopulation={
      if(btn.name===2035){
         document.getElementById('a').innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 总体来看，太仓市的人口总量处于平稳状态，呈增长趋势，随着二胎政策的全面开放，促进了人口数量的增加。2035年的人口增长率1.17%相比2026年的0.86%有了小幅度的增长。";
         $scope.sumpopulation.options.xAxis[0].categories=['2026','2027','2028','2029','2030','2031','2032','2033','2034','2035'];
-        $scope.sumpopulation.options.title.text="太仓市2026年到2035年常住人口人口总量预测趋势图";
+        $scope.sumpopulation.options.title.text="太仓市2026年到2035年常住人口总量预测趋势图";
     $scope.sumpopulation.series=[{
             name: '人口总量',
             type: 'column',
@@ -2110,7 +2110,7 @@ $scope.sumpopulation={
      if(btn.name===2045){
     document.getElementById('a').innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 总体来看，太仓市的人口总量处于平稳状态，呈增长趋势，随着二胎政策的全面开放，促进了人口数量的增加。2045年的人口增长率1.54%相比2036年的1.22%有了小幅度的增长。";
      $scope.sumpopulation.options.xAxis[0].categories=['2036','2037','2038','2039','2040','2041','2042','2043','2044','2045'];
-        $scope.sumpopulation.options.title.text="太仓市2036年到2045年常住人口人口总量预测趋势图";
+        $scope.sumpopulation.options.title.text="太仓市2036年到2045年常住人口总量预测趋势图";
     $scope.sumpopulation.series=[{
             name: '人口总量',
             type: 'column',
