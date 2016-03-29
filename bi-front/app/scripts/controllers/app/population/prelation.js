@@ -1526,12 +1526,15 @@ function h(newValue,oldValue,scope){
     console.log(newValue);
     for(var i = 0;i < popData1.length; i++){
   if(tmp === 1){
+    gdp1[i]=Math.round((newValue*0.03)*400+tgdp1[i]);
      popData1[i]=((newValue*0.03)*100000+tmpData1[i]);
   }
   else if(tmp === 2){
+    gdp2[i]=Math.round((newValue*0.03)*400+tgdp1[i]);
        popData2[i]=((newValue*0.03)*100000+tmpData2[i]);
     }
     else{
+      gdp3[i]=Math.round((newValue*0.03)*400+tgdp1[i]);
        popData3[i]=((newValue*0.03)*100000+tmpData3[i]);
     }
 }
@@ -1547,12 +1550,18 @@ function hh(newValue,oldValue,scope){
 for(var i = 0;i < gdp1.length; i++){
     if(tmp === 1){
    gdp1[i]=Math.round((newValue*0.03)*400+tgdp1[i]);
+   popData1[i]=((newValue*0.03)*100000+tmpData1[i]);
+
  }
  else if(tmp === 2){
     gdp2[i]=(newValue*0.03)*400+tgdp2[i];
+    popData2[i]=((newValue*0.03)*100000+tmpData1[i]);
+
   }
 else{
       gdp3[i]=(newValue*0.03)*400+tgdp3[i];
+      popData3[i]=((newValue*0.03)*100000+tmpData1[i]);
+
   }
   }
 }
