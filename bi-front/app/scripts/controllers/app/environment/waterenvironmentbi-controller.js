@@ -337,7 +337,8 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                     }
                 },
                 subtitle: {
-                    text: $scope.date[0],
+                    // text: $scope.date[0],
+                    text: '2016年3月30日9时',
                     style: {
                         fontWeight: 'normal',
                         fontSize: 'larger',
@@ -406,7 +407,8 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                     }
                 },
                 subtitle: {
-                    text: $scope.date[0],
+                    // text: $scope.date[0],
+                    text: '2016年3月30日9时',
                     style: {
                         fontWeight: 'normal',
                         fontSize: 'larger',
@@ -473,7 +475,8 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                     }
                 },
                 subtitle: {
-                    text: $scope.date[0],
+                    // text: $scope.date[0],
+                    text: '2016年3月30日9时',
                     style: {
                         fontWeight: 'normal',
                         fontSize: 'larger',
@@ -513,8 +516,8 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                 series: [{
                     name: '总磷浓度',
                     color: "#7cb5ec",
-                    data: [$scope.TCCityzoneP[0], $scope.TCRivertownP[0], $scope.LiuHeP[0], $scope.GangChengP[0], $scope.JiuLONGP[0]]
-
+                    // data: [$scope.TCCityzoneP[0], $scope.TCRivertownP[0], $scope.LiuHeP[0], $scope.GangChengP[0], $scope.JiuLONGP[0]]
+                    data: [0.07,0.06,0.12,0.08,0.11]
                 }]
         };
       };
@@ -542,8 +545,9 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                     }
                 },
                 subtitle: {
-                    text: $scope.date[0],
-                      style: {
+                    // text: $scope.date[0],
+                    text: '2016年3月30日9时',
+                    style: {
                         fontWeight: 'normal',
                         fontSize: 'larger',
                         fontStyle: '宋体'
