@@ -1517,7 +1517,6 @@ $scope.change2=function(btn){
    }
 };
 
-
 $scope.selectedRange=0;
 $scope.selectedRange1=0;
 $scope.r=function(){
@@ -1525,9 +1524,6 @@ $scope.r=function(){
 };
 function h(newValue,oldValue,scope){
     console.log(newValue);
-    //popData1[9]=Math.round((newValue*0.03)*50+535038);
-    //popData2[9]=Math.round((newValue*0.03)*50+598423);
-    //popData3[9]=Math.round((newValue*0.03)*50+614324);
     for(var i = 0;i < popData1.length; i++){
   if(tmp === 1){
      popData1[i]=((newValue*0.03)*100000+tmpData1[i]);
@@ -1540,24 +1536,14 @@ function h(newValue,oldValue,scope){
     }
 }
    console.log(popData[9]);
-  // $scope.selectedRange1=Math.round(($scope.selectedRange1+($scope.selectedRange*(newValue-oldValue)/200))*100)/100;
-    //$scope.selectedRange1=Math.round((($scope.selectedRange*0.2)));
-    //gdp1[9]=(newValue*0.03)*50+2225.9;
-    //gdp2[9]=(newValue*0.03)*50+4023.4;
-    //gdp3[9]=(newValue*0.03)*50+5743.34;
 }
 $scope.$watch($scope.r,h);
 
 $scope.rr=function(){
-
     return $scope.selectedRange1;
 };
 function hh(newValue,oldValue,scope){
     console.log(newValue);
-    // $scope.selectedRange=Math.round(($scope.selectedRange+($scope.selectedRange1*(newValue-oldValue)/200))*100)/100;
-  //  popData1[9]=((newValue*0.03)*50000+535038);
-  //  popData2[9]=((newValue*0.03)*50000+598423);
-  //  popData3[9]=((newValue*0.03)*50000+614324);
 for(var i = 0;i < gdp1.length; i++){
     if(tmp === 1){
    gdp1[i]=Math.round((newValue*0.03)*400+tgdp1[i]);
@@ -1571,13 +1557,6 @@ else{
   }
 }
 $scope.$watch($scope.rr,hh);
-
-    //var popData1=[747046, 750908, 754570, 757963, 761066, 763863, 766970, 769950, 772652, 775038];
-    //var gdp=[1100, 1177, 1259.39, 1347.55, 1441.88,1542.81,1650.80, 1766.36, 1890.00, 2022.31];
-  //  var popData2=[803463, 808465, 813319, 818001, 822475, 826754, 831251, 835567, 839655, 843482];
-    //var gdp1=[2163.87, 2315.34, 2477.41, 2650.83,2836.39, 3034.93, 3247.38, 3474.7,3717.93, 4256.65];
-  //  var popData3=[850441, 856081, 861654, 867106, 872420, 877676, 883104, 888418, 893579, 898577];
-    //var gdp2=[4554.62, 4873.44, 5214.58,5579.60,5970.18, 6388.09,6835.25, 7313.72,7825.68, 8373.48];
          $scope.predictChart ={
 options:{ chart: {
             zoomType: 'xy'
