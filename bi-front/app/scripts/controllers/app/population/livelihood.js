@@ -17,7 +17,7 @@ app.controller('LivelihoodCtrl', ['$scope', 'qService','forecastFactory',functio
     $scope.preMiddleSchool = rc.data[9];
     $scope.preHighschool = rc.data[10];
 
-    $scope.townName = ['全市','城厢镇','双凤镇','沙溪镇','浏河镇','浮桥镇','璜泾镇','新区','港区','科教新城'];
+    $scope.townName = ['城区','城厢镇','双凤镇','沙溪镇','浏河镇','浮桥镇','璜泾镇','新区','港区','科教新城'];
     
 
 
