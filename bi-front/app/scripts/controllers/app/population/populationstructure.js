@@ -1600,7 +1600,7 @@ $scope.population_year={
             tooltip: {
                 formatter: function () {
                     return ' <b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
-                        'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
+                        '人口: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
                 }
             }
           },
@@ -1667,7 +1667,7 @@ $scope.population_year={
             tooltip: {
                 formatter: function () {
                     return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
-                        'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
+                        '人口: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
                 }
             }
           },

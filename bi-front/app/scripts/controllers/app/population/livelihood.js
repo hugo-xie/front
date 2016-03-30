@@ -566,7 +566,7 @@ $scope.jobt ={
         yAxis: [ { // Secondary yAxis
             gridLineWidth: 1,
             title: {
-                text: '保险收支',
+                text: '保险结余',
                 style: {
                     color: Highcharts.getOptions().colors[0]
                 }
@@ -604,7 +604,7 @@ $scope.jobt ={
         }
     },
         series: [{
-            name: '养老保险收支',
+            name: '养老保险结余',
             type: 'column',
             yAxis: 0,
             data: $scope.preInsurance[0],
