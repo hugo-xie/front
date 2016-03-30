@@ -1060,7 +1060,7 @@ promise.then(function(result) {
         case 13: $scope.SingleVocationChart.xAxis.plotBands[0].from = 8;break;
         case 14: $scope.SingleVocationChart.xAxis.plotBands[0].from = 8;break;
         case 15: $scope.SingleVocationChart.xAxis.plotBands[0].from = 8;break;
-        case 16: $scope.SingleVocationChart.xAxis.plotBands[0].from = 0.5;break;
+        case 16: $scope.SingleVocationChart.xAxis.plotBands[0].from = -0.5;break;
         case 17: $scope.SingleVocationChart.xAxis.plotBands[0].from = -0.5;break;
         case 18: $scope.SingleVocationChart.xAxis.plotBands[0].from = -0.5;break;
     }
