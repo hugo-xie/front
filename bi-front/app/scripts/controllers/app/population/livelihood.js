@@ -525,21 +525,21 @@ $scope.jobt ={
             }
 
         },{
-            name: '第一产业',
+            name: '第一产业人口比例',
             type: 'spline',
             marker:{
                symbol:"square" 
             },
             data: $scope.preFirstPopulation[0]
         }, {
-            name: '第二产业',
+            name: '第二产业人口比例',
             type: 'spline',
             marker:{
                symbol:"circle" 
             },
             data: $scope.preSecondPopulation[0]
         }, {
-            name: '第三产业',
+            name: '第三产业人口比例',
             type: 'spline',
             marker:{
                symbol:"triangle" 

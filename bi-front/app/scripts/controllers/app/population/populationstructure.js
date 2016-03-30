@@ -101,29 +101,29 @@ app.controller('PopulationStructureCtrl', ['$scope','$stateParams','qService','f
       }
     }
     }
-    popData13[0]=parseFloat(((popData13[0]/sumMale6)*100).toFixed(2));
-    popData13[1]=parseFloat(((popData13[1]/sumMale6)*100).toFixed(2));
-    popData13[2]=parseFloat(((popData13[2]/sumMale6)*100).toFixed(2));
-    popData13[3]=parseFloat(((popData13[3]/sumMale6)*100).toFixed(2));
-    popData13[4]=parseFloat(((popData13[4]/sumMale6)*100).toFixed(2));
-    popData13[5]=parseFloat(((popData13[5]/sumMale6)*100).toFixed(2));
-    popData13[6]=parseFloat(((popData13[6]/sumMale6)*100).toFixed(2));
-    popData13[7]=parseFloat(((popData13[7]/sumMale6)*100).toFixed(2));
-    popData13[8]=parseFloat(((popData13[8]/sumMale6)*100).toFixed(2));
-    popData13[9]=parseFloat(((popData13[9]/sumMale6)*100).toFixed(2));
-    popData13[10]=parseFloat(((popData13[10]/sumMale6)*100).toFixed(2));
+    popData13[0]=parseFloat(((popData13[0]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData13[1]=parseFloat(((popData13[1]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData13[2]=parseFloat(((popData13[2]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData13[3]=parseFloat(((popData13[3]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData13[4]=parseFloat(((popData13[4]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData13[5]=parseFloat(((popData13[5]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData13[6]=parseFloat(((popData13[6]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData13[7]=parseFloat(((popData13[7]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData13[8]=parseFloat(((popData13[8]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData13[9]=parseFloat(((popData13[9]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData13[10]=parseFloat(((popData13[10]/(sumMale6+sumFemale6))*100).toFixed(2));
 
-    popData14[0]=parseFloat(((popData14[0]/sumFemale6)*100).toFixed(2));
-    popData14[1]=parseFloat(((popData14[1]/sumFemale6)*100).toFixed(2));
-    popData14[2]=parseFloat(((popData14[2]/sumFemale6)*100).toFixed(2));
-    popData14[3]=parseFloat(((popData14[3]/sumFemale6)*100).toFixed(2));
-    popData14[4]=parseFloat(((popData14[4]/sumFemale6)*100).toFixed(2));
-    popData14[5]=parseFloat(((popData14[5]/sumFemale6)*100).toFixed(2));
-    popData14[6]=parseFloat(((popData14[6]/sumFemale6)*100).toFixed(2));
-    popData14[7]=parseFloat(((popData14[7]/sumFemale6)*100).toFixed(2));
-    popData14[8]=parseFloat(((popData14[8]/sumFemale6)*100).toFixed(2));
-    popData14[9]=parseFloat(((popData14[9]/sumFemale6)*100).toFixed(2));
-    popData14[10]=parseFloat(((popData14[10]/sumFemale6)*100).toFixed(2));
+    popData14[0]=parseFloat(((popData14[0]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData14[1]=parseFloat(((popData14[1]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData14[2]=parseFloat(((popData14[2]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData14[3]=parseFloat(((popData14[3]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData14[4]=parseFloat(((popData14[4]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData14[5]=parseFloat(((popData14[5]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData14[6]=parseFloat(((popData14[6]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData14[7]=parseFloat(((popData14[7]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData14[8]=parseFloat(((popData14[8]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData14[9]=parseFloat(((popData14[9]/(sumMale6+sumFemale6))*100).toFixed(2));
+    popData14[10]=parseFloat(((popData14[10]/(sumMale6+sumFemale6))*100).toFixed(2));
    console.log(popData13);
    console.log(sumMale6);
 
@@ -217,29 +217,29 @@ app.controller('PopulationStructureCtrl', ['$scope','$stateParams','qService','f
       }
     }
     }
-    popData1[0]=parseFloat(((popData1[0]/sumMale)*100).toFixed(2));
-    popData1[1]=parseFloat(((popData1[1]/sumMale)*100).toFixed(2));
-    popData1[2]=parseFloat(((popData1[2]/sumMale)*100).toFixed(2));
-    popData1[3]=parseFloat(((popData1[3]/sumMale)*100).toFixed(2));
-    popData1[4]=parseFloat(((popData1[4]/sumMale)*100).toFixed(2));
-    popData1[5]=parseFloat(((popData1[5]/sumMale)*100).toFixed(2));
-    popData1[6]=parseFloat(((popData1[6]/sumMale)*100).toFixed(2));
-    popData1[7]=parseFloat(((popData1[7]/sumMale)*100).toFixed(2));
-    popData1[8]=parseFloat(((popData1[8]/sumMale)*100).toFixed(2));
-    popData1[9]=parseFloat(((popData1[9]/sumMale)*100).toFixed(2));
-    popData1[10]=parseFloat(((popData1[10]/sumMale)*100).toFixed(2));
+    popData1[0]=parseFloat(((popData1[0]/(sumMale+sumFemale))*100).toFixed(2));
+    popData1[1]=parseFloat(((popData1[1]/(sumMale+sumFemale))*100).toFixed(2));
+    popData1[2]=parseFloat(((popData1[2]/(sumMale+sumFemale))*100).toFixed(2));
+    popData1[3]=parseFloat(((popData1[3]/(sumMale+sumFemale))*100).toFixed(2));
+    popData1[4]=parseFloat(((popData1[4]/(sumMale+sumFemale))*100).toFixed(2));
+    popData1[5]=parseFloat(((popData1[5]/(sumMale+sumFemale))*100).toFixed(2));
+    popData1[6]=parseFloat(((popData1[6]/(sumMale+sumFemale))*100).toFixed(2));
+    popData1[7]=parseFloat(((popData1[7]/(sumMale+sumFemale))*100).toFixed(2));
+    popData1[8]=parseFloat(((popData1[8]/(sumMale+sumFemale))*100).toFixed(2));
+    popData1[9]=parseFloat(((popData1[9]/(sumMale+sumFemale))*100).toFixed(2));
+    popData1[10]=parseFloat(((popData1[10]/(sumMale+sumFemale))*100).toFixed(2));
 
-    popData2[0]=parseFloat(((popData2[0]/sumFemale)*100).toFixed(2));
-    popData2[1]=parseFloat(((popData2[1]/sumFemale)*100).toFixed(2));
-    popData2[2]=parseFloat(((popData2[2]/sumFemale)*100).toFixed(2));
-    popData2[3]=parseFloat(((popData2[3]/sumFemale)*100).toFixed(2));
-    popData2[4]=parseFloat(((popData2[4]/sumFemale)*100).toFixed(2));
-    popData2[5]=parseFloat(((popData2[5]/sumFemale)*100).toFixed(2));
-    popData2[6]=parseFloat(((popData2[6]/sumFemale)*100).toFixed(2));
-    popData2[7]=parseFloat(((popData2[7]/sumFemale)*100).toFixed(2));
-    popData2[8]=parseFloat(((popData2[8]/sumFemale)*100).toFixed(2));
-    popData2[9]=parseFloat(((popData2[9]/sumFemale)*100).toFixed(2));
-    popData2[10]=parseFloat(((popData2[10]/sumFemale)*100).toFixed(2));
+    popData2[0]=parseFloat(((popData2[0]/(sumMale+sumFemale))*100).toFixed(2));
+    popData2[1]=parseFloat(((popData2[1]/(sumMale+sumFemale))*100).toFixed(2));
+    popData2[2]=parseFloat(((popData2[2]/(sumMale+sumFemale))*100).toFixed(2));
+    popData2[3]=parseFloat(((popData2[3]/(sumMale+sumFemale))*100).toFixed(2));
+    popData2[4]=parseFloat(((popData2[4]/(sumMale+sumFemale))*100).toFixed(2));
+    popData2[5]=parseFloat(((popData2[5]/(sumMale+sumFemale))*100).toFixed(2));
+    popData2[6]=parseFloat(((popData2[6]/(sumMale+sumFemale))*100).toFixed(2));
+    popData2[7]=parseFloat(((popData2[7]/(sumMale+sumFemale))*100).toFixed(2));
+    popData2[8]=parseFloat(((popData2[8]/(sumMale+sumFemale))*100).toFixed(2));
+    popData2[9]=parseFloat(((popData2[9]/(sumMale+sumFemale))*100).toFixed(2));
+    popData2[10]=parseFloat(((popData2[10]/(sumMale+sumFemale))*100).toFixed(2));
    console.log(popData1);
    console.log(sumMale);
 
@@ -331,29 +331,29 @@ app.controller('PopulationStructureCtrl', ['$scope','$stateParams','qService','f
       }
     }
     }
-    popData3[0]=parseFloat(((popData3[0]/sumMale1)*100).toFixed(2));
-    popData3[1]=parseFloat(((popData3[1]/sumMale1)*100).toFixed(2));
-    popData3[2]=parseFloat(((popData3[2]/sumMale1)*100).toFixed(2));
-    popData3[3]=parseFloat(((popData3[3]/sumMale1)*100).toFixed(2));
-    popData3[4]=parseFloat(((popData3[4]/sumMale1)*100).toFixed(2));
-    popData3[5]=parseFloat(((popData3[5]/sumMale1)*100).toFixed(2));
-    popData3[6]=parseFloat(((popData3[6]/sumMale1)*100).toFixed(2));
-    popData3[7]=parseFloat(((popData3[7]/sumMale1)*100).toFixed(2));
-    popData3[8]=parseFloat(((popData3[8]/sumMale1)*100).toFixed(2));
-    popData3[9]=parseFloat(((popData3[9]/sumMale1)*100).toFixed(2));
-    popData3[10]=parseFloat(((popData3[10]/sumMale1)*100).toFixed(2));
+    popData3[0]=parseFloat(((popData3[0]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData3[1]=parseFloat(((popData3[1]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData3[2]=parseFloat(((popData3[2]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData3[3]=parseFloat(((popData3[3]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData3[4]=parseFloat(((popData3[4]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData3[5]=parseFloat(((popData3[5]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData3[6]=parseFloat(((popData3[6]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData3[7]=parseFloat(((popData3[7]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData3[8]=parseFloat(((popData3[8]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData3[9]=parseFloat(((popData3[9]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData3[10]=parseFloat(((popData3[10]/(sumMale1+sumFemale1))*100).toFixed(2));
 
-    popData4[0]=parseFloat(((popData4[0]/sumFemale1)*100).toFixed(2));
-    popData4[1]=parseFloat(((popData4[1]/sumFemale1)*100).toFixed(2));
-    popData4[2]=parseFloat(((popData4[2]/sumFemale1)*100).toFixed(2));
-    popData4[3]=parseFloat(((popData4[3]/sumFemale1)*100).toFixed(2));
-    popData4[4]=parseFloat(((popData4[4]/sumFemale1)*100).toFixed(2));
-    popData4[5]=parseFloat(((popData4[5]/sumFemale1)*100).toFixed(2));
-    popData4[6]=parseFloat(((popData4[6]/sumFemale1)*100).toFixed(2));
-    popData4[7]=parseFloat(((popData4[7]/sumFemale1)*100).toFixed(2));
-    popData4[8]=parseFloat(((popData4[8]/sumFemale1)*100).toFixed(2));
-    popData4[9]=parseFloat(((popData4[9]/sumFemale1)*100).toFixed(2));
-    popData4[10]=parseFloat(((popData4[10]/sumFemale1)*100).toFixed(2));
+    popData4[0]=parseFloat(((popData4[0]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData4[1]=parseFloat(((popData4[1]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData4[2]=parseFloat(((popData4[2]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData4[3]=parseFloat(((popData4[3]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData4[4]=parseFloat(((popData4[4]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData4[5]=parseFloat(((popData4[5]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData4[6]=parseFloat(((popData4[6]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData4[7]=parseFloat(((popData4[7]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData4[8]=parseFloat(((popData4[8]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData4[9]=parseFloat(((popData4[9]/(sumMale1+sumFemale1))*100).toFixed(2));
+    popData4[10]=parseFloat(((popData4[10]/(sumMale1+sumFemale1))*100).toFixed(2));
    console.log(popData3);
    console.log(sumMale1);
 
@@ -446,29 +446,29 @@ app.controller('PopulationStructureCtrl', ['$scope','$stateParams','qService','f
       }
     }
     }
-    popData5[0]=parseFloat(((popData5[0]/sumMale2)*100).toFixed(2));
-    popData5[1]=parseFloat(((popData5[1]/sumMale2)*100).toFixed(2));
-    popData5[2]=parseFloat(((popData5[2]/sumMale2)*100).toFixed(2));
-    popData5[3]=parseFloat(((popData5[3]/sumMale2)*100).toFixed(2));
-    popData5[4]=parseFloat(((popData5[4]/sumMale2)*100).toFixed(2));
-    popData5[5]=parseFloat(((popData5[5]/sumMale2)*100).toFixed(2));
-    popData5[6]=parseFloat(((popData5[6]/sumMale2)*100).toFixed(2));
-    popData5[7]=parseFloat(((popData5[7]/sumMale2)*100).toFixed(2));
-    popData5[8]=parseFloat(((popData5[8]/sumMale2)*100).toFixed(2));
-    popData5[9]=parseFloat(((popData5[9]/sumMale2)*100).toFixed(2));
-    popData5[10]=parseFloat(((popData5[10]/sumMale2)*100).toFixed(2));
+    popData5[0]=parseFloat(((popData5[0]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData5[1]=parseFloat(((popData5[1]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData5[2]=parseFloat(((popData5[2]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData5[3]=parseFloat(((popData5[3]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData5[4]=parseFloat(((popData5[4]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData5[5]=parseFloat(((popData5[5]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData5[6]=parseFloat(((popData5[6]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData5[7]=parseFloat(((popData5[7]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData5[8]=parseFloat(((popData5[8]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData5[9]=parseFloat(((popData5[9]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData5[10]=parseFloat(((popData5[10]/(sumMale2+sumFemale2))*100).toFixed(2));
 
-    popData6[0]=parseFloat(((popData6[0]/sumFemale2)*100).toFixed(2));
-    popData6[1]=parseFloat(((popData6[1]/sumFemale2)*100).toFixed(2));
-    popData6[2]=parseFloat(((popData6[2]/sumFemale2)*100).toFixed(2));
-    popData6[3]=parseFloat(((popData6[3]/sumFemale2)*100).toFixed(2));
-    popData6[4]=parseFloat(((popData6[4]/sumFemale2)*100).toFixed(2));
-    popData6[5]=parseFloat(((popData6[5]/sumFemale2)*100).toFixed(2));
-    popData6[6]=parseFloat(((popData6[6]/sumFemale2)*100).toFixed(2));
-    popData6[7]=parseFloat(((popData6[7]/sumFemale2)*100).toFixed(2));
-    popData6[8]=parseFloat(((popData6[8]/sumFemale2)*100).toFixed(2));
-    popData6[9]=parseFloat(((popData6[9]/sumFemale2)*100).toFixed(2));
-    popData6[10]=parseFloat(((popData6[10]/sumFemale2)*100).toFixed(2));
+    popData6[0]=parseFloat(((popData6[0]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData6[1]=parseFloat(((popData6[1]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData6[2]=parseFloat(((popData6[2]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData6[3]=parseFloat(((popData6[3]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData6[4]=parseFloat(((popData6[4]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData6[5]=parseFloat(((popData6[5]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData6[6]=parseFloat(((popData6[6]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData6[7]=parseFloat(((popData6[7]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData6[8]=parseFloat(((popData6[8]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData6[9]=parseFloat(((popData6[9]/(sumMale2+sumFemale2))*100).toFixed(2));
+    popData6[10]=parseFloat(((popData6[10]/(sumMale2+sumFemale2))*100).toFixed(2));
    console.log(popData5);
    console.log(sumMale2);
 
@@ -560,29 +560,29 @@ app.controller('PopulationStructureCtrl', ['$scope','$stateParams','qService','f
       }
     }
     }
-    popData7[0]=parseFloat(((popData7[0]/sumMale3)*100).toFixed(2));
-    popData7[1]=parseFloat(((popData7[1]/sumMale3)*100).toFixed(2));
-    popData7[2]=parseFloat(((popData7[2]/sumMale3)*100).toFixed(2));
-    popData7[3]=parseFloat(((popData7[3]/sumMale3)*100).toFixed(2));
-    popData7[4]=parseFloat(((popData7[4]/sumMale3)*100).toFixed(2));
-    popData7[5]=parseFloat(((popData7[5]/sumMale3)*100).toFixed(2));
-    popData7[6]=parseFloat(((popData7[6]/sumMale3)*100).toFixed(2));
-    popData7[7]=parseFloat(((popData7[7]/sumMale3)*100).toFixed(2));
-    popData7[8]=parseFloat(((popData7[8]/sumMale3)*100).toFixed(2));
-    popData7[9]=parseFloat(((popData7[9]/sumMale3)*100).toFixed(2));
-    popData7[10]=parseFloat(((popData7[10]/sumMale3)*100).toFixed(2));
+    popData7[0]=parseFloat(((popData7[0]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData7[1]=parseFloat(((popData7[1]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData7[2]=parseFloat(((popData7[2]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData7[3]=parseFloat(((popData7[3]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData7[4]=parseFloat(((popData7[4]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData7[5]=parseFloat(((popData7[5]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData7[6]=parseFloat(((popData7[6]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData7[7]=parseFloat(((popData7[7]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData7[8]=parseFloat(((popData7[8]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData7[9]=parseFloat(((popData7[9]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData7[10]=parseFloat(((popData7[10]/(sumMale3+sumFemale3))*100).toFixed(2));
 
-    popData8[0]=parseFloat(((popData8[0]/sumFemale3)*100).toFixed(2));
-    popData8[1]=parseFloat(((popData8[1]/sumFemale3)*100).toFixed(2));
-    popData8[2]=parseFloat(((popData8[2]/sumFemale3)*100).toFixed(2));
-    popData8[3]=parseFloat(((popData8[3]/sumFemale3)*100).toFixed(2));
-    popData8[4]=parseFloat(((popData8[4]/sumFemale3)*100).toFixed(2));
-    popData8[5]=parseFloat(((popData8[5]/sumFemale3)*100).toFixed(2));
-    popData8[6]=parseFloat(((popData8[6]/sumFemale3)*100).toFixed(2));
-    popData8[7]=parseFloat(((popData8[7]/sumFemale3)*100).toFixed(2));
-    popData8[8]=parseFloat(((popData8[8]/sumFemale3)*100).toFixed(2));
-    popData8[9]=parseFloat(((popData8[9]/sumFemale3)*100).toFixed(2));
-    popData8[10]=parseFloat(((popData8[10]/sumFemale3)*100).toFixed(2));
+    popData8[0]=parseFloat(((popData8[0]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData8[1]=parseFloat(((popData8[1]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData8[2]=parseFloat(((popData8[2]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData8[3]=parseFloat(((popData8[3]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData8[4]=parseFloat(((popData8[4]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData8[5]=parseFloat(((popData8[5]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData8[6]=parseFloat(((popData8[6]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData8[7]=parseFloat(((popData8[7]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData8[8]=parseFloat(((popData8[8]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData8[9]=parseFloat(((popData8[9]/(sumMale3+sumFemale3))*100).toFixed(2));
+    popData8[10]=parseFloat(((popData8[10]/(sumMale3+sumFemale3))*100).toFixed(2));
    console.log(popData7);
    console.log(sumMale3);
 
@@ -674,29 +674,29 @@ app.controller('PopulationStructureCtrl', ['$scope','$stateParams','qService','f
       }
     }
     }
-    popData9[0]=parseFloat(((popData9[0]/sumMale4)*100).toFixed(2));
-    popData9[1]=parseFloat(((popData9[1]/sumMale4)*100).toFixed(2));
-    popData9[2]=parseFloat(((popData9[2]/sumMale4)*100).toFixed(2));
-    popData9[3]=parseFloat(((popData9[3]/sumMale4)*100).toFixed(2));
-    popData9[4]=parseFloat(((popData9[4]/sumMale4)*100).toFixed(2));
-    popData9[5]=parseFloat(((popData9[5]/sumMale4)*100).toFixed(2));
-    popData9[6]=parseFloat(((popData9[6]/sumMale4)*100).toFixed(2));
-    popData9[7]=parseFloat(((popData9[7]/sumMale4)*100).toFixed(2));
-    popData9[8]=parseFloat(((popData9[8]/sumMale4)*100).toFixed(2));
-    popData9[9]=parseFloat(((popData9[9]/sumMale4)*100).toFixed(2));
-    popData9[10]=parseFloat(((popData9[10]/sumMale4)*100).toFixed(2));
+    popData9[0]=parseFloat(((popData9[0]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData9[1]=parseFloat(((popData9[1]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData9[2]=parseFloat(((popData9[2]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData9[3]=parseFloat(((popData9[3]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData9[4]=parseFloat(((popData9[4]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData9[5]=parseFloat(((popData9[5]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData9[6]=parseFloat(((popData9[6]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData9[7]=parseFloat(((popData9[7]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData9[8]=parseFloat(((popData9[8]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData9[9]=parseFloat(((popData9[9]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData9[10]=parseFloat(((popData9[10]/(sumMale4+sumFemale4))*100).toFixed(2));
 
-    popData10[0]=parseFloat(((popData10[0]/sumFemale4)*100).toFixed(2));
-    popData10[1]=parseFloat(((popData10[1]/sumFemale4)*100).toFixed(2));
-    popData10[2]=parseFloat(((popData10[2]/sumFemale4)*100).toFixed(2));
-    popData10[3]=parseFloat(((popData10[3]/sumFemale4)*100).toFixed(2));
-    popData10[4]=parseFloat(((popData10[4]/sumFemale4)*100).toFixed(2));
-    popData10[5]=parseFloat(((popData10[5]/sumFemale4)*100).toFixed(2));
-    popData10[6]=parseFloat(((popData10[6]/sumFemale4)*100).toFixed(2));
-    popData10[7]=parseFloat(((popData10[7]/sumFemale4)*100).toFixed(2));
-    popData10[8]=parseFloat(((popData10[8]/sumFemale4)*100).toFixed(2));
-    popData10[9]=parseFloat(((popData10[9]/sumFemale4)*100).toFixed(2));
-    popData10[10]=parseFloat(((popData10[10]/sumFemale4)*100).toFixed(2));
+    popData10[0]=parseFloat(((popData10[0]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData10[1]=parseFloat(((popData10[1]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData10[2]=parseFloat(((popData10[2]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData10[3]=parseFloat(((popData10[3]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData10[4]=parseFloat(((popData10[4]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData10[5]=parseFloat(((popData10[5]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData10[6]=parseFloat(((popData10[6]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData10[7]=parseFloat(((popData10[7]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData10[8]=parseFloat(((popData10[8]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData10[9]=parseFloat(((popData10[9]/(sumMale4+sumFemale4))*100).toFixed(2));
+    popData10[10]=parseFloat(((popData10[10]/(sumMale4+sumFemale4))*100).toFixed(2));
    console.log(popData9);
    console.log(sumMale4);
 
@@ -788,29 +788,29 @@ app.controller('PopulationStructureCtrl', ['$scope','$stateParams','qService','f
       }
     }
     }
-    popData11[0]=parseFloat(((popData11[0]/sumMale5)*100).toFixed(2));
-    popData11[1]=parseFloat(((popData11[1]/sumMale5)*100).toFixed(2));
-    popData11[2]=parseFloat(((popData11[2]/sumMale5)*100).toFixed(2));
-    popData11[3]=parseFloat(((popData11[3]/sumMale5)*100).toFixed(2));
-    popData11[4]=parseFloat(((popData11[4]/sumMale5)*100).toFixed(2));
-    popData11[5]=parseFloat(((popData11[5]/sumMale5)*100).toFixed(2));
-    popData11[6]=parseFloat(((popData11[6]/sumMale5)*100).toFixed(2));
-    popData11[7]=parseFloat(((popData11[7]/sumMale5)*100).toFixed(2));
-    popData11[8]=parseFloat(((popData11[8]/sumMale5)*100).toFixed(2));
-    popData11[9]=parseFloat(((popData11[9]/sumMale5)*100).toFixed(2));
-    popData11[10]=parseFloat(((popData11[10]/sumMale5)*100).toFixed(2));
+    popData11[0]=parseFloat(((popData11[0]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData11[1]=parseFloat(((popData11[1]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData11[2]=parseFloat(((popData11[2]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData11[3]=parseFloat(((popData11[3]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData11[4]=parseFloat(((popData11[4]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData11[5]=parseFloat(((popData11[5]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData11[6]=parseFloat(((popData11[6]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData11[7]=parseFloat(((popData11[7]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData11[8]=parseFloat(((popData11[8]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData11[9]=parseFloat(((popData11[9]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData11[10]=parseFloat(((popData11[10]/(sumMale5+sumFemale5))*100).toFixed(2));
 
-    popData12[0]=parseFloat(((popData12[0]/sumFemale5)*100).toFixed(2));
-    popData12[1]=parseFloat(((popData12[1]/sumFemale5)*100).toFixed(2));
-    popData12[2]=parseFloat(((popData12[2]/sumFemale5)*100).toFixed(2));
-    popData12[3]=parseFloat(((popData12[3]/sumFemale5)*100).toFixed(2));
-    popData12[4]=parseFloat(((popData12[4]/sumFemale5)*100).toFixed(2));
-    popData12[5]=parseFloat(((popData12[5]/sumFemale5)*100).toFixed(2));
-    popData12[6]=parseFloat(((popData12[6]/sumFemale5)*100).toFixed(2));
-    popData12[7]=parseFloat(((popData12[7]/sumFemale5)*100).toFixed(2));
-    popData12[8]=parseFloat(((popData12[8]/sumFemale5)*100).toFixed(2));
-    popData12[9]=parseFloat(((popData12[9]/sumFemale5)*100).toFixed(2));
-    popData12[10]=parseFloat(((popData12[10]/sumFemale5)*100).toFixed(2));
+    popData12[0]=parseFloat(((popData12[0]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData12[1]=parseFloat(((popData12[1]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData12[2]=parseFloat(((popData12[2]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData12[3]=parseFloat(((popData12[3]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData12[4]=parseFloat(((popData12[4]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData12[5]=parseFloat(((popData12[5]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData12[6]=parseFloat(((popData12[6]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData12[7]=parseFloat(((popData12[7]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData12[8]=parseFloat(((popData12[8]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData12[9]=parseFloat(((popData12[9]/(sumMale5+sumFemale5))*100).toFixed(2));
+    popData12[10]=parseFloat(((popData12[10]/(sumMale5+sumFemale5))*100).toFixed(2));
    console.log(popData11);
    console.log(sumMale5);
 
@@ -1270,7 +1270,7 @@ var points =[
   $scope.change=function(btn){
   //  var columnColors = new Array('#7CADDF', '#327EBD', '#195489', '#1FC22B', '#FB9705', '#F26200');
      if(btn.name===2020){
-        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的73.67% 增加到2020的71.64%。';
+        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的36.83% 增加到2020的35.81%。';
         $scope.age_ration.options.colors=columnColors;
         $scope.age_ration.options.title.text="太仓市人口结构预测2015/2020年龄层比例图";
         $scope.age_ration.series=[{
@@ -1300,7 +1300,7 @@ var points =[
             }]
           }
       if(btn.name===2025){
-        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的73.67% 增加到2025的72.3%。';
+        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的36.83% 增加到2025的36.15%。';
         $scope.age_ration.options.colors=columnColors;
         $scope.age_ration.options.title.text="太仓市人口结构预测2015/2025年龄层比例图";
         $scope.age_ration.series=[{
@@ -1330,7 +1330,7 @@ var points =[
             }]
      }
       if(btn.name===2030){
-        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的73.67% 增加到2030的71.85%。';
+        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的36.83% 增加到2030的35.91%。';
         $scope.age_ration.options.colors=columnColors;
         $scope.age_ration.options.title.text="太仓市人口结构预测2015/2030年龄层比例图";
         $scope.age_ration.series=[{
@@ -1360,7 +1360,7 @@ var points =[
             }]
      }
       if(btn.name===2040){
-        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的73.67% 增加到2040的73.4%。';
+        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的36.83% 增加到2040的36.69%。';
         $scope.age_ration.options.colors=columnColors;
         $scope.age_ration.options.title.text="太仓市人口结构预测2015/2040年龄层比例图";
         $scope.age_ration.series=[{
@@ -1390,7 +1390,7 @@ var points =[
             }]
      }
      if(btn.name===2035){
-        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的73.67% 增加到2035的73.57%。';
+        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的36.83% 增加到2035的36.79%。';
         $scope.age_ration.options.colors=columnColors;
         $scope.age_ration.options.title.text="太仓市人口结构预测2015/2035年龄层比例图";
         $scope.age_ration.series=[{
