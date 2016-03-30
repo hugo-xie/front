@@ -1270,7 +1270,7 @@ var points =[
   $scope.change=function(btn){
   //  var columnColors = new Array('#7CADDF', '#327EBD', '#195489', '#1FC22B', '#FB9705', '#F26200');
      if(btn.name===2020){
-        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的36.83% 增加到2020的35.81%。';
+        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的31.02% 增加到2020的32.08%。';
         $scope.age_ration.options.colors=columnColors;
         $scope.age_ration.options.title.text="太仓市人口结构预测2015/2020年龄层比例图";
         $scope.age_ration.series=[{
@@ -1300,7 +1300,7 @@ var points =[
             }]
           }
       if(btn.name===2025){
-        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的36.83% 增加到2025的36.15%。';
+        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的31.02% 增加到2025的33.66%。';
         $scope.age_ration.options.colors=columnColors;
         $scope.age_ration.options.title.text="太仓市人口结构预测2015/2025年龄层比例图";
         $scope.age_ration.series=[{
@@ -1330,7 +1330,7 @@ var points =[
             }]
      }
       if(btn.name===2030){
-        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的36.83% 增加到2030的35.91%。';
+        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的31.02% 增加到2030的33.67%。';
         $scope.age_ration.options.colors=columnColors;
         $scope.age_ration.options.title.text="太仓市人口结构预测2015/2030年龄层比例图";
         $scope.age_ration.series=[{
@@ -1360,7 +1360,7 @@ var points =[
             }]
      }
       if(btn.name===2040){
-        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的36.83% 增加到2040的36.69%。';
+        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的31.02% 增加到2040的32.05%。';
         $scope.age_ration.options.colors=columnColors;
         $scope.age_ration.options.title.text="太仓市人口结构预测2015/2040年龄层比例图";
         $scope.age_ration.series=[{
@@ -1390,7 +1390,7 @@ var points =[
             }]
      }
      if(btn.name===2035){
-        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的36.83% 增加到2035的36.79%。';
+        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的31.02% 增加到2035的33.92%。';
         $scope.age_ration.options.colors=columnColors;
         $scope.age_ration.options.title.text="太仓市人口结构预测2015/2035年龄层比例图";
         $scope.age_ration.series=[{
@@ -1420,7 +1420,7 @@ var points =[
             }]
      }
      if(btn.name===2045){
-        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的73.67% 增加到2045的69.06%。';
+        document.getElementById('abc').innerHTML='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp太仓市人口结构呈现不断老龄化趋势；其中，60岁及以上人口比例从2015的31.02% 减少到2045的30.51%。';
         $scope.age_ration.options.colors=columnColors;
         $scope.age_ration.options.title.text="太仓市人口结构预测2015/2045年龄层比例图";
         $scope.age_ration.series=[{
