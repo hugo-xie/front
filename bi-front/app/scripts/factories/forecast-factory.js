@@ -1,6 +1,8 @@
 'use strict';
 
 angular.module('nevermore')
+
+
   .factory('forecastFactory', function($resource, BASE_URL) {
 
 	this.query = function(headers) {

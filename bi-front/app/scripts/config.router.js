@@ -198,9 +198,9 @@ angular.module('nevermore')
           controller: 'WaterEnvironmentBICtrl',
           resolve: {
           controller: ['$ocLazyLoad', function($ocLazyLoad) {
-          return $ocLazyLoad.load([
-          'scripts/controllers/app/environment/waterenvironmentbi-controller.js',
-          'scripts/controllers/app/environment/echarts-plain.js'
+                return $ocLazyLoad.load([
+                    'scripts/controllers/app/environment/waterenvironmentbi-controller.js',
+                    'scripts/controllers/app/environment/echarts-plain.js'
                  ]);
               }]
             }

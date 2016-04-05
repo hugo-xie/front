@@ -1,7 +1,16 @@
 'use strict';
 
 
-app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFactory','forecastFactory',function($scope,$stateParams,$timeout,qService,rawFactory,forecastFactory) {
+app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFactory','rawFactory_weather',function($scope,$stateParams,$timeout,qService,rawFactory,rawFactory_weather) {
+
+  var promise3 = qService.tokenHttpGet(rawFactory_weather.query);
+  promise3.then(function(rc3) {
+
+    // $scope.data = null;
+    // console.log(rc3.data);
+    alert(rc3.data);
+
+  });
 
   //下拉点击事件
   $scope.change=function(model){
@@ -615,7 +624,76 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
     center: [121.130619,31.461029]
   });
 
-  //盒子2, 盒子3左边的空气质量部分地图
+
+  //盒子1
+  $scope.temperature={
+    options:{
+      chart: {
+        renderTo: 'container',
+        type: 'spline',
+        
+      },
+      legend: {
+        itemStyle:{
+          fontWeight:'normal'
+        }
+      }
+    },
+    title: {
+        text: '未来七天最高最低气温',
+        style: {
+          fontWeight:'bold',
+        },
+        x:20
+    },
+    xAxis: {
+        categories: ['4月1日', '4月2日', '4月3日', '4月4日', '4月5日', '4月6日','4月7日']
+    },
+    yAxis: {
+        title: {
+            text: '温度 (°C)'
+        },
+        plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+        }]
+    },
+    tooltip: {
+        valueSuffix: '°C'
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle',
+        borderWidth: 0,
+    },
+    series: [{
+      name: "最高气温",
+        data: [24, 22, 14, 17, 19, 19, 15]
+    },  {
+        name: '最低气温',
+        data: [14, 9, 1, 9, 12, 12, 5]
+    }]
+  };
+
+  //盒子1中展开表格的数据
+  $scope.totaldata = {
+    tabledata:
+    [
+      {yearvalue:'日期',weather:'天气状况' ,Htemperature:'最高气温(°C)',Ltemperature:'最低气温(°C)',wind:'风向风级'},
+      {yearvalue:'4月1日',weather:'多云转阴',Htemperature:'24',Ltemperature:'14',wind:'东南风2~3级'},
+      {yearvalue:'4月2日',weather:'大雨转中雨', Htemperature:'20',Ltemperature:'9',wind:'南风3~4级'},
+      {yearvalue:'4月3日', weather:'阴转多云',Htemperature:'16',Ltemperature:'7',wind:'北风4~5级'},
+      {yearvalue:'4月4日', weather:'多云转阴',Htemperature:'14',Ltemperature:'8',wind:'南风3~4级'},
+      {yearvalue:'4月5日', weather:'雨转阴',Htemperature:'19',Ltemperature:'11',wind:'东北风3~4级'},
+      {yearvalue:'4月6日', weather:'雨转阴',Htemperature:'17',Ltemperature:'11',wind:'东风3~4级'},
+      {yearvalue:'4月7日', weather:'阴',Htemperature:'17',Ltemperature:'6',wind:'东北风3~4级'}
+    ]
+  };
+
+
+  //盒子2中的过去七天AQI的Highcharts图, 与盒子3左边的空气质量地图
   var promise = qService.tokenHttpGet(rawFactory.query,{tableName:'airQualityData'});
   promise.then(function(rc) {
     $scope.aqi=rc.data[0];
@@ -633,7 +711,50 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
     $scope.healthEffect=rc.data[12];
     $scope.proposedMeasure=rc.data[13];   
 
-    //盒子3中的空气质量部分地图
+
+    //盒子2中的过去七天AQI的Highcharts图
+    $scope.aqilinechart={
+        options:{
+          title: {
+                text: '过去七天空气质量AQI',
+                style: {
+                  fontWeight:'bold',
+                },
+                x:20
+            },
+            credits: {
+                enabled:false
+            },
+            xAxis: {
+                // categories: $scope.date
+                categories: ['3月24日', '3月25日', '3月26日', '3月27日', '3月28日','3月29日','3月30日']
+            },
+            yAxis: {
+                title: {
+                    text: '空气质量指数(AQI)值'
+                }
+            },
+            legend: {
+            itemStyle:{
+              fontWeight:'normal'
+                }
+            }
+          },
+          series: [{
+              type: 'column',
+              name: '实际AQI',
+              color:"#95ceff",
+              data: $scope.aqi
+          },  {
+              type: 'spline',
+              name: '预测AQI',
+              color:"#1F1F1F",
+              data: $scope.predictaqi
+          }]
+    };
+
+
+    //盒子3左边的空气质量地图
     $timeout(function(){
       var marker1 = new AMap.Marker({
         position: [121.11414, 31.45605],//太仓监测站
@@ -716,117 +837,10 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
         map.addControl(scale);
       })
     }, 0);
-    
-    //盒子2中的过去七天AQI的Highcharts图
-    $scope.aqilinechart={
-        options:{
-          title: {
-                text: '过去七天空气质量AQI',
-                style: {
-                	fontWeight:'bold',
-                },
-                x:20
-            },
-            credits: {
-                enabled:false
-            },
-            xAxis: {
-                // categories: $scope.date
-                categories: ['3月24日', '3月25日', '3月26日', '3月27日', '3月28日','3月29日','3月30日']
-            },
-            yAxis: {
-                title: {
-                    text: '空气质量指数(AQI)值'
-                }
-            },
-            legend: {
-            itemStyle:{
-              fontWeight:'normal'
-                }
-            }
-          },
-            series: [{
-                type: 'column',
-                name: '实际AQI',
-                color:"#95ceff",
-                data: $scope.aqi
-            },  {
-                type: 'spline',
-                name: '预测AQI',
-                color:"#1F1F1F",
-                data: $scope.predictaqi
-            }]
 
-      };
 
   });
 
-  //盒子1
-  $scope.temperature={
-    options:{
-      chart: {
-        renderTo: 'container',
-        type: 'spline',
-        
-      },
-      legend: {
-        itemStyle:{
-          fontWeight:'normal'
-        }
-      }
-    },
-    title: {
-        text: '未来七天最高最低气温',
-        style: {
-          fontWeight:'bold',
-        },
-        x:20
-    },
-    xAxis: {
-        categories: ['4月1日', '4月2日', '4月3日', '4月4日', '4月5日', '4月6日','4月7日']
-    },
-    yAxis: {
-        title: {
-            text: '温度 (°C)'
-        },
-        plotLines: [{
-            value: 0,
-            width: 1,
-            color: '#808080'
-        }]
-    },
-    tooltip: {
-        valueSuffix: '°C'
-    },
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle',
-        borderWidth: 0,
-    },
-    series: [{
-      name: "最高气温",
-        data: [24, 22, 14, 17, 19, 19, 15]
-    },  {
-        name: '最低气温',
-        data: [14, 9, 1, 9, 12, 12, 5]
-    }]
-  };
-
-  //盒子1中展开表格的数据
-  $scope.totaldata = {
-    tabledata:
-    [
-      {yearvalue:'日期',weather:'天气状况' ,Htemperature:'最高气温(°C)',Ltemperature:'最低气温(°C)',wind:'风向风级'},
-      {yearvalue:'4月1日',weather:'多云转阴',Htemperature:'24',Ltemperature:'14',wind:'东南风2~3级'},
-      {yearvalue:'4月2日',weather:'大雨转中雨', Htemperature:'20',Ltemperature:'9',wind:'南风3~4级'},
-      {yearvalue:'4月3日', weather:'阴转多云',Htemperature:'16',Ltemperature:'7',wind:'北风4~5级'},
-      {yearvalue:'4月4日', weather:'多云转阴',Htemperature:'14',Ltemperature:'8',wind:'南风3~4级'},
-      {yearvalue:'4月5日', weather:'雨转阴',Htemperature:'19',Ltemperature:'11',wind:'东北风3~4级'},
-      {yearvalue:'4月6日', weather:'雨转阴',Htemperature:'17',Ltemperature:'11',wind:'东风3~4级'},
-      {yearvalue:'4月7日', weather:'阴',Htemperature:'17',Ltemperature:'6',wind:'东北风3~4级'}
-    ]
-  };
 
   //盒子3右边工业废气排放
   var promise1 = qService.tokenHttpGet(rawFactory.query,{tableName:'airPollutionData'});
@@ -841,6 +855,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
     $scope.discharge=rc1.data[3];
 
   });
+
 
   //盒子4
   var promise2 = qService.tokenHttpGet(rawFactory.query,{tableName:'airQualityDetailData'});
