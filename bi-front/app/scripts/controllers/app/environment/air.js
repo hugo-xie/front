@@ -8,7 +8,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
 
     // $scope.data = null;
     // console.log(rc3.data);
-    alert(rc3.data);
+    // alert(rc3.data);
 
   });
 
