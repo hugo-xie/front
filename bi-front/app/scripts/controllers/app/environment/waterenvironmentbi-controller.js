@@ -49,13 +49,13 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
             },
             xAxis: {
                 categories: [
-                    '3月24日',
-                    '3月25日',
-                    '3月26日',
-                    '3月27日',
-                    '3月28日',
-                    '3月29日',
-                    '3与30日',
+                    '4月12日',
+                    '4月13日',
+                    '4月14日',
+                    '4月15日',
+                    '4月16日',
+                    '4月17日',
+                    '4月18日',
                 ]
                 // categories: $scope.date_industry
             },
@@ -111,13 +111,13 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
         [
           {yearvalue:'日期',JLfactory:'太仓市佳煌针织印染有限公司（吨）' ,Afactory:'洛克伍德燃料有限公司（吨）',Bfactory:'太仓虹盛印染厂（吨）',Cfactory:'太仓市金佳漂染厂（吨）',Dfactory:'江苏长乐纤维科技有限公司（吨）'},
           
-          {yearvalue:'3月24日',JLfactory:$scope.list11[0],Afactory:$scope.list12[0],Bfactory:$scope.list13[0],Cfactory:$scope.list14[0],Dfactory:$scope.list15[0]},
-          {yearvalue:'3月25日',JLfactory:$scope.list11[1], Afactory:$scope.list12[1],Bfactory:$scope.list13[1],Cfactory:$scope.list14[1],Dfactory:$scope.list15[1]},
-          {yearvalue:'3月26日', JLfactory:$scope.list11[2],Afactory:$scope.list12[2],Bfactory:$scope.list13[2],Cfactory:$scope.list14[2],Dfactory:$scope.list15[2]},
-          {yearvalue:'3月27日', JLfactory:$scope.list11[3],Afactory:$scope.list12[3],Bfactory:$scope.list13[3],Cfactory:$scope.list14[3],Dfactory:$scope.list15[3]},
-          {yearvalue:'3月28日', JLfactory:$scope.list11[4],Afactory:$scope.list12[4],Bfactory:$scope.list13[4],Cfactory:$scope.list14[4],Dfactory:$scope.list15[4]},
-          {yearvalue:'3月29日', JLfactory:$scope.list11[5],Afactory:$scope.list12[5],Bfactory:$scope.list13[5],Cfactory:$scope.list14[5],Dfactory:$scope.list15[5]},
-          {yearvalue:'3月30日', JLfactory:$scope.list11[6],Afactory:$scope.list12[6],Bfactory:$scope.list13[6],Cfactory:$scope.list14[6],Dfactory:$scope.list15[6]}
+          {yearvalue:'4月12日',JLfactory:$scope.list11[0],Afactory:$scope.list12[0],Bfactory:$scope.list13[0],Cfactory:$scope.list14[0],Dfactory:$scope.list15[0]},
+          {yearvalue:'4月13日',JLfactory:$scope.list11[1], Afactory:$scope.list12[1],Bfactory:$scope.list13[1],Cfactory:$scope.list14[1],Dfactory:$scope.list15[1]},
+          {yearvalue:'4月14日', JLfactory:$scope.list11[2],Afactory:$scope.list12[2],Bfactory:$scope.list13[2],Cfactory:$scope.list14[2],Dfactory:$scope.list15[2]},
+          {yearvalue:'4月15日', JLfactory:$scope.list11[3],Afactory:$scope.list12[3],Bfactory:$scope.list13[3],Cfactory:$scope.list14[3],Dfactory:$scope.list15[3]},
+          {yearvalue:'4月16日', JLfactory:$scope.list11[4],Afactory:$scope.list12[4],Bfactory:$scope.list13[4],Cfactory:$scope.list14[4],Dfactory:$scope.list15[4]},
+          {yearvalue:'4月17日', JLfactory:$scope.list11[5],Afactory:$scope.list12[5],Bfactory:$scope.list13[5],Cfactory:$scope.list14[5],Dfactory:$scope.list15[5]},
+          {yearvalue:'4月18日', JLfactory:$scope.list11[6],Afactory:$scope.list12[6],Bfactory:$scope.list13[6],Cfactory:$scope.list14[6],Dfactory:$scope.list15[6]}
         ]
       };
     });
@@ -166,7 +166,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
             },
             xAxis: {
                 // categories: $scope.date1
-                categories: ['3月25日','3月26日','3月27日','3月28日','3月29日','3月30日']
+                categories: ['4月13日','4月14日','4月15日','4月16日','4月17日','4月18日']
             },
             yAxis: {
                 min: 0,
@@ -248,7 +248,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
             },
             xAxis: {
                 // categories: $scope.date1
-                categories: ['3月25日','3月26日','3月27日','3月28日','3月29日','3月30日']
+                categories: ['4月13日','4月14日','4月15日','4月16日','4月17日','4月18日']
             },
             yAxis: {
                 min: 0,
@@ -338,7 +338,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                 },
                 subtitle: {
                     // text: $scope.date[0],
-                    text: '2016年3月30日9时',
+                    text: '2016年4月19日9时',
                     style: {
                         fontWeight: 'normal',
                         fontSize: 'larger',
@@ -408,7 +408,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                 },
                 subtitle: {
                     // text: $scope.date[0],
-                    text: '2016年3月30日9时',
+                    text: '2016年4月19日9时',
                     style: {
                         fontWeight: 'normal',
                         fontSize: 'larger',
@@ -476,7 +476,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                 },
                 subtitle: {
                     // text: $scope.date[0],
-                    text: '2016年3月30日9时',
+                    text: '2016年4月19日9时',
                     style: {
                         fontWeight: 'normal',
                         fontSize: 'larger',
@@ -546,7 +546,7 @@ app.controller('WaterEnvironmentBICtrl', ['$scope', '$timeout','$http', 'qServic
                 },
                 subtitle: {
                     // text: $scope.date[0],
-                    text: '2016年3月30日9时',
+                    text: '2016年4月19日9时',
                     style: {
                         fontWeight: 'normal',
                         fontSize: 'larger',

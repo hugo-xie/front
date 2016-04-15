@@ -647,7 +647,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
         x:20
     },
     xAxis: {
-        categories: ['4月1日', '4月2日', '4月3日', '4月4日', '4月5日', '4月6日','4月7日']
+        categories: ['4月20日', '4月21日', '4月22日', '4月23日', '4月24日', '4月25日','4月26日']
     },
     yAxis: {
         title: {
@@ -682,13 +682,13 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
     tabledata:
     [
       {yearvalue:'日期',weather:'天气状况' ,Htemperature:'最高气温(°C)',Ltemperature:'最低气温(°C)',wind:'风向风级'},
-      {yearvalue:'4月1日',weather:'多云转阴',Htemperature:'24',Ltemperature:'14',wind:'东南风2~3级'},
-      {yearvalue:'4月2日',weather:'大雨转中雨', Htemperature:'20',Ltemperature:'9',wind:'南风3~4级'},
-      {yearvalue:'4月3日', weather:'阴转多云',Htemperature:'16',Ltemperature:'7',wind:'北风4~5级'},
-      {yearvalue:'4月4日', weather:'多云转阴',Htemperature:'14',Ltemperature:'8',wind:'南风3~4级'},
-      {yearvalue:'4月5日', weather:'雨转阴',Htemperature:'19',Ltemperature:'11',wind:'东北风3~4级'},
-      {yearvalue:'4月6日', weather:'雨转阴',Htemperature:'17',Ltemperature:'11',wind:'东风3~4级'},
-      {yearvalue:'4月7日', weather:'阴',Htemperature:'17',Ltemperature:'6',wind:'东北风3~4级'}
+      {yearvalue:'4月20日',weather:'多云转阴',Htemperature:'24',Ltemperature:'14',wind:'东南风2~3级'},
+      {yearvalue:'4月21日',weather:'大雨转中雨', Htemperature:'20',Ltemperature:'9',wind:'南风3~4级'},
+      {yearvalue:'4月22日', weather:'阴转多云',Htemperature:'16',Ltemperature:'7',wind:'北风4~5级'},
+      {yearvalue:'4月23日', weather:'多云转阴',Htemperature:'14',Ltemperature:'8',wind:'南风3~4级'},
+      {yearvalue:'4月24日', weather:'雨转阴',Htemperature:'19',Ltemperature:'11',wind:'东北风3~4级'},
+      {yearvalue:'4月25日', weather:'雨转阴',Htemperature:'17',Ltemperature:'11',wind:'东风3~4级'},
+      {yearvalue:'4月26日', weather:'阴',Htemperature:'17',Ltemperature:'6',wind:'东北风3~4级'}
     ]
   };
 
@@ -727,7 +727,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
             },
             xAxis: {
                 // categories: $scope.date
-                categories: ['3月24日', '3月25日', '3月26日', '3月27日', '3月28日','3月29日','3月30日']
+                categories: ['4月12日', '4月13日', '4月14日', '4月15日', '4月16日','4月17日','4月18日']
             },
             yAxis: {
                 title: {
