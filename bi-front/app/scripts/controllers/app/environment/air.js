@@ -625,72 +625,7 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
   });
 
 
-  //盒子1
-  $scope.temperature={
-    options:{
-      chart: {
-        renderTo: 'container',
-        type: 'spline',
-        
-      },
-      legend: {
-        itemStyle:{
-          fontWeight:'normal'
-        }
-      }
-    },
-    title: {
-        text: '未来七天最高最低气温',
-        style: {
-          fontWeight:'bold',
-        },
-        x:20
-    },
-    xAxis: {
-        categories: ['4月20日', '4月21日', '4月22日', '4月23日', '4月24日', '4月25日','4月26日']
-    },
-    yAxis: {
-        title: {
-            text: '温度 (°C)'
-        },
-        plotLines: [{
-            value: 0,
-            width: 1,
-            color: '#808080'
-        }]
-    },
-    tooltip: {
-        valueSuffix: '°C'
-    },
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle',
-        borderWidth: 0,
-    },
-    series: [{
-      name: "最高气温",
-        data: [24, 22, 14, 17, 19, 19, 15]
-    },  {
-        name: '最低气温',
-        data: [14, 9, 1, 9, 12, 12, 5]
-    }]
-  };
-
-  //盒子1中展开表格的数据
-  $scope.totaldata = {
-    tabledata:
-    [
-      {yearvalue:'日期',weather:'天气状况' ,Htemperature:'最高气温(°C)',Ltemperature:'最低气温(°C)',wind:'风向风级'},
-      {yearvalue:'4月20日',weather:'多云转阴',Htemperature:'24',Ltemperature:'14',wind:'东南风2~3级'},
-      {yearvalue:'4月21日',weather:'大雨转中雨', Htemperature:'20',Ltemperature:'9',wind:'南风3~4级'},
-      {yearvalue:'4月22日', weather:'阴转多云',Htemperature:'16',Ltemperature:'7',wind:'北风4~5级'},
-      {yearvalue:'4月23日', weather:'多云转阴',Htemperature:'14',Ltemperature:'8',wind:'南风3~4级'},
-      {yearvalue:'4月24日', weather:'雨转阴',Htemperature:'19',Ltemperature:'11',wind:'东北风3~4级'},
-      {yearvalue:'4月25日', weather:'雨转阴',Htemperature:'17',Ltemperature:'11',wind:'东风3~4级'},
-      {yearvalue:'4月26日', weather:'阴',Htemperature:'17',Ltemperature:'6',wind:'东北风3~4级'}
-    ]
-  };
+  
 
 
   //盒子2中的过去七天AQI的Highcharts图, 与盒子3左边的空气质量地图
@@ -706,11 +641,82 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
     $scope.no2=rc.data[7];
     $scope.co=rc.data[8];
     $scope.o3=rc.data[9];
-    $scope.datetime=rc.data[10];
+    $scope.date2=rc.data[10];
     $scope.airQualityLevel=rc.data[11];
     $scope.healthEffect=rc.data[12];
     $scope.proposedMeasure=rc.data[13];   
 
+
+    //盒子1
+    $scope.temperature={
+      options:{
+        chart: {
+          renderTo: 'container',
+          type: 'spline',
+          
+        },
+        legend: {
+          itemStyle:{
+            fontWeight:'normal'
+          }
+        }
+      },
+      title: {
+          text: '未来七天最高最低气温',
+          style: {
+            fontWeight:'bold',
+          },
+          x:20
+      },
+      credits: {
+          enabled:false
+      },
+      xAxis: {
+          categories: $scope.date2
+          // categories: ['4月20日', '4月21日', '4月22日', '4月23日', '4月24日', '4月25日','4月26日']
+      },
+      yAxis: {
+          title: {
+              text: '温度 (°C)'
+          },
+          plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+          }]
+      },
+      tooltip: {
+          valueSuffix: '°C'
+      },
+      legend: {
+          layout: 'vertical',
+          align: 'right',
+          verticalAlign: 'middle',
+          borderWidth: 0,
+      },
+      series: [{
+        name: "最高气温",
+          data: [24, 22, 14, 17, 19, 19, 15]
+      },  {
+          name: '最低气温',
+          data: [14, 9, 1, 9, 12, 12, 5]
+      }]
+    };
+
+    //盒子1中展开表格的数据
+    $scope.totaldata = {
+      tabledata:
+      [
+        {yearvalue:'日期',weather:'天气状况' ,Htemperature:'最高气温(°C)',Ltemperature:'最低气温(°C)',wind:'风向风级'},
+        {yearvalue:$scope.date2[0],weather:'多云转阴',Htemperature:'24',Ltemperature:'14',wind:'东南风2~3级'},
+        {yearvalue:$scope.date2[1],weather:'大雨转中雨', Htemperature:'20',Ltemperature:'9',wind:'南风3~4级'},
+        {yearvalue:$scope.date2[2], weather:'阴转多云',Htemperature:'16',Ltemperature:'7',wind:'北风4~5级'},
+        {yearvalue:$scope.date2[3], weather:'多云转阴',Htemperature:'14',Ltemperature:'8',wind:'南风3~4级'},
+        {yearvalue:$scope.date2[4], weather:'雨转阴',Htemperature:'19',Ltemperature:'11',wind:'东北风3~4级'},
+        {yearvalue:$scope.date2[5], weather:'雨转阴',Htemperature:'17',Ltemperature:'11',wind:'东风3~4级'},
+        {yearvalue:$scope.date2[6], weather:'阴',Htemperature:'17',Ltemperature:'6',wind:'东北风3~4级'}
+      ]
+    };
 
     //盒子2中的过去七天AQI的Highcharts图
     $scope.aqilinechart={
@@ -726,8 +732,8 @@ app.controller('AirCtrl', ['$scope','$stateParams','$timeout','qService','rawFac
                 enabled:false
             },
             xAxis: {
-                // categories: $scope.date
-                categories: ['4月12日', '4月13日', '4月14日', '4月15日', '4月16日','4月17日','4月18日']
+                categories: $scope.date
+                // categories: ['4月12日', '4月13日', '4月14日', '4月15日', '4月16日','4月17日','4月18日']
             },
             yAxis: {
                 title: {
